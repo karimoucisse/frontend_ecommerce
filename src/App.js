@@ -2,8 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import GlobalStyle from './styles/globalStyles';
 import { UserContextProvider } from './context/User';
 import Home from "./pages/Home";
-import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import header from "./component/header";
 
 const App = () => {
   return (

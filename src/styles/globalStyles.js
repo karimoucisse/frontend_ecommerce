@@ -12,6 +12,8 @@ const GlobalStyle = createGlobalStyle`
     }
     a {
         text-decoration: none;
+        color: #ffff;
+        font-size: 20px;
     }
     li {
         list-style-type: none;
