@@ -1,17 +1,21 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import GlobalStyle from './styles/globalStyles';
+import { UserContextProvider } from './context/User';
 import Home from "./pages/Home";
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import header from "./component/header";
 
 const App = () => {
-  return <div>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<home/>}/>
-            <Route path="/header" element={<header/>}/>
-        
-          </Routes>
+  return (
+    <UserContextProvider>
+      <BrowserRouter>
+        <GlobalStyle/>
+        <Routes>
+          <Route exact path="/" element={<Home/>}/>
+        </Routes>
       </BrowserRouter>
-      </div>;
+    </UserContextProvider>
+  )
 };
 
 export default App;
