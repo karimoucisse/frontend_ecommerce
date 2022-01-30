@@ -12,15 +12,15 @@ const Shadow = styled.div`
 `
 const BackgroundImage = styled.img`
     width: 100%;
-    height: 100%;
+    height: ${(props) => props.height ? props.height : "100%"};
     /* height: calc(100vh - 100px); */
     object-fit: cover ;
 `
-const BackGroundImage = ({src, alt}) => {
+const BackGroundImage = ({src, alt, height}) => {
     return (
         <Container>
             <Shadow></Shadow>
-            <BackgroundImage src={src} alt={alt} />
+            <BackgroundImage src={src} alt={alt} height= {height}/>
         </Container>
     )
 };
