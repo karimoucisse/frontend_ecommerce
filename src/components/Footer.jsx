@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 
 
+
 const MaxiContainer = styled.div`
 background-color: blue;
 `   
@@ -22,6 +23,12 @@ font-size : 18px;
 margin-bottom: 5px;
 
 `
+const Icones = styled.i`
+color : white ;
+font-size : 25px; 
+margin-bottom: 5px;
+;
+`
 const Footer = () => {
     return (
         <div>
@@ -40,6 +47,7 @@ const Footer = () => {
                         <Text> Qui sommes-nous</Text>
                         <Text> Livraison by Express Chronofresh</Text>
                         <Text> Politique de confidentalité</Text>
+                      <Icones><i class="fab fa-twitter"></i></Icones>  
                     </div>
                     <div>
                         <Title> MON COMPTE</Title>
@@ -47,7 +55,7 @@ const Footer = () => {
                         <Text>Mes avoirs</Text>
                         <Text>Mes adresses</Text>
                         <Text>Mes informations personnelle</Text>
-                        <i class="fab fa-facebook"></i>
+                       <Icones><i class="fab fa-facebook"></i></Icones> 
                         
                    </div>
                    <div>
@@ -62,6 +70,7 @@ const Footer = () => {
                    </div>
                 </Container>
              </MaxiContainer>
+            
         </div>
     );
 };

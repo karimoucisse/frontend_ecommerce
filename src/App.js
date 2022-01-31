@@ -3,8 +3,6 @@ import GlobalStyle from './styles/globalStyles';
 import { UserContextProvider } from './context/User';
 import Home from "./pages/Home";
 
-
-
 const App = () => {
   return (
     <UserContextProvider>
