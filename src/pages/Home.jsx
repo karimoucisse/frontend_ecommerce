@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import BackGroundImage from "../components/BackGroundImage";
 import styled from "styled-components";
-import Card from "../components/Card";
+import Image from "../components/Image";
 
 const BackgroundTitle = styled.h2`
     position: absolute;
@@ -39,7 +39,7 @@ const DescriptionRow = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-around;
-    padding: 20px 0;
+    padding: 40px 0;
     background-color: #ffff;
 `
 const LogoContainer = styled.div`
@@ -53,7 +53,8 @@ const Logo = styled.i`
     color: rgb(149,165,166);
 `
 const Paragraph = styled.p`
-    font-weight: 545;
+    font-size: 17px;
+    font-weight: 500;
 `
 const Home = () => {
   return <div>
@@ -68,24 +69,24 @@ const Home = () => {
                 <ImageContainer>
                     <Row>
                         
-                        <Card 
+                        <Image 
                             source="https://www.lecomptoirdanais.com/89-home_default/bar-entier-elevage-2-pieces.jpg"
                             borderRadius= "20px 0 0 0"
                         />
-                        <Card 
+                        <Image 
                             source="https://res.cloudinary.com/hv9ssmzrz/image/fetch/c_fill,f_auto,h_600,q_auto,w_800/https://s3-eu-west-1.amazonaws.com/images-ca-1-0-1-eu/tag_photos/original/2692/coquillages_flickr_11444005806_b82506677e_b.jpg" 
                         />
-                        <Card 
+                        <Image 
                             source="https://www.boutique-paon.fr/4479-large_default/crevette-elevage-cuit-80-100-equateur-ou-autre-pays.jpg" 
                             borderRadius= "0 20px 0 0"
                         />
                     </Row>
                     <Row>
-                        <Card 
+                        <Image 
                             source="https://res.cloudinary.com/hv9ssmzrz/image/fetch/c_fill,f_auto,h_488,q_auto,w_650/https://images-ca-1-0-1-eu.s3-eu-west-1.amazonaws.com/photos/original/1196/homard-pixabay-lobster-4952603_1280.jpg" 
                             borderRadius= "0 0 0 20px"
                         />
-                        <Card 
+                        <Image 
                             source="https://larecette.net/wp-content/uploads/2019/11/iStock-469781786-1152x768.jpg" 
                             borderRadius= "0 0 20px 0"
                             width= "800px"
@@ -97,7 +98,7 @@ const Home = () => {
                 <h1>La pêche du jour </h1>
                 <Row gap= "30px">
                     <CardContainer>
-                        <Card
+                        <Image
                             source={"https://poisson-a-domicile.com/18-large_default/sole-portion.jpg"}
                             width= "100%"
                             height= "300px"
@@ -105,7 +106,7 @@ const Home = () => {
                         />
                     </CardContainer>
                     <CardContainer>
-                        <Card
+                        <Image
                             source={"https://img.cuisineaz.com/680x357/2021/07/20/i179745-shutterstock-1159135621.jpeg"}
                             width= "100%"
                             height= "300px"
@@ -113,7 +114,7 @@ const Home = () => {
                         />
                     </CardContainer>
                     <CardContainer>
-                        <Card
+                        <Image
                             source={"https://www.terreazur.fr/sites/terreazur/files/2018-07/img_saint-pierre_poisson_frais_0.jpg"}
                             width= "100%"
                             height= "300px"
@@ -123,7 +124,7 @@ const Home = () => {
                 </Row>
                 <Row gap= "30px">
                     <CardContainer>
-                        <Card
+                        <Image
                             source={"https://www.lelobster.com/wp-content/uploads/2018/11/homard-breton.jpg"}
                             width= "100%"
                             height= "300px"
@@ -131,7 +132,7 @@ const Home = () => {
                         />
                     </CardContainer>
                     <CardContainer>
-                        <Card
+                        <Image
                             source={"https://www.luximer.com/img/cms/Rouget%20barbet%202.png"}
                             width= "100%"
                             height= "300px"
@@ -139,7 +140,7 @@ const Home = () => {
                         />
                     </CardContainer>
                     <CardContainer>
-                        <Card
+                        <Image
                             source={"https://www.luximer.com/1216-thickbox_default/pave-de-saumon-ecossais-piece-de-200g.jpg"}
                             width= "100%"
                             height= "300px"

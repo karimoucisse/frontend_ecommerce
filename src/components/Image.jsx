@@ -7,11 +7,8 @@ const Container = styled.img`
     object-fit: ${(props) => props.objectFit ? props.objectFit : "cover"};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : "0px"} ;
     cursor: pointer;
-    &:hover {
-        transform: scale(1.004);
-    } 
 `
-const Card = ({
+const Image = ({
     width, 
     height,
     shadow,
@@ -33,4 +30,4 @@ const Card = ({
     )
 };
 
-export default Card;
+export default Image;
