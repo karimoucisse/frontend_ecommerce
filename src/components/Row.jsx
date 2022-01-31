@@ -7,6 +7,7 @@ const Container = styled.div`
     gap: ${(props) => props.gap ? props.gap : "0"};
     margin: ${(props) => props.margin ? props.margin : "0" };
     position: ${(props) => props.position ? props.position: "none"};
+    width: ${(props) => props.width ? props.width : "none"}
 `
 const Row = ({children, justifyContent, alignItems, gap, margin, position}) => {
     return (

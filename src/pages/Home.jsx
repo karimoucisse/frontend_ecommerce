@@ -1,4 +1,5 @@
 import Footer from "../components/Footer";
+import Header from "../components/Header"
 import BackGroundImage from "../components/BackGroundImage";
 import styled from "styled-components";
 import Row from "../components/Row";
@@ -81,7 +82,9 @@ const Home = () => {
             }
         ]
     ]
-  return <div>
+    
+    return ( 
+        <div>
             <Header/>
             <BackGroundImage 
                 src= " https://www.mashed.com/img/gallery/11-mistakes-everyone-makes-when-cooking-fish/intro.jpg" 
@@ -148,7 +151,8 @@ const Home = () => {
                 </DescriptionRow>
             </Section>
             <Footer/>
-        </div>;
+        </div>
+    )
 };
 
 export default Home;

@@ -1,15 +1,16 @@
 import styled from "styled-components";
-import Form from "../components/Form";
+import FormLogin from "../components/forms/FormLogin";
 
 const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 `
 const Login = () => {
     return (
         <Container>
-            <Form/>
+            <FormLogin/>
         </Container>
     )
 };
