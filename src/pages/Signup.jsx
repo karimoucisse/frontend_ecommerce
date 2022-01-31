@@ -6,6 +6,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #023047;
 `
 const Video = styled.video`
     position: absolute;
@@ -13,16 +14,16 @@ const Video = styled.video`
     bottom: 0;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
+    min-height: 100vh;
+    min-width: 100vw;
 `
-const Signup = () => {
+const Signup = () => {  
     return (
         <Container>
-            <Video autoPlay muted loop >
-                <source src="/assets/videoBackground.mp4" type="video/mp4"/>
-            </Video>
             <FormSignup/>
+            {/* <Video autoPlay muted loop >
+                <source src="/assets/videoBackground.mp4" type="video/mp4"/>
+            </Video> */}
         </Container>
     )
 };

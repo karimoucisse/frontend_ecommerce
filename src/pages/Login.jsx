@@ -6,6 +6,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #023047;
 `
 const Login = () => {
     return (

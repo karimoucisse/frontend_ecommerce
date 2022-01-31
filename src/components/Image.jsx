@@ -7,6 +7,17 @@ const Container = styled.img`
     object-fit: ${(props) => props.objectFit ? props.objectFit : "cover"};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : "0px"} ;
 `
+const ShadowContainer = styled.div`
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all ease-in-out 0.2s;
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+`
 const Image = ({
     width, 
     height,
@@ -14,18 +25,23 @@ const Image = ({
     objectFit,
     borderRadius, 
     source, 
-    alt
+    alt,
+    isShadow
 }) => {
   return (
-        <Container
-            width= {width}
-            height= {height}
-            shadow= {shadow}
-            objectFit= {objectFit}
-            borderRadius= {borderRadius}
-            src= {source}
-            alt= {alt}
-        />
+        <>
+        {isShadow && <ShadowContainer></ShadowContainer>}
+            
+            <Container
+                width= {width}
+                height= {height}
+                shadow= {shadow}
+                objectFit= {objectFit}
+                borderRadius= {borderRadius}
+                src= {source}
+                alt= {alt}
+            />
+        </>
     )
 };
 

@@ -12,32 +12,38 @@ const FormContainer = styled.form`
     width: 40%;
     gap: 20px;
     border-radius: 20px;
+    position: absolute;
+    z-index: 3;
 `
 const FormSignup = () => {
     return (
         <FormContainer>
             <Input
                 placeholder="prénom"
+                type= "text"
             />
             <Input
                 placeholder= "nom"
+                type= "text"
             />
             <Input
                 placeholder= "date de naissance"
             />
             <Input
-                placeholder= "mail"
+                placeholder= "Email"
             />
             <Input
                 placeholder= "Password"
+                type= "password"
             />
             <Input
                 placeholder= "telephone"
             />
             <Input
                 placeholder= "address"
+                type= "text"
             />
-            <Button>Login</Button>
+            <Button>Signup</Button>
         </FormContainer>
     )
 };

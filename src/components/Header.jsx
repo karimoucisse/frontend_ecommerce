@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Search from './Search';
 
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import ProduitDropDown from './ProduitDropDown';
 
 const Container = styled.div`
     background-color: #023047;
@@ -69,24 +71,34 @@ const CartIcon = styled(ShoppingCartIcon)`
     }
 `
 const Header = () => {
+    const [isVisible, setIsVisible] = useState(false)
+    const [isSearchVisible, setIsSearchVisible] = useState(false)
+    const onProduitClick = () => {
+        setIsVisible(!isVisible)
+    }
+    const onSearchClick = () => {
+        setIsSearchVisible(!isSearchVisible)
+    }
     return (
         <Container>
             <Logo>Logo</Logo>
             <Nav>
-                <ProduitContainer>
+                <ProduitContainer onClick={onProduitClick}>
                     <h3>Nos Produits</h3>
                     <ArrowIcon/>
+                    <ProduitDropDown setIsVisible= {setIsVisible} isVisible= {isVisible} />
                 </ProduitContainer>
                 <ListContainer className="nav justify-content-end">
                     <ListItems className="nav-item">
-                        <Link className="nav-link active" aria-current="page" to="/">Se connecter</Link>
+                        <Link className="nav-link active" aria-current="page" to="/login">Se connecter</Link>
                     </ListItems>
                     <ListItems className="nav-item">
                         <Link className="nav-link" to="/signup">S'inscrire</Link>
                     </ListItems>
                 </ListContainer>
                 <LogoContainer>
-                    <ZoomIcon/>
+                    <ZoomIcon onClick= {onSearchClick}/>
+                    <Search isVisible={isSearchVisible}/>                        
                     <Badge badgeContent={4} color="primary">
                         <CartIcon color="action"  style={{ color: "#ffff"}}/>
                     </Badge>

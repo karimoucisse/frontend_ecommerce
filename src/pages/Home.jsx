@@ -7,7 +7,6 @@ import Image from "../components/Image";
 import Card from "../components/Card";
 import Section from "../components/Section";
 import CardHomepage from "../components/CardHomepage";
-import Header from "../components/Header"
 
 const ImageContainer = styled.div`
     height: 600px;
@@ -21,7 +20,7 @@ const ProductTitle = styled.h2`
     margin: auto !important;
     color: #ffff;
     text-shadow: 4px 4px 4px black;
-    font-weight: 900;
+    font-weight: 600;
     text-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 `
 const DescriptionRow = styled.div`
@@ -104,6 +103,7 @@ const Home = () => {
                                                 source= {element.source}
                                                 borderRadius={element.borderRadius}
                                                 width = {element.width ? element.width : "400px"}
+                                                isShadow
                                             />
                                             <ProductTitle>{element.content}</ProductTitle>
                                         </Card>

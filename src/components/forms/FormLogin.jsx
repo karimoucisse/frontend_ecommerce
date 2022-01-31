@@ -17,7 +17,7 @@ const FormLogin = () => {
   return (
         <FormContainer>
             <Input
-                placeholder="@Mail"
+                placeholder="Email"
             />
             <Input
                 placeholder= "Password"
