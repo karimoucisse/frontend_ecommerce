@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Footer from "../components/Footer";
 import BackGroundImage from "../components/BackGroundImage";
 import styled from "styled-components";
 import Row from "../components/Row";
@@ -147,7 +147,7 @@ const Home = () => {
                     </LogoContainer>
                 </DescriptionRow>
             </Section>
-            
+            <Footer/>
         </div>;
 };
 
