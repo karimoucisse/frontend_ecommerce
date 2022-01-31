@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'
-import Section from '../components/Section'
 import Row from '../components/Row'
 
 
@@ -10,6 +9,12 @@ width: 100%;
 justify-content: space-around;
 padding: 40px 0;
 background-color:#023047;
+
+
+`
+const Paragraphe = styled.p`
+color: white ;
+
 
 `
 
@@ -61,35 +66,13 @@ const Footer = () => {
                 {Array.map(element =>{ 
                     return <div>
                         <h1>{element.title}</h1>, 
-                        <p>{element.paragraphe0}</p>
-                        <p>{element.paragraphe1}</p>
-                        <p>{element.paragraphe2}</p>
-                        <p>{element.paragraphe3}</p>
+                        <Paragraphe>{element.paragraphe0}</Paragraphe>
+                        <Paragraphe>{element.paragraphe1}</Paragraphe>
+                        <Paragraphe>{element.paragraphe2}</Paragraphe>
+                        <Paragraphe>{element.paragraphe3}</Paragraphe>
                     </div>
                 })}
-                
-            </Container>
-            <Row justifyContent= "center" gap="50px">
-                <Icones><i className="fab fa-twitter"></i></Icones>   
-                <Icones><i className="fab fa-facebook"></i></Icones> 
-          </Row>    
-       
-
-{/* {
-
-            <MaxiContainer>
-                <Container>
-                    
-                    <div>
-                    
-                      <Icones><i class="fab fa-twitter"></i></Icones>  
-                    </div>
-                    <div>
-                     
-                       <Icones><i class="fab fa-facebook"></i></Icones> 
-                        
-                   </div>
-                   <div>
+                 <div>
                    <form>
                     <label>
                         E-mail
@@ -99,8 +82,12 @@ const Footer = () => {
                     </form>
                     <Text> Recevez les produits et code promo ! </Text>
                    </div>
-                </Container>
-             </MaxiContainer> } */}
+            </Container>
+            <Row justifyContent= "center" gap="50px">
+                <Icones><i className="fab fa-twitter"></i></Icones>   
+                <Icones><i className="fab fa-facebook"></i></Icones> 
+          </Row>    
+       
             
         </div>
     );

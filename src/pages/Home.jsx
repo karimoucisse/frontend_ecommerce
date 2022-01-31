@@ -12,6 +12,17 @@ const ImageContainer = styled.div`
     height: 600px;
     border-radius: 20px;
 `
+const ProductTitle = styled.h2`
+    position: absolute;
+    bottom: 70px;
+    left: 20%;
+    right: 0;
+    margin: auto !important;
+    color: #ffff;
+    text-shadow: 4px 4px 4px black;
+    font-weight: 900;
+    text-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+`
 const DescriptionRow = styled.div`
     display: flex;
     width: 100%;
@@ -38,26 +49,36 @@ const Home = () => {
         [
             {
                 source : "https://www.lecomptoirdanais.com/89-home_default/bar-entier-elevage-2-pieces.jpg",
-                borderRadius: "20px 0 0 0"
+                borderRadius: "20px 0 0 0",
+                width: "400px",
+                content: "Nos  poissons entiers"
             },
             {
                 source:"https://res.cloudinary.com/hv9ssmzrz/image/fetch/c_fill,f_auto,h_600,q_auto,w_800/https://s3-eu-west-1.amazonaws.com/images-ca-1-0-1-eu/tag_photos/original/2692/coquillages_flickr_11444005806_b82506677e_b.jpg",
-                borderRadius: "0 0 0 0"
+                borderRadius: "0 0 0 0",
+                width: "400px",
+                content: "Nos coquillages"
             },
             {
                 source: "https://www.boutique-paon.fr/4479-large_default/crevette-elevage-cuit-80-100-equateur-ou-autre-pays.jpg",
-                borderRadius: "0 20px 0 0"
+                borderRadius: "0 20px 0 0",
+                width: "400px",
+                content: "Nos crustacés"
             }
         ],
         [
             {
                 source: "https://res.cloudinary.com/hv9ssmzrz/image/fetch/c_fill,f_auto,h_488,q_auto,w_650/https://images-ca-1-0-1-eu.s3-eu-west-1.amazonaws.com/photos/original/1196/homard-pixabay-lobster-4952603_1280.jpg", 
-                borderRadius: "0 0 0 20px"
+                borderRadius: "0 0 0 20px",
+                width: "400px",
+                content: "Nos produit festif"
+
             },
             {
                 source: "https://larecette.net/wp-content/uploads/2019/11/iStock-469781786-1152x768.jpg",
                 borderRadius: "0 0 20px 0",
-                width: "800px"
+                width: "800px",
+                content: "Nos fillet de poissons"
             }
         ]
     ]
@@ -72,13 +93,18 @@ const Home = () => {
                 <ImageContainer>
                     
                         {ProductListImages.map(listImage => {
-                            return <Row> 
+                            return <Row position = "relative"> 
                                 {listImage.map(element => {
-                                return <Image 
-                                        source= {element.source}
-                                        borderRadius={element.borderRadius}
-                                        width = {element.width ? element.width : "400px"}
-                                    />
+                                return (
+                                        <Card width= {element.width} height= "300px" position= "relative">
+                                            <Image 
+                                                source= {element.source}
+                                                borderRadius={element.borderRadius}
+                                                width = {element.width ? element.width : "400px"}
+                                            />
+                                            <ProductTitle>{element.content}</ProductTitle>
+                                        </Card>
+                                    )
                             })}
                             </Row>
                         })}
