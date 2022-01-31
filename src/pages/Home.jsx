@@ -7,6 +7,7 @@ import Image from "../components/Image";
 import Card from "../components/Card";
 import Section from "../components/Section";
 import CardHomepage from "../components/CardHomepage";
+import Header from "../components/Header"
 
 const ImageContainer = styled.div`
     height: 600px;
