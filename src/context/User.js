@@ -10,9 +10,9 @@ const UserContextProvider = props => {
         setUser: setUser
     }
     return (
-        <UsersConnectContext.Provider value = {value}>
+        <UserContext.Provider value = {value}>
             {props.children}
-        </UsersConnectContext.Provider>
+        </UserContext.Provider>
     )
 
 }
