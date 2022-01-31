@@ -6,7 +6,6 @@ const Container = styled.img`
     box-shadow: ${(props) => props.shadow ? props.shadow : "0 0 0 0"};
     object-fit: ${(props) => props.objectFit ? props.objectFit : "cover"};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : "0px"} ;
-    cursor: pointer;
 `
 const Image = ({
     width, 
