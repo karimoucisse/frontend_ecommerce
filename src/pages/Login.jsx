@@ -1,16 +1,9 @@
-import styled from "styled-components";
 import FormLogin from "../components/forms/FormLogin";
+import Container from "../components/Container";
 
-const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #023047;
-`
 const Login = () => {
     return (
-        <Container>
+        <Container display= "flex">
             <FormLogin/>
         </Container>
     )

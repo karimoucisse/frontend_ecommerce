@@ -1,13 +1,7 @@
 import styled from "styled-components";
 import FormSignup from "../components/forms/FormSignup";
+import Container from "../components/Container";
 
-const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #023047;
-`
 const Video = styled.video`
     position: absolute;
     right: 0;
@@ -19,7 +13,7 @@ const Video = styled.video`
 `
 const Signup = () => {  
     return (
-        <Container>
+        <Container display = "flex">
             <FormSignup/>
             {/* <Video autoPlay muted loop >
                 <source src="/assets/videoBackground.mp4" type="video/mp4"/>

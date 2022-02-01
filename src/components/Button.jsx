@@ -5,6 +5,7 @@ const ButtonContainer = styled.button`
     border: 2px solid #023047 ;
     background-color: #023047;
     color: #ffff;
+    font-size: ${(props) => props.fontSize ? props.fontSize : "18px"};
     border-radius: 10px;
     cursor: pointer;
     transform: all ease-in-out 0.2s;
@@ -13,9 +14,10 @@ const ButtonContainer = styled.button`
         color: #023047;
     }
 `
-const Button = ({children, padding}) => {
+const Button = ({children, padding, fontSize}) => {
   return <ButtonContainer
             padding = {padding}
+            fontSize = {fontSize}
         >
             {children}
         </ButtonContainer>;

@@ -5,7 +5,7 @@ import Input from './Input'
 const SearchContainer = styled.div`
     display: flex;
     align-items: center;
-    width: 250px;
+    width: 280px;
     position: absolute;
     top: 55px;
     right: 100px;

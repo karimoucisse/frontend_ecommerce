@@ -7,6 +7,8 @@ import Image from "../components/Image";
 import Card from "../components/Card";
 import Section from "../components/Section";
 import CardHomepage from "../components/CardHomepage";
+import Container from "../components/Container";
+import { useNavigate } from "react-router-dom";
 
 const ImageContainer = styled.div`
     height: 600px;
@@ -45,6 +47,7 @@ const Paragraph = styled.p`
     font-weight: 500;
 `
 const Home = () => {
+    const navigate = useNavigate();
     const ProductListImages = [
         [
             {
@@ -82,23 +85,52 @@ const Home = () => {
             }
         ]
     ]
-    
+    const onclickNavigate = (content) => {
+        // switch (content) {
+        //     case 'Nos  poissons entiers':
+        //         navigate("/poisson_entiers")
+        //         break;
+        //     case 'Nos coquillages':
+        //         navigate("/coquillages")
+        //         break;
+        //     case 'Nos crustacés':
+        //         navigate("/crustaces")
+        //         break;
+        //     case 'Nos produit festif':
+        //         navigate("/produit_festif")
+        //         break;
+        //     case 'Nos fillet de poissons':
+        //         navigate("/fillet_de_poissons")
+        //         break;
+            
+        //     default:
+        //     navigate("/")
+        // }
+        console.log("hello");
+    }
     return ( 
-        <div>
+        <Container>
             <Header/>
             <BackGroundImage 
-                src= " https://www.mashed.com/img/gallery/11-mistakes-everyone-makes-when-cooking-fish/intro.jpg" 
+                src= "https://www.mashed.com/img/gallery/11-mistakes-everyone-makes-when-cooking-fish/intro.jpg" 
                 alt= "homepage fish"
+                isShadow
             />
             <Section>
                 <h1>Que cherchez vous ?</h1>
                 <ImageContainer>
                     
-                        {ProductListImages.map(listImage => {
-                            return <Row position = "relative"> 
-                                {listImage.map(element => {
+                        {ProductListImages.map((listImage, rowIndex) => {
+                            return <Row position = "relative" key={rowIndex}> 
+                                {listImage.map((element, index) => {
                                 return (
-                                        <Card width= {element.width} height= "300px" position= "relative">
+                                        <Card
+                                            key={index}
+                                            width= {element.width} 
+                                            height= "300px" 
+                                            position= "relative"
+                                            onClick = {() => onclickNavigate(element.content)}
+                                        >
                                             <Image 
                                                 source= {element.source}
                                                 borderRadius={element.borderRadius}
@@ -152,7 +184,7 @@ const Home = () => {
                 </DescriptionRow>
             </Section>
             <Footer/>
-        </div>
+        </Container>
     )
 };
 

@@ -22,7 +22,7 @@ const Container = styled.div`
 const Logo = styled.div`
     width: 40px;
     height: 20px;
-    font-size: 25px;
+    font-size: 35px;
     display: flex;
     align-items: center;
 `
@@ -81,7 +81,7 @@ const Header = () => {
     }
     return (
         <Container>
-            <Logo>Logo</Logo>
+            <Link to= "/"><Logo>Logo</Logo></Link>
             <Nav>
                 <ProduitContainer onClick={onProduitClick}>
                     <h3>Nos Produits</h3>

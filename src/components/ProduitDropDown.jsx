@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { Link } from 'react-router-dom';
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -11,8 +11,6 @@ const Container = styled.div`
     transform: ${(props) => props.isVisible ? "scaleY(1)" : "scaleY(0)" } ;
     transform-origin: top;
     transition: all .2s ease-in-out;
-
-    /* padding: 10px 0; */
 `
 const Element = styled.div`
     width: 100%;
@@ -21,7 +19,6 @@ const Element = styled.div`
     padding-left: 20px;
     font-size: 18px;
     font-weight: 500;
-    /* justify-content: center; */
     align-items: center;
     transition: all ease-in 0.2s;
     &:hover {
@@ -36,11 +33,11 @@ const ProduitDropDown = ({isVisible, setIsVisible}) => {
     
   return (
         <Container isVisible= {isVisible} >
-            <Element onClick={onElementClick}>Nos poisson entiers</Element>
-            <Element onClick={onElementClick}>Nos coquillages</Element>
-            <Element onClick={onElementClick}>Nos crustacés</Element>
-            <Element onClick={onElementClick}>Nos Produit festif</Element>
-            <Element onClick={onElementClick}>Nos fillet de poisson</Element>
+            <Element onClick={onElementClick}><Link to= "/poisson_entiers">Nos poisson entiers</Link></Element>
+            <Element onClick={onElementClick}><Link to= "/coquillages">Nos coquillages</Link></Element>
+            <Element onClick={onElementClick}><Link to= "/crustaces">Nos crustacés</Link></Element>
+            <Element onClick={onElementClick}><Link to= "/produit_festif">Nos Produit festif</Link></Element>
+            <Element onClick={onElementClick}><Link to= "/fillet_de_poissons">Nos fillet de poisson</Link></Element>
         </Container>
     )
 };
