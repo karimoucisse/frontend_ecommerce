@@ -9,7 +9,14 @@ const Container = styled.div`
     padding: ${(props) => props.padding ? props.padding : "0 0 0 0"};
     gap: 30px;
 `
-const Section = ({children, flexDirection, justifyContent, alignItems, margin, padding}) => {
+const Section = ({
+  children, 
+  flexDirection, 
+  justifyContent, 
+  alignItems, 
+  margin, 
+  padding
+}) => {
   return (
     <Container
         flexDirection = {flexDirection}

@@ -10,6 +10,9 @@ const Body = styled.div`
     flex-direction: ${(props => props.flexDirection ? props.flexDirection : "none")} ;
     margin: ${(props) => props.margin ? props.margin : "0"};
     padding: ${(props) => props.padding ? props.padding : "0"};
+    position: ${(props) => props.position ? props.position : "none"};
+    background-color: ${(props) => props.backGroundColor ? props.backGroundColor : "transparent"};
+    overflow: hidden;
 `
 const Container = ({
     children, 
@@ -21,7 +24,9 @@ const Container = ({
     gap,
     margin,
     padding,
-    flexDirection
+    flexDirection,
+    position,
+    backGroundColor,
 }) => {
     return (
         <Body
@@ -34,6 +39,8 @@ const Container = ({
             margin= {margin}
             padding= {padding}
             flexDirection = {flexDirection}
+            position= {position}
+            backGroundColor= {backGroundColor}
         >
             {children}
         </Body>

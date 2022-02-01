@@ -9,6 +9,7 @@ import Coquillages from './pages/products/Coquillages';
 import Crustaces from './pages/products/Crustaces';
 import Festif from './pages/products/Festif';
 import FilletPoissons from './pages/products/FilletPoissons';
+import Panier from './pages/Panier';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/crustaces" element={<Crustaces/>}/>
           <Route path="/produit_festif" element={<Festif/>}/>
           <Route path="/fillet_de_poissons" element={<FilletPoissons/>}/>
+          <Route path="/panier" element={<Panier/>}/>
         </Routes>
       </BrowserRouter>
     </UserContextProvider>

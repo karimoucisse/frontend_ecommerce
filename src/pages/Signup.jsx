@@ -1,23 +1,18 @@
-import styled from "styled-components";
 import FormSignup from "../components/forms/FormSignup";
 import Container from "../components/Container";
+import WavesAnimation from "../components/WavesAnimation";
 
-const Video = styled.video`
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    min-height: 100vh;
-    min-width: 100vw;
-`
 const Signup = () => {  
     return (
-        <Container display = "flex">
+        <Container 
+            display = "flex" 
+            position= "relative"
+            backGroundColor= "#023047"
+            alignItems= "flex-start"
+            padding= "20px 0"
+        >
             <FormSignup/>
-            {/* <Video autoPlay muted loop >
-                <source src="/assets/videoBackground.mp4" type="video/mp4"/>
-            </Video> */}
+            <WavesAnimation/>
         </Container>
     )
 };

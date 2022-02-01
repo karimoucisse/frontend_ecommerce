@@ -14,10 +14,11 @@ const ButtonContainer = styled.button`
         color: #023047;
     }
 `
-const Button = ({children, padding, fontSize}) => {
+const Button = ({children, padding, fontSize, type}) => {
   return <ButtonContainer
             padding = {padding}
             fontSize = {fontSize}
+            type= {type}
         >
             {children}
         </ButtonContainer>;
