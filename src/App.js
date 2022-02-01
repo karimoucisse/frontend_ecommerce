@@ -9,7 +9,7 @@ import Coquillages from './pages/products/Coquillages';
 import Crustaces from './pages/products/Crustaces';
 import Festif from './pages/products/Festif';
 import FilletPoissons from './pages/products/FilletPoissons';
-
+import NotreHistoire from './pages/NotreHistoire';
 const App = () => {
   return (
     <UserContextProvider>
@@ -22,6 +22,7 @@ const App = () => {
           <Route path="/poisson_entiers" element={<Poissons/>}/>
           <Route path="/coquillages" element={<Coquillages/>}/>
           <Route path="/crustaces" element={<Crustaces/>}/>
+          <Route path="/histoire" element={<NotreHistoire/>}/>
           <Route path="/produit_festif" element={<Festif/>}/>
           <Route path="/fillet_de_poissons" element={<FilletPoissons/>}/>
         </Routes>
