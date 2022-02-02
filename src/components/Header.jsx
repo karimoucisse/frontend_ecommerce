@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Search from './Search';
+import { useNavigate } from 'react-router';
+import { UserContext } from "../context/User";
+import { useContext, useState} from "react";
 
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import Badge from '@mui/material/Badge';
@@ -73,9 +75,18 @@ const CartIcon = styled(ShoppingCartIcon)`
         transform: scale(1.04);
     }
 `
+const Icone = styled.i`
+    font-size: 20px;
+    cursor: pointer;
+    &:hover {
+        color: #f1ecec;
+    }
+`
 const Header = () => {
+    const {user, setUser} = useContext(UserContext)
     const [isVisible, setIsVisible] = useState(false)
     const [isSearchVisible, setIsSearchVisible] = useState(false)
+    const navigate = useNavigate()
     const onProduitClick = () => {
         setIsVisible(!isVisible)
     }
@@ -91,18 +102,29 @@ const Header = () => {
                     <ArrowIcon/>
                     <ProduitDropDown setIsVisible= {setIsVisible} isVisible= {isVisible} />
                 </ProduitContainer>
-                <ListContainer className="nav justify-content-end">
-                    <ListItems className="nav-item">
-                        <Link className="nav-link active" aria-current="page" to="/login">Se connecter</Link>
-                    </ListItems>
-                    <ListItems className="nav-item">
-                        <Link className="nav-link" to="/signup">S'inscrire</Link>
-                    </ListItems>
-                </ListContainer>
+                    {!user &&
+                        <ListContainer >    
+                            <ListItems>
+                                <Link to="/login">Se connecter</Link>
+                            </ListItems>
+                            <ListItems>
+                                <Link to="/signup">S'inscrire</Link>
+                            </ListItems>
+                        </ListContainer>
+                    }
+
+
                 <LogoContainer>
+                    {user && 
+                        <Icone 
+                            className="fas fa-user-alt" 
+                            onClick={() => navigate("/profil")}
+                        >
+                        </Icone>
+                    }
                     <ZoomIcon onClick= {onSearchClick}/>
                     <Search isVisible={isSearchVisible}/>                        
-                    <Badge badgeContent={4} color="primary">
+                    <Badge badgeContent={4} color="primary" onClick= {() => navigate("/panier")}>
                         <CartIcon color="action"  style={{ color: "#ffff"}}/>
                     </Badge>
                 </LogoContainer>

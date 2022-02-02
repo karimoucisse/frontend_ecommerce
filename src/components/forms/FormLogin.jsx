@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { UserContext } from "../../context/User";
-import { useContext } from "react";
+import { useContext, useState} from "react";
 
 const FormContainer = styled.form`
     display: flex;
@@ -27,6 +27,7 @@ const InputContainer = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    position: relative;
 `
 const ErrorMessage = styled.p`
     color: red;
@@ -43,10 +44,26 @@ const ErrorMessage = styled.p`
         }
     }
 `
+const Logo = styled.i`
+    position: absolute;
+    height: 100%;
+    right: 80px;
+    top: 10px;
+    /* bottom: 0; */
+    font-size: 22px;
+    cursor: pointer;
+    margin: auto;
+    color: rgba(0, 0, 0, 0.5);
+    transition: all ease-in-out 0.2s;
+    &:hover {
+        color: rgb(0, 0, 0);
+    }
+`
 
 const FormLogin = () => {
     const {user, setUser} = useContext(UserContext)
     const navigate = useNavigate()
+    const [isHidden, setIsHidden] = useState(true)
 
     const formik = useFormik({
         initialValues: {
@@ -55,8 +72,7 @@ const FormLogin = () => {
         },
 
         onSubmit: async values => {
-            console.log(values);
-            // login(values)
+            login(values)
         },
 
         validateOnChange: false,
@@ -70,23 +86,24 @@ const FormLogin = () => {
         })
     })
 
-    // const login = async values => {
-    //     const response = await fetch ('http://localhost:5000/auth/login', {
-    //         method: 'post',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         credentials: 'include',
-    //         body: JSON.stringify(values)
-    //     })
-    //     if(response.status >= 400) {
-    //         alert("Error")
-    //     } else {
-    //         const userLogged = await response.json()
-    //         setUser(userLogged)
-    //         navigate('/')
-    //     }
-    // }
+    const login = async values => {
+        const response = await fetch ('http://localhost:5000/auth/login', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify(values)
+        })
+        if(response.status >= 400) {
+            alert("Error")
+        } else {
+            const userLogged = await response.json()
+            setUser(userLogged)
+            navigate('/')
+        }
+    }
+    console.log(user);
 
   return (
         <FormContainer 
@@ -106,16 +123,20 @@ const FormLogin = () => {
             <InputContainer>
                 <Input
                     placeholder= "Password"
-                    type= "password"
+                    type= {isHidden ? "password" : "text"}
                     name= "password"
                     value= {formik.values.password}
                     onChange={formik.handleChange}
                     border = {formik.errors.password ? "2px solid red" : false}
                 />
+                <Logo 
+                    className={ !isHidden ? "fas fa-eye" : "fas fa-eye-slash"}
+                    onClick={() => setIsHidden(!isHidden)}
+                />
                 {formik.errors.password && <ErrorMessage>{formik.errors.password}</ErrorMessage>}
             </InputContainer>
             
-            <Button padding= "10px 100px">Login</Button>
+            <Button padding= "10px 100px" type= "submit">Login</Button>
         </FormContainer>
     )
   

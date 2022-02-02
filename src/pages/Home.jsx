@@ -148,10 +148,10 @@ const Home = () => {
             </Section>
             <Section>
                 <h1>La pêche du jour </h1>
-                {CardHomepage.map(card => {
-                    return <Row gap= "30px">
-                            {card.map(image => {
-                                return <Card>
+                {CardHomepage.map((card, cardIndex) => {
+                    return <Row gap= "30px" key={cardIndex}>
+                            {card.map((image, index) => {
+                                return <Card key={index}>
                                     <Image
                                         source = {image.source}
                                         width = {image.width}

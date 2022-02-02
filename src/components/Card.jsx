@@ -15,6 +15,8 @@ const Container = styled.div`
   margin: ${(props) => props.margin ? props.margin: "0px 0px"};
   background: ${(props) => props.background ? props.background: "none"};
   cursor: pointer;
+  gap: ${(props) => props.gap ? props.gap : "0"};
+
 `
 const Card = ({
   children,
@@ -27,7 +29,8 @@ const Card = ({
   alignItems,
   padding,
   margin,
-  background,
+  gap,
+  background
 }) => {
   return (
     <Container 
@@ -40,6 +43,7 @@ const Card = ({
       alignItems = {alignItems}
       padding= {padding}
       margin={margin}
+      gap= {gap}
       background = {background}
     >
         {children}
