@@ -12,7 +12,7 @@ import Crustaces from './pages/products/Crustaces';
 import Festif from './pages/products/Festif';
 import FilletPoissons from './pages/products/FilletPoissons';
 import Product from './pages/Product';
-
+import Contact from './pages/Contacter'
 import Panier from './pages/Panier';
 import NotreHistoire from './pages/NotreHistoire';
 import Profil from './pages/Profil';
@@ -30,6 +30,7 @@ const App = () => {
           <Route path="/coquillages" element={<Coquillages/>}/>
           <Route path="/crustaces" element={<Crustaces/>}/>
           <Route path="/histoire" element={<NotreHistoire/>}/>
+          <Route path="/contact" element={<Contact/>}/>
           <Route path="/produit_festif" element={<Festif/>}/>
           <Route path="/fillet_de_poissons" element={<FilletPoissons/>}/>
           <Route path="/product/:id" element={<Product/>}/>

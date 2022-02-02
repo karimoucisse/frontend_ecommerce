@@ -7,8 +7,9 @@ const InputContainer = styled.input`
     padding: ${(props) => props.padding ? props.padding : "0 0 0 20px"};
     font-size: 18px;
     outline: none;
+    margin: ${(props) => props.margin ? props.margin : "0px"};
 `
-const Input = ({placeholder, name, type, onChange, value, width, height, border, padding}) => {
+const Input = ({placeholder, name, type, onChange, value, width, height, border, padding, margin}) => {
   return (
         <>
             <InputContainer
@@ -21,6 +22,7 @@ const Input = ({placeholder, name, type, onChange, value, width, height, border,
                 height= {height} 
                 border= {border} 
                 padding= {padding}
+                margin= {margin}
             />
         </>
     )
