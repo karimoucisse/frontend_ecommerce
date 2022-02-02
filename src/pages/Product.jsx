@@ -41,20 +41,19 @@ const Product = () => {
                 <Header />
                     <Section flexDirection='row' margin='50px'>
                         <Card alignItems='center' >
-                            <Image source="https://www.luximer.com/img/cms/Rouget%20barbet%202.png" alt='fish' height='350px' width="350px" borderRadius='20px'/>
+                            <Image source={product.image} alt='fish' height='350px' width="350px" borderRadius='20px'/>
                         </Card>
                         <div>
                             <div>
-                                <h3> Bar 200g </h3>
-                                <Paragraph> 12$ kilo</Paragraph>
-                                <Paragraph> 6€ la pièce </Paragraph>
+                                <h3> {product.name} </h3>
+                                <Paragraph> {product.kiloPrice}€ kilo</Paragraph>
+                                <Paragraph> Prix par pièce : {product.pricePerPiece}€ </Paragraph>
                             </div>
                             <Card flexDirection='column' height='200px' padding='0px 20px' margin='30px 0px'> 
-                                <Paragraph> Poisson : gjkeorfjko </Paragraph>
-                                <Paragraph> Pays élevage ou zone de pêche : fghjdbshj </Paragraph>
-                                <Paragraph> Poids net : nfckd</Paragraph>
-                                <Paragraph> Prix par : Pièce </Paragraph>
-                                <Paragraph> Conditionnement: Sous vide </Paragraph>
+                                <Paragraph> Caractéristique : {product.characteristic} </Paragraph>
+                                <Paragraph> Pays élevage ou zone de pêche : {product.fishingArea} </Paragraph>
+                                <Paragraph> Poids net : {product.netWeight}g </Paragraph>
+                                <Paragraph> Conditionnement: {product.conditioning} </Paragraph>
                             </Card>
                         </div>
                     </Section>
