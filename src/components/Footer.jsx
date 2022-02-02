@@ -20,9 +20,6 @@ cursor: pointer;
 
 
 `
-
-
-
 const Text = styled.p`
 color : white ;
 font-size : 18px; 

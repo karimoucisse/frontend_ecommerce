@@ -10,11 +10,13 @@ const Container = styled.div`
   border-radius: ${(props) => props.borderRadius ? props.borderRadius : "20px"} ;
   box-shadow: ${(props) => props.shadow ? props.shadow : "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px"};
   position: ${(props) => props.position ? props.position: "none"};
+  background: ${(props) => props.background ? props.background: "none"};
   cursor: pointer;
   gap: ${(props) => props.gap ? props.gap : "0"};
+
 `
 const Card = ({
-  children, 
+  children,
   width, 
   height, 
   shadow, 
@@ -22,6 +24,7 @@ const Card = ({
   flexDirection, 
   position,
   gap
+  background,
 }) => {
   return (
     <Container 
@@ -32,6 +35,7 @@ const Card = ({
       flexDirection = {flexDirection}
       position = {position}
       gap= {gap}
+      background = {background}
     >
         {children}
     </Container>
