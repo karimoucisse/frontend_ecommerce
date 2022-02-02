@@ -10,6 +10,7 @@ const Body = styled.div`
     flex-direction: ${(props => props.flexDirection ? props.flexDirection : "none")} ;
     margin: ${(props) => props.margin ? props.margin : "0"};
     padding: ${(props) => props.padding ? props.padding : "0"};
+    border: ${(props) => props.border ? props.border : "none"};
 `
 const Container = ({
     children, 
@@ -21,7 +22,8 @@ const Container = ({
     gap,
     margin,
     padding,
-    flexDirection
+    flexDirection,
+    border
 }) => {
     return (
         <Body
@@ -34,6 +36,7 @@ const Container = ({
             margin= {margin}
             padding= {padding}
             flexDirection = {flexDirection}
+            border={border}
         >
             {children}
         </Body>
