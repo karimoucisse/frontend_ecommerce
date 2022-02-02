@@ -7,15 +7,18 @@ const Container = styled.div`
     align-items: ${(props) => props.alignItems ? props.alignItems : "center" };
     margin: ${(props) => props.margin ? props.margin : "50px 0 0 0"};
     padding: ${(props) => props.padding ? props.padding : "0 0 0 0"};
+    border: ${(props) => props.border ? props.border : "none"};
     gap: 30px;
 `
+
 const Section = ({
   children, 
   flexDirection, 
   justifyContent, 
   alignItems, 
   margin, 
-  padding
+  padding,
+  border
 }) => {
   return (
     <Container
@@ -24,6 +27,7 @@ const Section = ({
         alignItems = {alignItems}
         margin = {margin}
         padding = {padding}
+        border= {border}
     >
         {children}
     </Container>

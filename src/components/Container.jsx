@@ -10,6 +10,7 @@ const Body = styled.div`
     flex-direction: ${(props => props.flexDirection ? props.flexDirection : "none")} ;
     margin: ${(props) => props.margin ? props.margin : "0"};
     padding: ${(props) => props.padding ? props.padding : "0"};
+    border: ${(props) => props.border ? props.border : "none"};
     position: ${(props) => props.position ? props.position : "none"};
     background-color: ${(props) => props.backGroundColor ? props.backGroundColor : "transparent"};
     overflow: hidden;
@@ -25,6 +26,7 @@ const Container = ({
     margin,
     padding,
     flexDirection,
+    border,
     position,
     backGroundColor,
 }) => {
@@ -39,6 +41,7 @@ const Container = ({
             margin= {margin}
             padding= {padding}
             flexDirection = {flexDirection}
+            border={border}
             position= {position}
             backGroundColor= {backGroundColor}
         >

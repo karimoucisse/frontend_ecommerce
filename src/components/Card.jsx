@@ -10,8 +10,12 @@ const Container = styled.div`
   border-radius: ${(props) => props.borderRadius ? props.borderRadius : "20px"} ;
   box-shadow: ${(props) => props.shadow ? props.shadow : "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px"};
   position: ${(props) => props.position ? props.position: "none"};
+  align-items: ${(props) => props.alignItems ? props.alignItems: "none"};
+  padding: ${(props) => props.padding ? props.padding: "0px 0px"};
+  margin: ${(props) => props.margin ? props.margin: "0px 0px"};
   background: ${(props) => props.background ? props.background: "none"};
   cursor: pointer;
+  gap: ${(props) => props.gap ? props.gap : "0"};
 
 `
 const Card = ({
@@ -22,7 +26,11 @@ const Card = ({
   justifyContent, 
   flexDirection, 
   position,
-  background,
+  alignItems,
+  padding,
+  margin,
+  gap,
+  background
 }) => {
   return (
     <Container 
@@ -32,6 +40,10 @@ const Card = ({
       justifyContent = {justifyContent}
       flexDirection = {flexDirection}
       position = {position}
+      alignItems = {alignItems}
+      padding= {padding}
+      margin={margin}
+      gap= {gap}
       background = {background}
     >
         {children}

@@ -19,7 +19,7 @@ const NotreHistoire = () => {
             </Row>
             <Row justifyContent="space-evenly" margin= "50px 50px">
                 <Fade left>
-                    <Card shadow = 'none' flexDirection= 'column' height="300px">
+                    <Card shadow = 'none' flexDirection= 'column' height="300px" gap= "20px">
                         <h2>ARRIVAGE</h2>
                         <p>Une fois les bateaux rentrés au port, les lots de poissons sont mis en vente, à la demande du client, nous achetons, lors de la criée, sole, barbue, congre, bar, etc, ..
                             Les coquillages, crustacés et fruits de mer sont pêchés par nos soins au large de Pirou et de Portbail ( Manche ). Le poisson que nous vous expédions provient de nos côtes normandes et Atlantique ouest.</p>
@@ -41,7 +41,7 @@ const NotreHistoire = () => {
                     </Card>
                 </Fade>
                 <Fade right>
-                    <Card shadow = 'none' flexDirection= 'column' height="300px">
+                    <Card shadow = 'none' flexDirection= 'column' height="300px" gap= "20px">
                         <h2>PRÉPARATION DES POISSONS</h2>
                         <p>Après Rungis direction nos ateliers où nos poissons sont écaillés, vider, découper en fonction des besoins et des commandes.
                         Les poissons sont achetés entier ( ni vidé, ni en filet ). Nous préparons tout nous mêmes.
@@ -51,7 +51,7 @@ const NotreHistoire = () => {
             </Row>
             <Row justifyContent="space-evenly">
                 <Fade left>
-                    <Card shadow = 'none'  flexDirection= 'column' height="300px">
+                    <Card shadow = 'none'  flexDirection= 'column' height="300px" gap= "20px">
                         <h2>CONDITIONNEMENT</h2>
                         <p>Après avoir préparé votre commande, vos produits sont placés sous vide, ce qui leur permet d'être conservés 5 jours.
                         Attention : LES PRODUITS VIVANTS NE SONT PAS MIS SOUS VIDE !</p>
@@ -70,7 +70,7 @@ const NotreHistoire = () => {
                     </Card>
                 </Fade>
                 <Fade right>
-                    <Card shadow = 'none' flexDirection= 'column' height="300px">
+                    <Card shadow = 'none' flexDirection= 'column' height="300px" gap= "20px">
                         <h2>LA LIVRAISON</h2>
                         <p>Votre commande est enfin prête, un chauffeur « Chronofresh » vient récupérer otre commande. La société Chronofresh est spécialisé dans le livraison express de produits alimentaires frais pour en savoir plus
                         Attendez 24 à 48h ( suivant la zone où vous habitez ) et votre colis vous attend chez vous et est prêt à être dégusté.</p>
