@@ -12,7 +12,8 @@ import { useParams } from 'react-router-dom'
 
 
 const Paragraph = styled.p`
-    margin: 5px`
+    margin: 5px
+`
 
 
 
