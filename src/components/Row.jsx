@@ -9,6 +9,8 @@ const Container = styled.div`
     padding: ${(props) => props.padding ? props.padding : "none"};
     position: ${(props) => props.position ? props.position: "none"};
     width: ${(props) => props.width ? props.width : "none"};
+    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : "transparent" };
+    /* height: ${(props) => props.height ? props.height : "auto"}; */
 `
 const Row = ({
     children, 
@@ -18,7 +20,8 @@ const Row = ({
     margin, 
     position, 
     padding,
-    width
+    width,
+    backgroundColor
 }) => {
     return (
         <Container
@@ -29,6 +32,7 @@ const Row = ({
             position = {position}
             padding= {padding}
             width= {width}
+            backgroundColor= {backgroundColor}
         >
             {children}
         </Container>

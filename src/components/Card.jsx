@@ -23,8 +23,8 @@ const Card = ({
   justifyContent, 
   flexDirection, 
   position,
-  gap
   background,
+  gap
 }) => {
   return (
     <Container 
@@ -37,7 +37,7 @@ const Card = ({
       gap= {gap}
       background = {background}
     >
-        {children}
+      {children}
     </Container>
   )
 };

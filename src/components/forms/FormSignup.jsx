@@ -200,7 +200,7 @@ const FormSignup = () => {
                 />
                 {formik.errors.adress && <ErrorMessage>{formik.errors.adress}</ErrorMessage>}
             </InputContainer>
-            <Button type= "submit">Signup</Button>
+            <Button type= "submit" padding= "10px 100px">Signup</Button>
         </FormContainer>
     )
 };
