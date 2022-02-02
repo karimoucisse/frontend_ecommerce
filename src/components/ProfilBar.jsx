@@ -13,11 +13,16 @@ const Paragraph =styled.p`
     font-size: 26px;
     transition: all ease-in 0.2s;
     &:hover {
-        transform: scale(1.02);
+        transform: scale(1.01);
         color: #023047;
     }
 `
-const ProfilBar = () => {
+const ProfilBar = ({setPage}) => {
+
+    const onElementClick = (string) => {
+        setPage(string)
+    }
+
     return (
         <Row width= "100%" 
             backgroundColor= "#ffff" 
@@ -25,9 +30,9 @@ const ProfilBar = () => {
             alignItems= "baseline" 
             justifyContent= "center"
         >
-            <Element><Paragraph>Profil</Paragraph></Element>
-            <Element><Paragraph>Coordonées bancaires</Paragraph></Element>
-            <Element><Paragraph>historique des commandes</Paragraph></Element>
+            <Element onClick={() => onElementClick("profil")} ><Paragraph>Profil</Paragraph></Element>
+            <Element onClick={() => onElementClick("coordonee")} ><Paragraph>Coordonées bancaires</Paragraph></Element>
+            <Element onClick={() => onElementClick("historique")} ><Paragraph>historique des commandes</Paragraph></Element>
         </Row>
     )
 };

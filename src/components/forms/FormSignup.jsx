@@ -3,8 +3,7 @@ import Button from "../Button";
 import Input from "../Input";
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { UserContext } from "../../context/User";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router';
 
 const FormContainer = styled.form`
@@ -61,7 +60,6 @@ const Logo = styled.i`
     }
 `
 const FormSignup = () => {
-    const {user, setUser} = useContext(UserContext)
     const navigate = useNavigate()
     const [isHidden, setIsHidden] = useState(true)
 
@@ -76,8 +74,8 @@ const FormSignup = () => {
             adress:"",
         },
         onSubmit: values => {
-            console.log(values);
-            // signup(values)
+            // console.log(values);
+            signup(values)
         },
         validateOnChange: false,
         validationSchema: Yup.object({
@@ -100,23 +98,22 @@ const FormSignup = () => {
         })
     })
 
-    // const signup = async values => {
-    //     const response = await fetch ('http://localhost:5000/auth/signup', {
-    //         method: 'post',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         credentials: 'include',
-    //         body: JSON.stringify(values)
-    //     })
-    //     if(response.status >= 400) {
-    //         alert("Error, this mail already exist")
-    //     } else {
-    //         const userLogged = await response.json()
-    //         setUser(userLogged)
-    //         navigate('/')
-    //     }
-    // }
+    const signup = async values => {
+        const response = await fetch ('http://localhost:5000/auth/signup', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify(values)
+        })
+        if(response.status >= 400) {
+            alert("Error")
+        } else {
+            const userLogged = await response.json()
+            navigate('/')
+        }
+    }
     return (
         <FormContainer 
             onSubmit={formik.handleSubmit}
