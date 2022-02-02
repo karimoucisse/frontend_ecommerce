@@ -3,6 +3,8 @@ import GlobalStyle from './styles/globalStyles';
 import { UserContextProvider } from './context/User';
 import Home from "./pages/Home";
 import Login from './pages/Login';
+import ModeDeLivraison from './pages/ModeDeLivraison';
+
 import Signup from './pages/Signup';
 import Poissons from './pages/products/Poissons';
 import Coquillages from './pages/products/Coquillages';
@@ -20,6 +22,7 @@ const App = () => {
         <GlobalStyle/>
         <Routes>
           <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/modedelivraison" element={<ModeDeLivraison/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/poisson_entiers" element={<Poissons/>}/>

@@ -14,12 +14,9 @@ background-color:#023047;
 `
 const Paragraphe = styled.p`
 color: white ;
-
+margin-bottom: 10px;
 
 `
-
-
-
 const Text = styled.p`
 color : white ;
 font-size : 18px; 
@@ -44,7 +41,7 @@ const Array = [
     },
     {
         title : "IMFORMATION",
-        paragraphe0 : "Contactez-nous<",
+        paragraphe0 : "Contactez-nous",
         paragraphe1 : "Qui sommes-nous",
         paragraphe2 : "Livraison by Express Chronofresh",
         paragraphe3 : " Politique de confidentalité",
