@@ -10,16 +10,19 @@ const Container = styled.div`
   border-radius: ${(props) => props.borderRadius ? props.borderRadius : "20px"} ;
   box-shadow: ${(props) => props.shadow ? props.shadow : "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px"};
   position: ${(props) => props.position ? props.position: "none"};
+  background: ${(props) => props.background ? props.background: "none"};
   cursor: pointer;
+
 `
 const Card = ({
-  children, 
+  children,
   width, 
   height, 
   shadow, 
   justifyContent, 
   flexDirection, 
-  position
+  position,
+  background,
 }) => {
   return (
     <Container 
@@ -29,6 +32,7 @@ const Card = ({
       justifyContent = {justifyContent}
       flexDirection = {flexDirection}
       position = {position}
+      background = {background}
     >
         {children}
     </Container>
