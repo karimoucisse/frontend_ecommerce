@@ -28,7 +28,7 @@ const App = () => {
           <Route path="/histoire" element={<NotreHistoire/>}/>
           <Route path="/produit_festif" element={<Festif/>}/>
           <Route path="/fillet_de_poissons" element={<FilletPoissons/>}/>
-          <Route path="/product" element={<Product/>}/>
+          <Route path="/product/:id" element={<Product/>}/>
           <Route path="/panier" element={<Panier/>}/>
         </Routes>
       </BrowserRouter>

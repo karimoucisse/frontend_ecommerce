@@ -26,7 +26,7 @@ const Container = ({
     margin,
     padding,
     flexDirection,
-    border
+    border,
     position,
     backGroundColor,
 }) => {
