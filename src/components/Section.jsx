@@ -10,7 +10,16 @@ const Container = styled.div`
     border: ${(props) => props.border ? props.border : "none"};
     gap: 30px;
 `
-const Section = ({children, flexDirection, justifyContent, alignItems, margin, padding, border}) => {
+
+const Section = ({
+  children, 
+  flexDirection, 
+  justifyContent, 
+  alignItems, 
+  margin, 
+  padding,
+  border
+}) => {
   return (
     <Container
         flexDirection = {flexDirection}

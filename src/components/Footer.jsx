@@ -61,7 +61,7 @@ const Array = [
 const Footer = () => {
     return (
         <div>
-             <Container>  
+            <Container>  
           
                 {Array.map(element =>{ 
                     return <div>
@@ -86,7 +86,7 @@ const Footer = () => {
             <Row justifyContent= "center" gap="50px">
                 <Icones><i className="fab fa-twitter"></i></Icones>   
                 <Icones><i className="fab fa-facebook"></i></Icones> 
-          </Row>    
+            </Row>    
        
             
         </div>
