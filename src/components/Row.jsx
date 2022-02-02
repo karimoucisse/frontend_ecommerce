@@ -17,7 +17,8 @@ const Row = ({
     gap, 
     margin, 
     position, 
-    padding
+    padding,
+    width
 }) => {
     return (
         <Container
@@ -27,6 +28,7 @@ const Row = ({
             margin = {margin}
             position = {position}
             padding= {padding}
+            width= {width}
         >
             {children}
         </Container>

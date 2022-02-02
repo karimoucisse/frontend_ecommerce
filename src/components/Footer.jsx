@@ -1,19 +1,22 @@
 import React from 'react';
 import styled from 'styled-components'
 import Row from '../components/Row'
-
-
-const Container = styled.div`
-display: flex;
-width: 100%;
-justify-content: space-around;
-padding: 40px 0;
-background-color:#023047;
-
-
-`
+import Container from "../components/Container"
+import { useNavigate } from 'react-router';
+// const Container = styled.div`
+// display: flex;
+// width: 100%;
+// justify-content: space-around;
+// padding: 40px 0;
+// background-color:#023047;
+// `
 const Paragraphe = styled.p`
 color: white ;
+margin-bottom: 10px;
+cursor: pointer;
+&:hover {
+    text-decoration: underline;
+}
 
 
 `
@@ -31,6 +34,10 @@ color : black ;
 font-size : 40px; 
 margin-bottom: 5px;
 justify-content: center;
+cursor: pointer;
+&:hover {
+    color: #181717;
+}
 
 
 `
@@ -44,7 +51,7 @@ const Array = [
     },
     {
         title : "IMFORMATION",
-        paragraphe0 : "Contactez-nous<",
+        paragraphe0 : "Contactez-nous",
         paragraphe1 : "Qui sommes-nous",
         paragraphe2 : "Livraison by Express Chronofresh",
         paragraphe3 : " Politique de confidentalité",
@@ -58,15 +65,32 @@ const Array = [
         paragraphe3 : "Mes informations personnelle",
     }
 ]
+
 const Footer = () => {
+    const navigate = useNavigate()
+
+    const oncliCkNavigate = (content) => {
+        if(content === "Contactez-nous") {
+            navigate("/histoire")
+        }
+    }
+
     return (
         <div>
-            <Container>  
-          
-                {Array.map(element =>{ 
-                    return <div>
+            <Container 
+                height= "auto" 
+                display= "flex" 
+                flexDirection="column" 
+                backGroundColor="#023047" 
+                gap= "20px"
+                padding= "20px 0 5px 0"
+                margin= "40px 0 0 0"
+            >  
+                <Row justifyContent= "space-around" width= "100%">
+                {Array.map((element, index) =>{ 
+                    return <div key={index}>
                         <h1>{element.title}</h1>, 
-                        <Paragraphe>{element.paragraphe0}</Paragraphe>
+                        <Paragraphe onClick={() => oncliCkNavigate(element.paragraphe0)}>{element.paragraphe0}</Paragraphe>
                         <Paragraphe>{element.paragraphe1}</Paragraphe>
                         <Paragraphe>{element.paragraphe2}</Paragraphe>
                         <Paragraphe>{element.paragraphe3}</Paragraphe>
@@ -82,11 +106,13 @@ const Footer = () => {
                     </form>
                     <Text> Recevez les produits et code promo ! </Text>
                    </div>
+                </Row>
+                
+                <Row justifyContent= "center" gap="50px">
+                    <Icones><i className="fab fa-twitter"></i></Icones>   
+                    <Icones><i className="fab fa-facebook"></i></Icones> 
+                </Row>    
             </Container>
-            <Row justifyContent= "center" gap="50px">
-                <Icones><i className="fab fa-twitter"></i></Icones>   
-                <Icones><i className="fab fa-facebook"></i></Icones> 
-            </Row>    
        
             
         </div>

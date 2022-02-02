@@ -11,6 +11,7 @@ import Festif from './pages/products/Festif';
 import FilletPoissons from './pages/products/FilletPoissons';
 import Panier from './pages/Panier';
 import NotreHistoire from './pages/NotreHistoire';
+import Profil from './pages/Profil';
 const App = () => {
   return (
     <UserContextProvider>
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/produit_festif" element={<Festif/>}/>
           <Route path="/fillet_de_poissons" element={<FilletPoissons/>}/>
           <Route path="/panier" element={<Panier/>}/>
+          <Route path="/profil" element={<Profil/>}/>
         </Routes>
       </BrowserRouter>
     </UserContextProvider>
