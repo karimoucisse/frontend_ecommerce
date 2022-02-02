@@ -58,7 +58,7 @@ const Array = [
 const Footer = () => {
     return (
         <div>
-             <Container>  
+            <Container>  
           
                 {Array.map(element =>{ 
                     return <div>

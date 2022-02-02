@@ -1,15 +1,16 @@
-import styled from "styled-components";
-import Form from "../components/Form";
+import FormLogin from "../components/forms/FormLogin";
+import Container from "../components/Container";
+import WavesAnimation from "../components/WavesAnimation";
 
-const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
 const Login = () => {
     return (
-        <Container>
-            <Form/>
+        <Container 
+            display= "flex" 
+            position= "relative"
+            backGroundColor= "#023047"
+        >
+            <FormLogin/>
+            <WavesAnimation/>
         </Container>
     )
 };

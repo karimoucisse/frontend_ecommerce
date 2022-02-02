@@ -7,6 +7,7 @@ const FormContainer = styled.form`
     background-color: red;
     height: 600px;
     width: 50%;
+    z-index: 3;
 `
 const Form = () => {
   return <FormContainer>
