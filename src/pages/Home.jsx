@@ -9,6 +9,8 @@ import Section from "../components/Section";
 import CardHomepage from "../components/CardHomepage";
 import Container from "../components/Container";
 import { useNavigate } from "react-router-dom";
+import QuantityButton from "../components/QuantityButton";
+import CommentCaMarche from "../components/CommentCaMarche";
 
 const ImageContainer = styled.div`
     height: 600px;
@@ -25,27 +27,7 @@ const ProductTitle = styled.h2`
     font-weight: 600;
     text-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 `
-const DescriptionRow = styled.div`
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    padding: 40px 0;
-    background-color: #ffff;
-`
-const LogoContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-`
-const Logo = styled.i`
-    font-size: 70px;
-    color: rgb(149,165,166);
-`
-const Paragraph = styled.p`
-    font-size: 17px;
-    font-weight: 500;
-`
+
 const Home = () => {
     const navigate = useNavigate();
     const ProductListImages = [
@@ -151,38 +133,20 @@ const Home = () => {
                 {CardHomepage.map((card, cardIndex) => {
                     return <Row gap= "30px" key={cardIndex}>
                             {card.map((image, index) => {
-                                return <Card key={index}>
+                                return <Card key={index} flexDirection= "column" justifyContent= "flex-start">
                                     <Image
                                         source = {image.source}
                                         width = {image.width}
                                         height = {image.height}
                                         borderRadius={image.borderRadius}
                                     />
+                                    <QuantityButton/>
                                 </Card>
                             })}
                         </Row>
                 })}
             </Section>
-            <Section>
-                <h1>comment ça marche</h1>
-                <DescriptionRow justifyContent= "space-around">
-                    <LogoContainer>
-                        <Logo className="fas fa-truck"></Logo>
-                        <Paragraph>
-                            Vous êtes livré en 24h avec ChronoFresh <br/>
-                            afin de conserver la chaîne du froid
-                        </Paragraph>
-                    </LogoContainer>
-                    <LogoContainer>
-                        <Logo className="fas fa-fish"></Logo>
-                        <Paragraph>Pêche en provenance de nos côtes <br/> normandes et atlantique ouest.</Paragraph>
-                    </LogoContainer>
-                    <LogoContainer>
-                        <Logo className="fas fa-credit-card"></Logo>
-                        <Paragraph>Notre site de vente en ligne est 100% <br/> sécurisé et toutes les données sont cryptées</Paragraph>
-                    </LogoContainer>
-                </DescriptionRow>
-            </Section>
+            <CommentCaMarche/>
             <Footer/>
         </Container>
     )
