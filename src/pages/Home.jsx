@@ -68,26 +68,26 @@ const Home = () => {
         ]
     ]
     const onclickNavigate = (content) => {
-        // switch (content) {
-        //     case 'Nos  poissons entiers':
-        //         navigate("/poisson_entiers")
-        //         break;
-        //     case 'Nos coquillages':
-        //         navigate("/coquillages")
-        //         break;
-        //     case 'Nos crustacés':
-        //         navigate("/crustaces")
-        //         break;
-        //     case 'Nos produit festif':
-        //         navigate("/produit_festif")
-        //         break;
-        //     case 'Nos fillet de poissons':
-        //         navigate("/fillet_de_poissons")
-        //         break;
+        switch (content) {
+            case 'Nos  poissons entiers':
+                navigate("/poisson_entiers")
+                break;
+            case 'Nos coquillages':
+                navigate("/coquillages")
+                break;
+            case 'Nos crustacés':
+                navigate("/crustaces")
+                break;
+            case 'Nos produit festif':
+                navigate("/produit_festif")
+                break;
+            case 'Nos fillet de poissons':
+                navigate("/fillet_de_poissons")
+                break;
             
-        //     default:
-        //     navigate("/")
-        // }
+            default:
+            navigate("/")
+        }
         console.log("hello");
     }
     return ( 
@@ -111,7 +111,7 @@ const Home = () => {
                                             width= {element.width} 
                                             height= "300px" 
                                             position= "relative"
-                                            onClick = {() => onclickNavigate(element.content)}
+                                            onClickAction = {() => onclickNavigate(element.content)}
                                         >
                                             <Image 
                                                 source= {element.source}
@@ -133,14 +133,12 @@ const Home = () => {
                 {CardHomepage.map((card, cardIndex) => {
                     return <Row gap= "30px" key={cardIndex}>
                             {card.map((image, index) => {
-                                return <Card key={index} flexDirection= "column" justifyContent= "flex-start">
+                                return <Card key={index} flexDirection= "column" justifyContent= "flex-end">
                                     <Image
                                         source = {image.source}
-                                        width = {image.width}
-                                        height = {image.height}
                                         borderRadius={image.borderRadius}
                                     />
-                                    <QuantityButton margin= "20px 0 0 0"/>
+                                    <QuantityButton margin= "0"/>
                                 </Card>
                             })}
                         </Row>

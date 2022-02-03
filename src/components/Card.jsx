@@ -31,6 +31,7 @@ const Card = ({
   padding,
   margin,
   gap,
+  onClickAction
 }) => {
   return (
     <Container 
@@ -45,10 +46,14 @@ const Card = ({
       margin={margin}
       gap= {gap}
       background = {background}
+      onClick={onClickAction}
     >
       {children}
     </Container>
   )
-};
+}
+Card.defaultProps = {
+  onClickAction: () => {}
+}
 
 export default Card;
