@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import styled from "styled-components";
 import Container from "../components/Container"
 import Button from "../components/Button";
@@ -8,6 +9,7 @@ const Title = styled.h1`
 `
 
 const EmptyBasket = () => {
+    const navigate = useNavigate()
     return (
         <Container 
             height= "80vh" 
@@ -18,7 +20,7 @@ const EmptyBasket = () => {
             <Title>Votre panier est vide</Title>
             <Section margin= "80px 0 0 0">
                 <h3>En manque d'inspiration ?</h3>
-                <Button>Continuer Mes Achats</Button>
+                <Button onclick= {() => navigate("/")}>Continuer Mes Achats</Button>
             </Section>
         </Container>
     )

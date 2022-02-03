@@ -3,8 +3,7 @@ import Button from "../Button";
 import Input from "../Input";
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { UserContext } from "../../context/User";
-import { useContext } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router';
 
 const FormContainer = styled.form`
@@ -28,6 +27,7 @@ const InputContainer = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 5px;
+    position: relative;
 `
 const ErrorMessage = styled.p`
     color: red;
@@ -44,9 +44,24 @@ const ErrorMessage = styled.p`
         }
     }
 `
+const Logo = styled.i`
+    position: absolute;
+    height: 100%;
+    right: 80px;
+    top: 10px;
+    /* bottom: 0; */
+    font-size: 22px;
+    cursor: pointer;
+    margin: auto;
+    color: rgba(0, 0, 0, 0.5);
+    transition: all ease-in-out 0.2s;
+    &:hover {
+        color: rgb(0, 0, 0);
+    }
+`
 const FormSignup = () => {
-    const {user, setUser} = useContext(UserContext)
     const navigate = useNavigate()
+    const [isHidden, setIsHidden] = useState(true)
 
     const formik = useFormik({
         initialValues: {
@@ -59,8 +74,8 @@ const FormSignup = () => {
             adress:"",
         },
         onSubmit: values => {
-            console.log(values);
-            // signup(values)
+            // console.log(values);
+            signup(values)
         },
         validateOnChange: false,
         validationSchema: Yup.object({
@@ -83,23 +98,22 @@ const FormSignup = () => {
         })
     })
 
-    // const signup = async values => {
-    //     const response = await fetch ('http://localhost:5000/auth/signup', {
-    //         method: 'post',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         credentials: 'include',
-    //         body: JSON.stringify(values)
-    //     })
-    //     if(response.status >= 400) {
-    //         alert("Error, this mail already exist")
-    //     } else {
-    //         const userLogged = await response.json()
-    //         setUser(userLogged)
-    //         navigate('/')
-    //     }
-    // }
+    const signup = async values => {
+        const response = await fetch ('http://localhost:5000/auth/signup', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify(values)
+        })
+        if(response.status >= 400) {
+            alert("Error")
+        } else {
+            const userLogged = await response.json()
+            navigate('/')
+        }
+    }
     return (
         <FormContainer 
             onSubmit={formik.handleSubmit}
@@ -150,11 +164,15 @@ const FormSignup = () => {
             <InputContainer>
                 <Input
                     placeholder= "Password"
-                    type= "password"
+                    type= {isHidden ? "password" : "text"}
                     name= "password"
                     value= {formik.values.password}
                     onChange={formik.handleChange}
                     border = {formik.errors.password ? "2px solid red" : false}
+                />
+                <Logo 
+                    className={ !isHidden ? "fas fa-eye" : "fas fa-eye-slash"}
+                    onClick={() => setIsHidden(!isHidden)}
                 />
                 {formik.errors.password && <ErrorMessage>{formik.errors.password}</ErrorMessage>}
             </InputContainer>
@@ -179,7 +197,7 @@ const FormSignup = () => {
                 />
                 {formik.errors.adress && <ErrorMessage>{formik.errors.adress}</ErrorMessage>}
             </InputContainer>
-            <Button type= "submit">Signup</Button>
+            <Button type= "submit" padding= "10px 100px">Signup</Button>
         </FormContainer>
     )
 };

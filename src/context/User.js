@@ -6,7 +6,7 @@ const UserContext = createContext({})
 const UserContextProvider = props => {
     const [user, setUser] = useState()
 
-    const API = "http://localhost:5000/auth/login"
+    const API = "http://localhost:5000/auth/me"
 
     const value = {
         user: user,
