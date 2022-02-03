@@ -4,7 +4,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: ${(props) => props.height ? props.height : "100vh"};
 `
 const Element = styled.div`
     width: 150px;
@@ -21,9 +21,9 @@ const Element = styled.div`
         }
     }
 `
-const Loading = () => {
+const Loading = ({height}) => {
   return (
-    <Container>
+    <Container height= {height}>
         <Element></Element>
     </Container>
   )
