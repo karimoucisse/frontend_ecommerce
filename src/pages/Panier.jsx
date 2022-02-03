@@ -4,6 +4,9 @@ import Footer from "../components/Footer"
 import EmptyBasket from "../components/EmptyBasket";
 import BasketItem from "../components/BasketItem";
 
+// const Title = styled.h1`
+//     text-align: center;
+// `
 const Panier = () => {
     return (
         <Container>

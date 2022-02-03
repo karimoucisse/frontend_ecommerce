@@ -6,6 +6,9 @@ const ButtonContainer = styled.button`
     background-color: #023047;
     color: #ffff;
     font-size: ${(props) => props.fontSize ? props.fontSize : "18px"};
+    height:${(props) => props.height ? props.height : "30px"};
+    width:${(props) => props.width ? props.width : "40px"};
+   margin:${(props) => props.margin ? props.margin : "40px"};
     border-radius: 10px;
     cursor: pointer;
     transform: all ease-in-out 0.2s;
@@ -14,11 +17,14 @@ const ButtonContainer = styled.button`
         color: #023047;
     }
 `
-const Button = ({children, padding, fontSize, type}) => {
+const Button = ({children, padding, fontSize, type, height, width, margin}) => {
   return <ButtonContainer
             padding = {padding}
             fontSize = {fontSize}
             type= {type}
+            height= {height}
+            width={width}
+            margin={margin}
         >
             {children}
         </ButtonContainer>;
