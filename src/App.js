@@ -17,6 +17,7 @@ import Product from './pages/Product';
 import Panier from './pages/Panier';
 import NotreHistoire from './pages/NotreHistoire';
 import Profil from './pages/Profil';
+import Products from './pages/Products';
 import NotFound from './components/NotFound';
 
 const App = () => {
@@ -36,7 +37,8 @@ const App = () => {
           <Route path="/histoire" element={<NotreHistoire/>}/>
           <Route path="/produit_festif" element={<Festif/>}/>
           <Route path="/fillet_de_poissons" element={<FilletPoissons/>}/>
-          <Route path="/product/:id" element={<Product/>}/>
+          <Route path="/products" element={<Products/>}/>
+          <Route path="/products/:id" element={<Product/>}/>
           <Route path="/panier" element={<Panier/>}/>
           <Route path="/profil" element={<Profil/>}/>
           <Route exact path="*" element={<NotFound/>}/>

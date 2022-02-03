@@ -2,7 +2,7 @@ import BackGroundImage from "./BackGroundImage";
 import Container from "./Container";
 import Row from "./Row";
 import Input from "./Input";
-import Select from "./Select";
+import SelectPrice from "./SelectPrice";
 
 const GridProducts = ({children, src, alt}) => {
     return (
@@ -18,7 +18,7 @@ const GridProducts = ({children, src, alt}) => {
                     placeholder= "Chercher votre produit ..."
                     width= "300px"
                 />
-                <Select/>
+                <SelectPrice/>
             </Row>
             <Container margin= "40px 0 " display= "flex" gap= "20px" flexDirection= "column">
                 {children}
