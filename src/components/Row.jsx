@@ -10,7 +10,9 @@ const Container = styled.div`
     padding: ${(props) => props.padding ? props.padding : "none"};
     position: ${(props) => props.position ? props.position: "none"};
     width: ${(props) => props.width ? props.width : "none"};
+    height : ${(props) => props.height ? props.height : "none"};
     background-color: ${(props) => props.backgroundColor ? props.backgroundColor : "transparent" };
+    border-radius: ${(props) => props.borderRadius ? props.borderRadius : "none"} ;
     border: ${(props) => props.border ? props.border : "none"};
 `
 const Row = ({
@@ -23,8 +25,10 @@ const Row = ({
     position, 
     padding,
     width,
+    height,
     backgroundColor,
-    border
+    border,
+    borderRadius
 }) => {
     return (
         <Container
@@ -36,8 +40,10 @@ const Row = ({
             position = {position}
             padding= {padding}
             width= {width}
+            height= {height}
             backgroundColor= {backgroundColor}
             border = {border}
+            borderRadius= {borderRadius}
         >
             {children}
         </Container>

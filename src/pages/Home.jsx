@@ -140,7 +140,7 @@ const Home = () => {
                                         height = {image.height}
                                         borderRadius={image.borderRadius}
                                     />
-                                    <QuantityButton/>
+                                    <QuantityButton margin= "20px 0 0 0"/>
                                 </Card>
                             })}
                         </Row>

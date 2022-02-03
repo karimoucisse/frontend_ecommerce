@@ -11,7 +11,7 @@ const Panier = () => {
                 {/* <EmptyBasket/> */}
                 <BasketItem 
                     source= "https://poisson-a-domicile.com/18-large_default/sole-portion.jpg"
-                    produitContent= "saumon"
+                    produitContent= "Sole"
                     prixContent= "30€"
                 />
             <Footer/>

@@ -12,10 +12,10 @@ const ShadowContainer = styled.div`
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.25);
     transition: all ease-in-out 0.2s;
     &:hover {
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 0, 0.45);
     }
 `
 const Image = ({
