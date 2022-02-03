@@ -67,7 +67,7 @@ const Footer = () => {
     const navigate = useNavigate()
 
     const oncliCkNavigate = (content) => {
-        if(content === "Contactez-nous") {
+        if(content === "Qui sommes-nous") {
             navigate("/histoire")
         }
     }
@@ -87,8 +87,8 @@ const Footer = () => {
                 {Array.map((element, index) =>{ 
                     return <div key={index}>
                         <h1>{element.title}</h1>, 
-                        <Paragraphe onClick={() => oncliCkNavigate(element.paragraphe0)}>{element.paragraphe0}</Paragraphe>
-                        <Paragraphe>{element.paragraphe1}</Paragraphe>
+                        <Paragraphe>{element.paragraphe0}</Paragraphe>
+                        <Paragraphe onClick={() => oncliCkNavigate(element.paragraphe1)}>{element.paragraphe1}</Paragraphe>
                         <Paragraphe>{element.paragraphe2}</Paragraphe>
                         <Paragraphe>{element.paragraphe3}</Paragraphe>
                     </div>
