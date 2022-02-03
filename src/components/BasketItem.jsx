@@ -14,22 +14,53 @@ const Element = styled.div`
 `
 const BasketItem = ({produitContent, prixContent, source }) => {
     return (
-        <Container height= "60vh" display= "flex">
-            <Row width= "60%" gap= "80px" border= "2px solid black">
-                <Image source= {source} height= "150px" width= "auto"/>
-                <Row flexDirection= "column" gap= "40px">
+        <Container 
+            height= "60vh" 
+            display= "flex" 
+            alignItems= "none"
+            padding= "40px 0 0 0 "
+        >
+            <Row 
+                width= "760px" 
+                gap= "50px" 
+                border= "2px solid black" 
+                borderRadius= "20px" 
+                height= "140px"
+            >
+                <Image 
+                    source= {source} 
+                    height= "100%" 
+                    width= "auto" 
+                    borderRadius = "20px 0 0 20px"
+                />
+                <Row 
+                    flexDirection= "column" 
+                    gap= "40px" 
+                    alignItems= "center"
+                    padding="5px 0 0 0"
+                >
                     <Paragraph>Produit</Paragraph>
                     <Element>
                         <Paragraph>{produitContent}</Paragraph>
                     </Element>
                 </Row>
-                <Row flexDirection= "column" gap= "40px">
+                <Row 
+                    flexDirection= "column" 
+                    gap= "40px" 
+                    alignItems= "center"
+                    padding="5px 0 0 0"
+                >
                     <Paragraph>Quantité</Paragraph>
                     <Element>
-                        <QuantityButton hide/>
+                        <QuantityButton hide />
                     </Element>
                 </Row>
-                <Row flexDirection= "column" gap= "40px">
+                <Row 
+                    flexDirection= "column" 
+                    gap= "40px"
+                    alignItems= "center"
+                    padding="5px 0 0 0"
+                >
                     <Paragraph>Prix</Paragraph>
                     <Element>
                         <Paragraph>{prixContent}</Paragraph>

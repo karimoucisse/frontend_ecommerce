@@ -12,7 +12,17 @@ import { useParams } from 'react-router-dom'
 
 
 const Paragraph = styled.p`
-    margin: 5px`
+    margin: 5px;
+    `
+
+const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+`
+
+
 
 
 
@@ -43,19 +53,19 @@ const Product = () => {
                         <Card alignItems='center' >
                             <Image source={product.image} alt='fish' height='350px' width="350px" borderRadius='20px'/>
                         </Card>
-                        <div>
+                        <Content>
                             <div>
                                 <h3> {product.name} </h3>
                                 <Paragraph> {product.kiloPrice}€ kilo</Paragraph>
                                 <Paragraph> Prix par pièce : {product.pricePerPiece}€ </Paragraph>
                             </div>
-                            <Card flexDirection='column' height='200px' padding='0px 20px' margin='30px 0px'> 
+                            <Card flexDirection='column' height='200px' padding='0px 20px' > 
                                 <Paragraph> Caractéristique : {product.characteristic} </Paragraph>
                                 <Paragraph> Pays élevage ou zone de pêche : {product.fishingArea} </Paragraph>
                                 <Paragraph> Poids net : {product.netWeight}g </Paragraph>
                                 <Paragraph> Conditionnement: {product.conditioning} </Paragraph>
                             </Card>
-                        </div>
+                        </Content>
                     </Section>
                 <Footer />
             </Container>
