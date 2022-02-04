@@ -15,14 +15,14 @@ const Element = styled.div`
 const BasketItem = ({produitContent, prixContent, source }) => {
     return (
         <Container 
-            height= "60vh" 
+            height= "140" 
             display= "flex" 
             alignItems= "none"
             padding= "40px 0 0 0 "
         >
             <Row 
-                width= "50%" 
-                gap= "80px" 
+                width= "760px" 
+                gap= "50px" 
                 border= "2px solid black" 
                 borderRadius= "20px" 
                 height= "140px"
@@ -36,7 +36,8 @@ const BasketItem = ({produitContent, prixContent, source }) => {
                 <Row 
                     flexDirection= "column" 
                     gap= "40px" 
-                    padding="15px 0 0 0"
+                    alignItems= "center"
+                    padding="5px 0 0 0"
                 >
                     <Paragraph>Produit</Paragraph>
                     <Element>
@@ -46,17 +47,19 @@ const BasketItem = ({produitContent, prixContent, source }) => {
                 <Row 
                     flexDirection= "column" 
                     gap= "40px" 
-                    padding="15px 0 0 0"
+                    alignItems= "center"
+                    padding="5px 0 0 0"
                 >
                     <Paragraph>Quantité</Paragraph>
                     <Element>
-                        <QuantityButton hide/>
+                        <QuantityButton hide />
                     </Element>
                 </Row>
                 <Row 
                     flexDirection= "column" 
                     gap= "40px"
-                    padding="15px 0 0 0"
+                    alignItems= "center"
+                    padding="5px 0 0 0"
                 >
                     <Paragraph>Prix</Paragraph>
                     <Element>

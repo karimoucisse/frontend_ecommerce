@@ -29,6 +29,7 @@ const ProfilBar = ({setPage}) => {
             padding= "20px 20px" 
             alignItems= "baseline" 
             justifyContent= "center"
+            margin= "0 0 20px 0"
         >
             <Element onClick={() => onElementClick("profil")} ><Paragraph>Profil</Paragraph></Element>
             <Element onClick={() => onElementClick("coordonee")} ><Paragraph>Coordonées bancaires</Paragraph></Element>

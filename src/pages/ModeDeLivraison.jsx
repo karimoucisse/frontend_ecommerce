@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Picker from '../components/Picker';
@@ -6,6 +6,12 @@ import styled from 'styled-components';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import Row from '../components/Row'; 
+// import getCard from '../api/getCard';
+// import { useParams } from 'react-router-dom'
+// import { useState, useEffect } from 'react';
+// import { useFormik } from 'formik';
+import { CartContext } from '../context/Cart';
+
 const Style = styled.div`
     display: flex;
     flex-direction: row;
@@ -52,8 +58,46 @@ const SelectTime= styled.div`
     height:15% ;
     margin: 5%;
 ` 
+
+
 const ModeDeLivraison = () => {
-    return (
+    const { cart } = useContext(CartContext)
+    console.log(cart ,'wchla mif');
+
+    // const paymentCart  = cart.lineItems.map(item => {
+    //     if(cart) {
+    //         return (<div>
+    //             <h4>{item.product}</h4>
+    //             <h4>{item.quantity}</h4>
+    //             <h4>{item.weight}</h4>
+    //             <h4>{item.totalPrice}</h4>
+    //         </div>)
+    //     }
+    // })
+
+    // console.log(paymentCart)
+    //     p 
+    // }) 
+    // return paymentCart
+    //    console.log(paymentCart);
+    // {cart.map((listCart , rowIndex) => {
+    //     return listCart.map 
+        
+       
+      
+    // })}
+
+                    //     var numbers = [1, 2, 3, 4];
+                    // var new_numbers = numbers.map(function(number){
+                    // return number * 2;
+                    // }).map(function(number){
+                    // return number++;
+                    // });
+                    // console.log"Les nombres doublés et incrémentés sont",
+                   
+                    {console.log(cart)};
+    
+ return (
         <div>
             <Header/>
                 <Title><h2>Mode de Livraison</h2> </Title>
@@ -124,6 +168,25 @@ const ModeDeLivraison = () => {
                                     esse modi nobis at.</p>
                                     <Button background= "endregion"  height="100px" width="200px" margin="150px 40px 30px 80px" >Payer</Button> 
                             </Row>
+                            {cart && cart.map(element => (
+                                element.lineItems.map(item => (
+                                    <div>
+                                        <h4>PrixKilo: {item.product.kiloPrice}</h4>
+                                        <h4>Conditionnement: {item.product.conditioning}</h4>
+                                        <h4>Zone de pêche: {item.product.fishingArea}</h4>
+                                        <h4>Poids Net: {item.product.netWeight}</h4>
+                                        <h4>Prix à la piéce {item.product.pricePerPiece}</h4>
+                                        <h4>Prix au Kilo: {item.product.kiloPrice}</h4>
+                                        <h4>Quantitée: {item.quantity}</h4>
+                                        <h4>Poids total: {item.weight}</h4>
+                                        <h4>Total Pièces: {item.totalPrice}</h4>
+                                    </div>
+                                        
+                                )) 
+                           
+                            ))
+                            
+                            }
                         <Footer/>
         </div>
     );
