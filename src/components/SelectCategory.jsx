@@ -35,6 +35,7 @@ const SelectCategory = ({ onChange, selectedCategories }) => {
       console.log("My categories", categories)
   }
 
+
   return (
     <div>
       <FormControl sx={{width: 300 }}>
