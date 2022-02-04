@@ -5,7 +5,6 @@ import Row from "./Row";
 const Logo = styled.i`
     display: ${(props) => props.hide ? "none" : "block"};
     font-size: 25px;
-    color: #24;
 `
 const QuantityButton = ({hide, margin}) => {
     return (
