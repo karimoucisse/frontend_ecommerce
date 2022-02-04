@@ -1,7 +1,6 @@
 import Container from "../components/Container"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import EmptyBasket from "../components/EmptyBasket";
 import BasketItem from "../components/BasketItem";
 import { useState, useEffect, useContext } from "react";
 import Loading from "../components/Loading";
