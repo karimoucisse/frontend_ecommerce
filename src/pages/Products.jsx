@@ -17,34 +17,30 @@ import Container from '../components/Container';
 
 
 const Flex = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin: 5px;
-    height: 70px;
+display: flex;
+justify-content: space-between;
+margin: 5px;
+height: 70px;
 `
 
 const H = styled.h4`
-    margin: 5px;
-`
+margin: 5px;`
 
 const H2 = styled.h2`
-    text-align: center;
-    margin: 20px;
-`
+text-align: center;
+margin: 20px;`
 
 const Button = styled.button`
-    border: none;
-    text-decoration: none;
-    cursor: pointer;
-    background: none;
-`
+border: none;
+text-decoration: none;
+cursor: pointer;
+background: none;`
 
 const Grid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, minmax(280px, 1fr));
-    grid-gap: 50px;
-    align-items: stretch;
-`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  grid-gap: 50px;
+  align-items: stretch;`
 
 
 
@@ -93,7 +89,7 @@ const Products = () => {
     return (
         <Container>
             <Header />
-            <BackGroundImage src='https://img.freepik.com/photos-gratuite/vue-dessus-variete-poissons-fruits-mer-frais-glace_126277-744.jpg?size=626&ext=jpg' alt='poissons' />
+            <BackGroundImage height='400px' src='https://img.freepik.com/photos-gratuite/vue-dessus-variete-poissons-fruits-mer-frais-glace_126277-744.jpg?size=626&ext=jpg' alt='poissons' />
            <H2> Tous nos produits </H2> 
             <Row justifyContent = "space-between" margin= "20px 0" padding= "0 70px" >
                 <SelectCategory

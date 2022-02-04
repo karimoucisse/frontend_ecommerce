@@ -18,6 +18,7 @@ import Panier from './pages/Panier';
 import NotreHistoire from './pages/NotreHistoire';
 import Profil from './pages/Profil';
 import { CartContextProvider } from './context/Cart';
+import Products from './pages/Products'
 const App = () => {
   const {user} = useContext(UserContext)
   return (
@@ -37,6 +38,7 @@ const App = () => {
             <Route path="/produit_festif" element={<Festif/>}/>
             <Route path="/fillet_de_poissons" element={<FilletPoissons/>}/>
             <Route path="/product/:id" element={<Product/>}/>
+            <Route path="/products" element={<Products/>}/>
             <Route path="/panier" element={<Panier/>}/>
             <Route path="/profil" element={<Profil/>}/>
           </Routes>
