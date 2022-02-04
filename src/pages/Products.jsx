@@ -14,6 +14,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import BackGroundImage from '../components/BackGroundImage';
 import Container from '../components/Container';
+import GridContainerProduct from '../components/GridContainerProduct';
 
 
 const Flex = styled.div`
@@ -35,12 +36,6 @@ border: none;
 text-decoration: none;
 cursor: pointer;
 background: none;`
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(280px, 1fr));
-  grid-gap: 50px;
-  align-items: stretch;`
 
 
 
@@ -107,17 +102,17 @@ const Products = () => {
                 <SelectPrice onChange={handleSelect} sx={{width : 200}} />
             </Row>
            <Section flexDirection='row' margin='80px 0px' alignItems='center'>  
-           <Grid>
-           {products.map(product => 
-               <Card flexDirection='column' height='250px' width='250px' > 
-                   <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
-                   <H> {product.name} </H>
-                   <Flex> 
-                       <p> Prix au kilo : {product.kiloPrice}€ </p>
-                       <Button> Détails </Button>
-                   </Flex> 
-               </Card>)}
-           </Grid>
+            <GridContainerProduct>
+            {products.map(product => 
+                <Card flexDirection='column' height='250px' width='250px' > 
+                    <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
+                    <H> {product.name} </H>
+                    <Flex> 
+                        <p> Prix au kilo : {product.kiloPrice}€ </p>
+                        <Button> Détails </Button>
+                    </Flex> 
+                </Card>)}
+            </GridContainerProduct>
            </Section>
            <Footer/>
            
