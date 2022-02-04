@@ -4,7 +4,7 @@ import { useEffect } from "react";
 const UserContext = createContext({})
 
 const UserContextProvider = props => {
-    const [user, setUser] = useState()
+    const [user, setUser] = useState(null)
 
     const API = "http://localhost:5000/auth/me"
 

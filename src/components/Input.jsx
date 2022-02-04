@@ -1,7 +1,7 @@
 
 import TextField from '@mui/material/TextField';
 
-const Input = ({placeholder, name, type, onChange, value, sx, height, border, padding, label}) => {
+const Input = ({placeholder, name, type, onChange, value, sx, height, border, padding, label, error}) => {
   return (
         <TextField id="demo-helper-text-misaligned-no-helper" 
         label={label} 
@@ -14,6 +14,7 @@ const Input = ({placeholder, name, type, onChange, value, sx, height, border, pa
         height= {height} 
         border= {border} 
         padding= {padding}
+        error= {error ? true : false}
         >
     
         </TextField>

@@ -16,7 +16,7 @@ const FormContainer = styled.form`
     height: 600px;
     padding: 10px 0;
     width: 550px;
-    gap: 15px;
+    gap: 8px;
     border-radius: 20px;
     position: relative;
     z-index: 3;
@@ -91,7 +91,8 @@ const FormSignup = () => {
             password: Yup.string()
             .min(6, "Mot de passe trop court")
             .required("mot de passe requis"),
-            phoneNumber: Yup.string(),
+            phoneNumber: Yup.string()
+            .required("numero de telephone requis"),
             adress: Yup.string()
             .required("l'adresse est requis"),
             
@@ -126,6 +127,7 @@ const FormSignup = () => {
                     value= {formik.values.firstName}
                     onChange={formik.handleChange}
                     border = {formik.errors.firstName ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.firstName && <ErrorMessage>{formik.errors.firstName}</ErrorMessage>}
             </InputContainer>
@@ -137,6 +139,7 @@ const FormSignup = () => {
                     value= {formik.values.name}
                     onChange={formik.handleChange}
                     border = {formik.errors.name ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.name && <ErrorMessage>{formik.errors.name}</ErrorMessage>}
             </InputContainer>
@@ -147,6 +150,7 @@ const FormSignup = () => {
                     value= {formik.values.birthDate}
                     onChange={formik.handleChange}
                     border = {formik.errors.birthDate ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.birthDate && <ErrorMessage>{formik.errors.birthDate}</ErrorMessage>}
             </InputContainer>
@@ -158,6 +162,7 @@ const FormSignup = () => {
                     value= {formik.values.email}
                     onChange={formik.handleChange}
                     border = {formik.errors.email ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.email && <ErrorMessage>{formik.errors.email}</ErrorMessage>}
             </InputContainer>
@@ -169,6 +174,7 @@ const FormSignup = () => {
                     value= {formik.values.password}
                     onChange={formik.handleChange}
                     border = {formik.errors.password ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 <Logo 
                     className={ !isHidden ? "fas fa-eye" : "fas fa-eye-slash"}
@@ -183,6 +189,7 @@ const FormSignup = () => {
                     value= {formik.values.phoneNumber}
                     onChange={formik.handleChange}
                     border = {formik.errors.phoneNumber ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.phoneNumber && <ErrorMessage>{formik.errors.phoneNumber}</ErrorMessage>}
             </InputContainer>
@@ -194,6 +201,7 @@ const FormSignup = () => {
                     value= {formik.values.adress}
                     onChange={formik.handleChange}
                     border = {formik.errors.adress ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.adress && <ErrorMessage>{formik.errors.adress}</ErrorMessage>}
             </InputContainer>

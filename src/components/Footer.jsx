@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Row from '../components/Row'
 import Container from "../components/Container"
 import { useNavigate } from 'react-router';
+import Button from './Button';
 // const Container = styled.div`
 // display: flex;
 // width: 100%;
@@ -35,8 +36,28 @@ cursor: pointer;
 &:hover {
     color: #181717;
 }
-
-
+`
+const FormContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: center;
+    gap: 20px;
+`
+const Form = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+`
+const FormElement = styled.div`
+    display: flex;
+    align-items: center;
+`
+const Input = styled.input`
+    height: 30px;
+    width: 220px;
+    font-size: 18px;
 `
 const Array = [
     {
@@ -73,9 +94,8 @@ const Footer = () => {
     }
 
     return (
-        <div>
             <Container 
-                height= "auto" 
+                height= "200px" 
                 display= "flex" 
                 flexDirection="column" 
                 backGroundColor="#023047" 
@@ -83,26 +103,29 @@ const Footer = () => {
                 padding= "20px 0 5px 0"
                 margin= "40px 0 0 0"
             >  
-                <Row justifyContent= "space-around" width= "100%">
+                <Row justifyContent= "space-around" width= "100%" height= "100%" >
                 {Array.map((element, index) =>{ 
                     return <div key={index}>
                         <h1>{element.title}</h1>, 
                         <Paragraphe>{element.paragraphe0}</Paragraphe>
-                        <Paragraphe onClick={() => oncliCkNavigate(element.paragraphe1)}>{element.paragraphe1}</Paragraphe>
+                        <Paragraphe 
+                            onClick={() => oncliCkNavigate(element.paragraphe1)}
+                        >
+                            {element.paragraphe1}
+                        </Paragraphe>
                         <Paragraphe>{element.paragraphe2}</Paragraphe>
                         <Paragraphe>{element.paragraphe3}</Paragraphe>
                     </div>
                 })}
-                 <div>
-                   <form>
-                    <label>
-                        E-mail
-                        <input type="text" name="name" />
-                    </label>
-                    <input type="submit" value="Envoyer" />
-                    </form>
+                <FormContainer>
+                    <Form>
+                        <FormElement>
+                            <Input type="text"/>
+                            <Button type="submit" backGround= "blue" padding= "1px 40px" margin= "0">Envoyer</Button>
+                        </FormElement>
+                    </Form>
                     <Text> Recevez les produits et code promo ! </Text>
-                   </div>
+                </FormContainer>
                 </Row>
                 
                 <Row justifyContent= "center" gap="50px">
@@ -110,9 +133,6 @@ const Footer = () => {
                     <Icones><i className="fab fa-facebook"></i></Icones> 
                 </Row>    
             </Container>
-       
-            
-        </div>
     );
 };
 

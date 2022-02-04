@@ -99,7 +99,7 @@ const FormLogin = () => {
             alert("Error")
         } else {
             const userLogged = await response.json()
-            // setUser(userLogged)
+            setUser(userLogged)
             navigate('/')
         }
     }
@@ -117,6 +117,7 @@ const FormLogin = () => {
                     value= {formik.values.email}
                     onChange={formik.handleChange}
                     border = {formik.errors.email ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.email && <ErrorMessage>{formik.errors.email}</ErrorMessage>}
             </InputContainer>
@@ -128,6 +129,7 @@ const FormLogin = () => {
                     value= {formik.values.password}
                     onChange={formik.handleChange}
                     border = {formik.errors.password ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 <Logo 
                     className={ !isHidden ? "fas fa-eye" : "fas fa-eye-slash"}

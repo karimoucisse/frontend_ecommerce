@@ -133,13 +133,19 @@ const Home = () => {
                 {CardHomepage.map((card, cardIndex) => {
                     return <Row gap= "30px" key={cardIndex}>
                             {card.map((image, index) => {
-                                return <Card key={index} flexDirection= "column" justifyContent= "flex-end">
-                                    <Image
-                                        source = {image.source}
-                                        borderRadius={image.borderRadius}
-                                    />
-                                    <QuantityButton margin= "0"/>
-                                </Card>
+                                return (
+                                    <Card 
+                                            key={index} 
+                                            flexDirection= "column" 
+                                            justifyContent= "flex-start"
+                                        >
+                                        <Image
+                                            source = {image.source}
+                                            borderRadius={image.borderRadius}
+                                        />
+                                        {/* <QuantityButton margin= "0"/> */}
+                                    </Card>
+                                )
                             })}
                         </Row>
                 })}

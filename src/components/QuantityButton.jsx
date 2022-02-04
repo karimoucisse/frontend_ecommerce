@@ -12,15 +12,20 @@ const Logo = styled.i`
         color: #063e5a;
     }
 `
-const QuantityButton = ({hide, margin}) => {
-    const [number, setNumber] = useState(0)
+const QuantityButton = ({hide, margin, quantity, setQuantityNumber}) => {
+
+    const [number, setNumber] = useState(quantity ? quantity : 0)
 
     const compteur = (operator) => {
         console.log('hello');
         if(operator === "plus") {
             setNumber(number + 1)
+            quantity = number
+            console.log(quantity);
         }else if(operator === "moin" && number > 0) {
             setNumber(number - 1)
+            quantity = number
+            console.log(quantity);
         }
     }
     return (
@@ -33,6 +38,7 @@ const QuantityButton = ({hide, margin}) => {
             <Logo className="fas fa-shopping-basket" hide= {hide} onc></Logo> 
         </Row>
     )
-};
+}
+
 
 export default QuantityButton;

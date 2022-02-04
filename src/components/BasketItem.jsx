@@ -12,10 +12,10 @@ const Element = styled.div`
     display: flex;
     align-items: center;
 `
-const BasketItem = ({produitContent, prixContent, source }) => {
+const BasketItem = ({produitContent, prixContent, source, quantity }) => {
     return (
         <Container 
-            height= "140" 
+            height= "140px" 
             display= "flex" 
             alignItems= "none"
             padding= "40px 0 0 0 "
@@ -52,7 +52,7 @@ const BasketItem = ({produitContent, prixContent, source }) => {
                 >
                     <Paragraph>Quantité</Paragraph>
                     <Element>
-                        <QuantityButton hide />
+                        <QuantityButton hide  quantity= {quantity}/>
                     </Element>
                 </Row>
                 <Row 
@@ -63,7 +63,7 @@ const BasketItem = ({produitContent, prixContent, source }) => {
                 >
                     <Paragraph>Prix</Paragraph>
                     <Element>
-                        <Paragraph>{prixContent}</Paragraph>
+                        <Paragraph>{prixContent}€</Paragraph>
                     </Element>
                 </Row>
             </Row>
