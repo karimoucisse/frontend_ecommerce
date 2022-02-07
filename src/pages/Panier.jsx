@@ -58,17 +58,21 @@ const Panier = () => {
     return (
         <Container>
             <Header/>
-                {!items && <EmptyBasket/>}
                 {items.map(item => {
-                    return <BasketItem 
-                                key={item.product._id}
-                                source= {item.product.image}
-                                produitContent= {item.product.name}
-                                prixContent= {item.totalPrice * item.quantity}
-                                quantity = {item.quantity}
-                                onclick= {() => onQuantityClick(item.quantity, item.totalPrice )}
-                            />
-                    
+                    return <>
+                            {
+                                item.product ?
+                                <BasketItem 
+                                    key={item.product._id}
+                                    source= {item.product.image}
+                                    produitContent= {item.product.name}
+                                    prixContent= {item.totalPrice * item.quantity}
+                                    quantity = {item.quantity}
+                                    onclick= {() => onQuantityClick(item.quantity, item.totalPrice )}
+                                /> :
+                                    <EmptyBasket/>
+                            }
+                        </>
                  })}
             <Footer/>
         </Container>
