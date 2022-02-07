@@ -50,6 +50,7 @@ const ProduitDropDown = ({isVisible, setIsVisible}) => {
             {categories.map(category => 
             <Element onClick={onElementClick}><Link to={`/categories/${category._id}`}> {category.name} </Link></Element>
                 )}
+                <Element onClick={onElementClick}> <Link to='/products'> Tous nos produits </Link></Element> 
         </Container>
     )
 };
