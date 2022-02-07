@@ -26,7 +26,7 @@ const Paragraph = styled.p`
 const CommentCaMarche = () => {
     return (
         <Section>
-            <h1>comment ça marche</h1>
+            <h1>Comment ça marche ?</h1>
             <DescriptionRow justifyContent= "space-around">
                 <LogoContainer>
                     <Logo className="fas fa-truck"></Logo>
