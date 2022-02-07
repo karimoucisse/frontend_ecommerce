@@ -61,7 +61,7 @@ const Logo = styled.i`
 `
 
 const FormLogin = () => {
-    const {user, setUser} = useContext(UserContext)
+    const {setUser} = useContext(UserContext)
     const navigate = useNavigate()
     const [isHidden, setIsHidden] = useState(true)
 
@@ -103,7 +103,6 @@ const FormLogin = () => {
             navigate('/')
         }
     }
-    console.log(user);
 
   return (
         <FormContainer 

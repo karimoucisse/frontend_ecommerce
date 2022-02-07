@@ -5,6 +5,7 @@ import BasketItem from "../components/BasketItem";
 import { useState, useEffect, useContext } from "react";
 import Loading from "../components/Loading";
 import { UserContext } from "../context/User";
+import EmptyBasket from "../components/EmptyBasket"
 
 // const Title = styled.h1`
 //     text-align: center;
@@ -57,7 +58,7 @@ const Panier = () => {
     return (
         <Container>
             <Header/>
-                {/* {!user && <EmptyBasket/>} */}
+                {!items && <EmptyBasket/>}
                 {items.map(item => {
                     return <BasketItem 
                                 key={item.product._id}

@@ -9,7 +9,6 @@ import Section from "../components/Section";
 import CardHomepage from "../components/CardHomepage";
 import Container from "../components/Container";
 import { useNavigate } from "react-router-dom";
-import QuantityButton from "../components/QuantityButton";
 import CommentCaMarche from "../components/CommentCaMarche";
 
 const ImageContainer = styled.div`
@@ -143,7 +142,6 @@ const Home = () => {
                                             source = {image.source}
                                             borderRadius={image.borderRadius}
                                         />
-                                        {/* <QuantityButton margin= "0"/> */}
                                     </Card>
                                 )
                             })}

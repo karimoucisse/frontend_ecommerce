@@ -10,6 +10,7 @@ import Image from '../components/Image';
 import BackGroundImage from '../components/BackGroundImage';
 import Section from '../components/Section';
 import Footer from '../components/Footer';
+import Loading from '../components/Loading';
 
 
 const Flex = styled.div`
@@ -44,7 +45,7 @@ const CategoryPage = () => {
 
     if (!category) {
         return (
-            <p> Loading... </p>
+            <Loading/>
         )
     }
 

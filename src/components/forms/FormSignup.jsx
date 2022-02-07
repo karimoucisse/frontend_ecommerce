@@ -3,8 +3,9 @@ import Button from "../Button";
 import Input from "../Input";
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from 'react-router';
+import { UserContext } from "../../context/User";
 
 const FormContainer = styled.form`
     display: flex;
@@ -62,6 +63,7 @@ const Logo = styled.i`
 const FormSignup = () => {
     const navigate = useNavigate()
     const [isHidden, setIsHidden] = useState(true)
+    const {setUser} = useContext(UserContext)
 
     const formik = useFormik({
         initialValues: {
@@ -112,6 +114,7 @@ const FormSignup = () => {
             alert("Error")
         } else {
             const userLogged = await response.json()
+            setUser(userLogged)
             navigate('/')
         }
     }
