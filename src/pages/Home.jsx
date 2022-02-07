@@ -36,10 +36,9 @@ display: flex;
 justify-content: space-between;
 margin: 5px;
 `
-
 const H = styled.h4`
-margin: 5px;`
-
+margin: 5px;
+font-size: 20px;`
     
 
 const Home = () => {
@@ -167,11 +166,11 @@ const Home = () => {
                      
                 </ImageContainer>
             </Section>
-            <Section>
+            <Section >
                 <h1>La pêche du jour </h1>
                 <GridContainerProduct>
                     {laPecheDuJour.products.map(product => (
-                    <Card flexDirection='column' height='250px' width='250px' > 
+                    <Card flexDirection='column'height='250px' width='250px' justifyContent='flex-start'  > 
                         <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
                         <H> {product.name} </H>
                         <Flex> 

@@ -53,10 +53,12 @@ const CalendarStyle= styled.div`
 `
 const ModeDeLivraison = () => {
     const { cart } = useContext(CartContext)
+
     console.log(cart ,'le log du state cart');
 
     const [input, setInput] = useState('')
     console.log("je recupere la donné state input" ,input);
+
 return (
         <div>
             <Header/>
