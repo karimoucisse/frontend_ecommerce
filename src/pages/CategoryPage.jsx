@@ -66,24 +66,12 @@ const CategoryPage = () => {
             <p> Loading... </p>
         )
     }
-
-
+    
     return (
         <>
             <Header/>
             <BackGroundImage height='400px' src={category.image} alt={category.name} />
-             <H2> {category.name} </H2>
-             <Row justifyContent = "space-between" margin= "20px 0" padding= "0 70px" >
-                <Input
-                    placeholder= "Chercher votre produit ..."
-                    onChange={handleFilter} 
-                    value={filter}   
-                    label="Produit"
-                    sx={{width : 500}} 
-
-                />
-                <SelectPrice onChange={handleSelect} sx={{width : 200}} />
-            </Row>
+            <H2> {category.name} </H2>
                 <Section flexDirection='row' margin='80px 0px' alignItems='center'>  
                     <GridContainerProduct>
                         {category.products.map(product => 
