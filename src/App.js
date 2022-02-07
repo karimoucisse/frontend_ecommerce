@@ -16,7 +16,6 @@ import { CartContextProvider } from './context/Cart';
 import Products from './pages/Products'
 import CategoryPage from './pages/CategoryPage';
 const App = () => {
-  const {user} = useContext(UserContext)
   return (
     <UserContextProvider>
       <CartContextProvider>
