@@ -1,5 +1,5 @@
-const getCategory = async _id => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/categories/${_id}`, {
+const getCategory = async (_id, sort, filter) => {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/categories/${_id}?sort=${sort}&filter=${filter}`, {
       credentials: "include"
     })
 
