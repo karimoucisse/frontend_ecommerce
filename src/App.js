@@ -9,34 +9,39 @@ import Login from './pages/Login';
 import ModeDeLivraison from './pages/ModeDeLivraison';
 import Signup from './pages/Signup';
 import Product from './pages/Product';
+import Contacter from './pages/Contacter'
 import Panier from './pages/Panier';
 import NotreHistoire from './pages/NotreHistoire';
 import Profil from './pages/Profil';
 import { CartContextProvider } from './context/Cart';
+import { LineItemContextProvider } from './context/LineItem';
 import Products from './pages/Products'
 import CategoryPage from './pages/CategoryPage';
 const App = () => {
   const {user} = useContext(UserContext)
   return (
-    <UserContextProvider>
-      <CartContextProvider>
-        <BrowserRouter>
-          <GlobalStyle/>
-          <Routes>
-            <Route exact path="/" element={<Home/>}/>
-            <Route exact path="/modedelivraison" element={<ModeDeLivraison/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/signup" element={<Signup/>}/>
-            <Route path="/categories/:id" element={<CategoryPage/>}/>
-            <Route path="/histoire" element={<NotreHistoire/>}/>
-            <Route path="/product/:id" element={<Product/>}/>
-            <Route path="/products" element={<Products/>}/>
-            <Route path="/panier" element={<Panier/>}/>
-            <Route path="/profil" element={<Profil/>}/>
-          </Routes>
-        </BrowserRouter>
-      </CartContextProvider>
-    </UserContextProvider>
+  <BrowserRouter>
+    <LineItemContextProvider>
+      <UserContextProvider>
+        <CartContextProvider>
+            <GlobalStyle/>
+            <Routes>
+              <Route exact path="/" element={<Home/>}/>
+              <Route exact path="/modedelivraison" element={<ModeDeLivraison/>}/>
+              <Route path="/login" element={<Login/>}/>
+              <Route path="/signup" element={<Signup/>}/>
+              <Route path="/categories/:id" element={<CategoryPage/>}/>
+              <Route path="/histoire" element={<NotreHistoire/>}/>
+              <Route path="/product/:id" element={<Product/>}/>
+              <Route path="/products" element={<Products/>}/>
+              <Route path="/panier" element={<Panier/>}/>
+              <Route path="/profil" element={<Profil/>}/>
+              <Route path="/contacte" element={<Contacter/>}/>
+            </Routes>
+        </CartContextProvider>
+      </UserContextProvider>
+    </LineItemContextProvider>
+  </BrowserRouter>
   )
 };
 

@@ -39,7 +39,7 @@ const Panier = () => {
                                 prixContent= {item.totalPrice}
                             />
                     
-                 })} 
+                })} 
             <Footer/>
         </Container>
     )
