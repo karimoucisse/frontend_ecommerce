@@ -1,9 +1,9 @@
 import Container from "../components/Container"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import EmptyBasket from "../components/EmptyBasket";
+// import EmptyBasket from "../components/EmptyBasket";
 import BasketItem from "../components/BasketItem";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 // const Title = styled.h1`
 //     text-align: center;

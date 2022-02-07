@@ -18,6 +18,7 @@ import Panier from './pages/Panier';
 import NotreHistoire from './pages/NotreHistoire';
 import Profil from './pages/Profil';
 import { CartContextProvider } from './context/Cart';
+
 const App = () => {
   const {user} = useContext(UserContext)
   return (
