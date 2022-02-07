@@ -47,12 +47,12 @@ const CategoryPage = () => {
             <p> Loading... </p>
         )
     }
-
+    
     return (
         <>
             <Header/>
             <BackGroundImage height='400px' src={category.image} alt={category.name} />
-             <H2> {category.name} </H2>
+            <H2> {category.name} </H2>
                 <Section flexDirection='row' margin='80px 0px' alignItems='center'>  
                     <GridContainerProduct>
                         {category.products.map(product => 

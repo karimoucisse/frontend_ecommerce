@@ -44,8 +44,8 @@ const Title= styled.div`
     margin: 50px 15px 0px 25px;
     padding-left: 40%;
     justify-content: center;
-  `
-  const CalendarStyle= styled.div`
+`
+const CalendarStyle= styled.div`
     display: flex ;
     justify-content: center;
     margin-bottom: 5%;
@@ -57,7 +57,7 @@ const ModeDeLivraison = () => {
 
     const [input, setInput] = useState('')
     console.log("je recupere la donné " ,input);
- return (
+return (
         <div>
             <Header/>
                 <Title><h2>Mode de Livraison</h2> </Title>
