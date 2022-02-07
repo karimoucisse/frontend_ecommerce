@@ -53,7 +53,7 @@ const Title= styled.div`
 `
 const ModeDeLivraison = () => {
     const { cart } = useContext(CartContext)
-    console.log(cart ,'wchla mif');
+    console.log(cart._id ,'wchla mif');
 
     const [input, setInput] = useState('')
     console.log("je recupere la donné " ,input);

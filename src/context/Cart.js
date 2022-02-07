@@ -21,7 +21,7 @@ const CartContextProvider = props => {
         const data = await response.json()
         setCart(data)
     }
-    
+    console.log("log cart context",cart);
     const value = {
         cart,
         setCart,
