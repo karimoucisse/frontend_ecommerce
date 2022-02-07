@@ -7,7 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
 import { useState, useEffect } from 'react';
-import getCategories from '../api/getCategories'
+import getCategories from '../api/getCategories';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -34,6 +34,7 @@ const SelectCategory = ({ onChange, selectedCategories }) => {
       setCategories(categories)
       console.log("My categories", categories)
   }
+
 
   return (
     <div>

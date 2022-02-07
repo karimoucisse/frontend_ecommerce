@@ -41,15 +41,15 @@ cursor: pointer;
 const Array = [
     {
         title : "CATEGORIES",
-        paragraphe0 : "Poisson entier",
-        paragraphe1 : "filet de poisson",
-        paragraphe2 : "Coquillages et crustacée",
+        paragraphe0 : "Poissons entiers",
+        paragraphe1 : "Filet de poisson",
+        paragraphe2 : "Coquillages et crustacés",
         paragraphe3 : " Produit en période de fête",
     },
     {
-        title : "IMFORMATION",
+        title : "INFORMATION",
         paragraphe0 : "Contactez-nous",
-        paragraphe1 : "Qui sommes-nous",
+        paragraphe1 : "Qui sommes-nous ?",
         paragraphe2 : "Livraison by Express Chronofresh",
         paragraphe3 : " Politique de confidentalité",
     }   
@@ -59,7 +59,7 @@ const Array = [
         paragraphe0 : "Mes commandes",
         paragraphe1 : "Mes avoirs",
         paragraphe2 : "Mes adresses",
-        paragraphe3 : "Mes informations personnelle",
+        paragraphe3 : "Mes informations personnelles",
     }
 ]
 
@@ -67,7 +67,7 @@ const Footer = () => {
     const navigate = useNavigate()
 
     const oncliCkNavigate = (content) => {
-        if(content === "Qui sommes-nous") {
+        if(content === "Qui sommes-nous ?") {
             navigate("/histoire")
         }
     }

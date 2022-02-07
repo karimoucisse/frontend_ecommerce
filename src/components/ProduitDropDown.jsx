@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import getCategories from '../api/getCategories'
+
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -26,6 +29,17 @@ const Element = styled.div`
     }
 `
 const ProduitDropDown = ({isVisible, setIsVisible}) => {
+    const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    fetchCategories()
+  }, [])
+
+  const fetchCategories = async () => {
+      const categories = await getCategories()
+      setCategories(categories)
+      console.log("My categories", categories)
+  }
 
     const onElementClick = () => {
         setIsVisible(false)
@@ -33,11 +47,9 @@ const ProduitDropDown = ({isVisible, setIsVisible}) => {
     
   return (
         <Container isVisible= {isVisible} >
-            <Element onClick={onElementClick}><Link to= "/poisson_entiers">Nos poisson entiers</Link></Element>
-            <Element onClick={onElementClick}><Link to= "/coquillages">Nos coquillages</Link></Element>
-            <Element onClick={onElementClick}><Link to= "/crustaces">Nos crustacés</Link></Element>
-            <Element onClick={onElementClick}><Link to= "/produit_festif">Nos Produit festif</Link></Element>
-            <Element onClick={onElementClick}><Link to= "/fillet_de_poissons">Nos fillet de poisson</Link></Element>
+            {categories.map(category => 
+            <Element onClick={onElementClick}><Link to={`/categories/${category._id}`}> {category.name} </Link></Element>
+                )}
         </Container>
     )
 };
