@@ -8,6 +8,7 @@ const Container = styled.div`
     margin: ${(props) => props.margin ? props.margin : "50px 0 0 0"};
     padding: ${(props) => props.padding ? props.padding : "0 0 0 0"};
     border: ${(props) => props.border ? props.border : "none"};
+    flex-wrap: ${(props) => props.flexWrap ? props.flexWrap : "no-wrap"};
     gap: 30px;
 `
 
@@ -18,7 +19,8 @@ const Section = ({
   alignItems, 
   margin, 
   padding,
-  border
+  border,
+  flexWrap
 }) => {
   return (
     <Container
@@ -28,6 +30,7 @@ const Section = ({
         margin = {margin}
         padding = {padding}
         border= {border}
+        flexWrap= {flexWrap}
     >
         {children}
     </Container>

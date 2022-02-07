@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Picker from '../components/Picker';
@@ -6,6 +6,10 @@ import styled from 'styled-components';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import Row from '../components/Row'; 
+import { useState, } from 'react';
+import { CartContext } from '../context/Cart';
+
+
 const Style = styled.div`
     display: flex;
     flex-direction: row;
@@ -40,20 +44,20 @@ const Title= styled.div`
     margin: 50px 15px 0px 25px;
     padding-left: 40%;
     justify-content: center;
-  `
-  const CalendarStyle= styled.div`
+`
+const CalendarStyle= styled.div`
     display: flex ;
     justify-content: center;
     margin-bottom: 5%;
 
 `
-const SelectTime= styled.div`
-    width: 15%;
-    height:15% ;
-    margin: 5%;
-` 
 const ModeDeLivraison = () => {
-    return (
+    const { cart } = useContext(CartContext)
+    console.log(cart ,'le log du state cart');
+
+    const [input, setInput] = useState('')
+    console.log("je recupere la donné state input" ,input);
+return (
         <div>
             <Header/>
                 <Title><h2>Mode de Livraison</h2> </Title>
@@ -73,7 +77,7 @@ const ModeDeLivraison = () => {
                                 </Form>   
                                     <img 
                                         src = "https://tinyurl.com/yckw5h4x" 
-                                        alt="popo "
+                                        alt="ChronofrshLogo "
                                         style={{ height:"250px" ,marginTop:"80px"}}/>
                             </Card>
                             <Card marginTop="10%" width="500px" flex-direction= "column" background="#a3c4f3">
@@ -94,7 +98,7 @@ const ModeDeLivraison = () => {
                                 </Form>         
                                                 <img 
                                                 src = "https://tinyurl.com/2p8r9frh" 
-                                                alt="popo "
+                                                alt="Sofresh "
                                                 style={{ height:"200px" ,marginTop:"100px"}}/>
                             </Card> 
                         </Style> 
@@ -104,18 +108,12 @@ const ModeDeLivraison = () => {
                                     bien vouloir le renseigner dans le champ ci-contre.
                                     </label> </h2> 
                                     <textarea id="story" name="story"
-                                    rows="5" cols="33">
+                                    rows="5" cols="33" value={input} onChange ={e => setInput(e.target.value)}>
                                     Message à propos de votre commande...
-                                    </textarea>
+                                    </textarea>            
                         </Alignement>  
                             <CalendarStyle>
                                 <Picker/>
-                                    <SelectTime>      
-                                        <h3><label for="appt"> Choisisez votre heure de Livraison </label>
-                                            <input type="time" id="appt" name="appt"  
-                                                min="09:00" max="13:00" required/> 
-                                                    <small>9h00-13h00</small>     </h3>  
-                                    </SelectTime> 
                             </CalendarStyle>
                                 <Row alignItems="center" >
                                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -123,7 +121,23 @@ const ModeDeLivraison = () => {
                                     Maiores commodi repellat a incidunt molestias quasi ratione,
                                     esse modi nobis at.</p>
                                     <Button background= "endregion"  height="100px" width="200px" margin="150px 40px 30px 80px" >Payer</Button> 
-                            </Row>
+                                </Row>
+                            {/* {cart && cart.map(element => (
+                                element.lineItems.map(item => (
+                                    <div>
+                                        <h4>PrixKilo: {item.product.kiloPrice}</h4>
+                                        <h4>Conditionnement: {item.product.conditioning}</h4>
+                                        <h4>Zone de pêche: {item.product.fishingArea}</h4>
+                                        <h4>Poids Net: {item.product.netWeight}</h4>
+                                        <h4>Prix à la piéce {item.product.pricePerPiece}</h4>
+                                        <h4>Prix au Kilo: {item.product.kiloPrice}</h4>
+                                        <h4>Quantitée: {item.quantity}</h4>
+                                        <h4>Poids total: {item.weight}</h4>
+                                        <h4>Total Pièces: {item.totalPrice}</h4>
+                                    </div>        
+                                )) 
+                            ))
+                            } */}
                         <Footer/>
         </div>
     );

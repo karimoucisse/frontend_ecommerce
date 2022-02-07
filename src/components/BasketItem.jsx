@@ -15,7 +15,7 @@ const Element = styled.div`
 const BasketItem = ({produitContent, prixContent, source }) => {
     return (
         <Container 
-            height= "60vh" 
+            height= "140" 
             display= "flex" 
             alignItems= "none"
             padding= "40px 0 0 0 "

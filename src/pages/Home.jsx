@@ -6,11 +6,14 @@ import Row from "../components/Row";
 import Image from "../components/Image";
 import Card from "../components/Card";
 import Section from "../components/Section";
-import CardHomepage from "../components/CardHomepage";
 import Container from "../components/Container";
-import { useNavigate } from "react-router-dom";
-import QuantityButton from "../components/QuantityButton";
+import { useNavigate, Link } from "react-router-dom";
 import CommentCaMarche from "../components/CommentCaMarche";
+import {useEffect, useState} from 'react';
+import getCategories from "../api/getCategories";
+import GridContainerProduct from "../components/GridContainerProduct";
+
+
 
 const ImageContainer = styled.div`
     height: 600px;
@@ -28,7 +31,30 @@ const ProductTitle = styled.h2`
     text-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 `
 
+const Flex = styled.div`
+display: flex;
+justify-content: space-between;
+margin: 5px;
+`
+
+const H = styled.h4`
+margin: 5px;`
+
+    
+
 const Home = () => {
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        fetchCategories()
+      }, [])
+    
+      const fetchCategories = async () => {
+          const categories = await getCategories()
+          setCategories(categories)
+          console.log("My categories home", categories)
+      }
+
     const navigate = useNavigate();
     const ProductListImages = [
         [
@@ -56,33 +82,33 @@ const Home = () => {
                 source: "https://res.cloudinary.com/hv9ssmzrz/image/fetch/c_fill,f_auto,h_488,q_auto,w_650/https://images-ca-1-0-1-eu.s3-eu-west-1.amazonaws.com/photos/original/1196/homard-pixabay-lobster-4952603_1280.jpg", 
                 borderRadius: "0 0 0 20px",
                 width: "400px",
-                content: "Nos produit festif"
+                content: "Nos produits festifs"
 
             },
             {
                 source: "https://larecette.net/wp-content/uploads/2019/11/iStock-469781786-1152x768.jpg",
                 borderRadius: "0 0 20px 0",
                 width: "800px",
-                content: "Nos fillet de poissons"
+                content: "Nos filets de poisson"
             }
         ]
     ]
     const onclickNavigate = (content) => {
         switch (content) {
             case 'Nos  poissons entiers':
-                navigate("/poisson_entiers")
+                navigate("/categories/61fd213faab4a988cfb816b7")
                 break;
             case 'Nos coquillages':
-                navigate("/coquillages")
+                navigate("/categories/61fd20b9aab4a988cfb816b5")
                 break;
             case 'Nos crustacés':
-                navigate("/crustaces")
+                navigate("/categories/61f7b97f6384d88156c62890")
                 break;
-            case 'Nos produit festif':
-                navigate("/produit_festif")
+            case 'Nos produits festifs':
+                navigate("/categories/61fd22dcaab4a988cfb816bb")
                 break;
-            case 'Nos fillet de poissons':
-                navigate("/fillet_de_poissons")
+            case 'Nos filets de poisson':
+                navigate("/categories/61fd2238aab4a988cfb816b9")
                 break;
             
             default:
@@ -90,6 +116,19 @@ const Home = () => {
         }
         console.log("hello");
     }
+
+    const category = "La pêche du jour"
+    const laPecheDuJour = categories.find(element => element.name = category)
+
+    
+
+    if (!laPecheDuJour) {
+        return (
+            <p> Loading ... </p>
+        )
+        
+    } 
+
     return ( 
         <Container>
             <Header/>
@@ -130,19 +169,18 @@ const Home = () => {
             </Section>
             <Section>
                 <h1>La pêche du jour </h1>
-                {CardHomepage.map((card, cardIndex) => {
-                    return <Row gap= "30px" key={cardIndex}>
-                            {card.map((image, index) => {
-                                return <Card key={index} flexDirection= "column" justifyContent= "flex-end">
-                                    <Image
-                                        source = {image.source}
-                                        borderRadius={image.borderRadius}
-                                    />
-                                    <QuantityButton margin= "0"/>
-                                </Card>
-                            })}
-                        </Row>
-                })}
+                <GridContainerProduct>
+                    {laPecheDuJour.products.map(product => (
+                    <Card flexDirection='column' height='250px' width='250px' > 
+                        <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
+                        <H> {product.name} </H>
+                        <Flex> 
+                            <p> Prix au kilo : {product.kiloPrice}€ </p>
+                            <Link to={`/product/${product._id}`} style={{color : 'black', fontSize: '15px'}}> Détails </Link>
+                        </Flex> 
+                    </Card>
+                    ))}
+                </GridContainerProduct>
             </Section>
             <CommentCaMarche/>
             <Footer/>
@@ -151,3 +189,4 @@ const Home = () => {
 };
 
 export default Home;
+

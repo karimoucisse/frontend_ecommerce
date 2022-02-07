@@ -10,15 +10,34 @@ import Input from '../components/Input';
 import SelectPrice from '../components/SelectPrice'
 import useDebounce from '../hooks/Debounce';
 import SelectCategory from '../components/SelectCategory'
-import SearchIcon from '@mui/icons-material/Search';
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import BackGroundImage from '../components/BackGroundImage';
+import Container from '../components/Container';
+import GridContainerProduct from '../components/GridContainerProduct';
+
 
 const Flex = styled.div`
 display: flex;
 justify-content: space-between;
-margin: 5px`
+margin: 5px;
+height: 70px;
+`
 
 const H = styled.h4`
-margin: 5px`
+margin: 5px;`
+
+const H2 = styled.h2`
+text-align: center;
+margin: 20px;`
+
+const Button = styled.button`
+border: none;
+text-decoration: none;
+cursor: pointer;
+background: none;`
+
+
 
 const Products = () => {
     const [products, setProducts] = useState(null)
@@ -63,9 +82,11 @@ const Products = () => {
     }
         console.log(selectedCategories)
     return (
-        <div>
-           <h2> Tous nos produits </h2> 
-            <Row justifyContent = "space-between" margin= "20px 0" padding= "0 70px">
+        <Container>
+            <Header />
+            <BackGroundImage height='400px' src='https://img.freepik.com/photos-gratuite/vue-dessus-variete-poissons-fruits-mer-frais-glace_126277-744.jpg?size=626&ext=jpg' alt='poissons' />
+           <H2> Tous nos produits </H2> 
+            <Row justifyContent = "space-between" margin= "20px 0" padding= "0 70px" >
                 <SelectCategory
                     onChange={handleCategories}
                     selectedCategories={selectedCategories}
@@ -80,20 +101,22 @@ const Products = () => {
                 />
                 <SelectPrice onChange={handleSelect} sx={{width : 200}} />
             </Row>
-           <Section flexDirection='row'> 
+           <Section flexDirection='row' margin='80px 0px' alignItems='center'>  
+            <GridContainerProduct>
             {products.map(product => 
-                <Card flexDirection='column' height='200px' width='200px' justifyContent='space-between'> 
-                    <Image source={product.image} alt={product.name} height='140px' width='200px' borderRadius='20px 20px 0px 0px'/>
+                <Card flexDirection='column' height='250px' width='250px' > 
+                    <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
                     <H> {product.name} </H>
                     <Flex> 
                         <p> Prix au kilo : {product.kiloPrice}€ </p>
-                        <p> II </p>
+                        <Button> Détails </Button>
                     </Flex> 
                 </Card>)}
+            </GridContainerProduct>
            </Section>
+           <Footer/>
            
-           
-        </div>
+        </Container>
     );
 };
 
