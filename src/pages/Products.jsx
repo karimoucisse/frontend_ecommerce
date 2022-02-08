@@ -15,13 +15,13 @@ import Footer from '../components/Footer'
 import BackGroundImage from '../components/BackGroundImage';
 import Container from '../components/Container';
 import GridContainerProduct from '../components/GridContainerProduct';
+import {Link} from 'react-router-dom'
 
 
 const Flex = styled.div`
 display: flex;
 justify-content: space-between;
 margin: 5px;
-height: 70px;
 `
 
 const H = styled.h4`
@@ -31,11 +31,6 @@ const H2 = styled.h2`
 text-align: center;
 margin: 20px;`
 
-const Button = styled.button`
-border: none;
-text-decoration: none;
-cursor: pointer;
-background: none;`
 
 
 
@@ -109,7 +104,7 @@ const Products = () => {
                     <H> {product.name} </H>
                     <Flex> 
                         <p> Prix au kilo : {product.kiloPrice}€ </p>
-                        <Button> Détails </Button>
+                        <Link to={`/product/${product._id}`} style={{color : 'black', fontSize: '15px'}}> Détails </Link>
                     </Flex> 
                 </Card>)}
             </GridContainerProduct>
