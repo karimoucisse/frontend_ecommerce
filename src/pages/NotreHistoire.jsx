@@ -1,13 +1,15 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import Card from "../components/Card";
 import Container from "../components/Container";
 import Footer from "../components/Footer";
-// import GridProducts from "../../components/GridProducts";
 import Header from "../components/Header";
 import Row from "../components/Row";
 import Image from '../components/Image';
 import Fade from 'react-reveal/Fade'
+import { LineItemContext } from '../context/LineItem.js'
 const NotreHistoire = () => {
+    const {lineItems} = useContext(LineItemContext)
+    console.log('line',lineItems);
     return (
         <Container>
             <Header/>
