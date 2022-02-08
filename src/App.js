@@ -17,6 +17,7 @@ import { CartContextProvider } from './context/Cart';
 import { LineItemContextProvider } from './context/LineItem';
 import Products from './pages/Products'
 import CategoryPage from './pages/CategoryPage';
+import PaymentPage from './pages/PaymentPage'
 const App = () => {
   const {user} = useContext(UserContext)
   return (
@@ -37,6 +38,7 @@ const App = () => {
               <Route path="/panier" element={<Panier/>}/>
               <Route path="/profil" element={<Profil/>}/>
               <Route path="/contacte" element={<Contacter/>}/>
+              <Route path="/checkout" element={<PaymentPage/>}/>
             </Routes>
         </CartContextProvider>
       </UserContextProvider>
