@@ -12,22 +12,18 @@ const CartContextProvider = props => {
 
     
     useEffect(() => {
-        // getCart() 
         if(localStorage.getItem("id")) {
-            // getCart()
-            console.log("yes");
+            getCartById(localStorage.getItem("id"))
         }else {
-            console.log("no");
             localStorage.setItem("id", cartId )
-            createCart({
-                user: user._id,
-                
-             })
+            createCart()
         }
+
     },[])
+
     
     const createCart = async values => {
-        const response = await fetch ('http://localhost:5000/carts', {
+        const response = await fetch (`${API}`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
@@ -36,10 +32,10 @@ const CartContextProvider = props => {
             body: JSON.stringify(values)
         })
         if(response.status >= 400) {
-            alert("Error")
+            console.log("error");
         } else {
             const cartCreate = await response.json()
-            console.log(cartCreate)
+            setCardId(cartCreate._id)
         }
     }
 
@@ -51,17 +47,18 @@ const CartContextProvider = props => {
     //     const data = await response.json()
     //     setCart(data)
     // }
-    // const getCartById = async () => {
-    //     const response = await fetch(`${API}/`, {
-    //         credentials: 'include'
-    //     })
-    //     const data = await response.json()
-    //     setCardId(data)
-    // }
+
+    const getCartById = async (id) => {
+        const response = await fetch(`${API}/${id}`, {
+            credentials: 'include'
+        })
+        const data = await response.json()
+        setCart(data)
+    }
     
     const value = {
         cart,
-        setCart,
+        setCart
     }
 
     return (

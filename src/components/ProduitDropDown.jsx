@@ -39,7 +39,6 @@ const ProduitDropDown = ({isVisible, setIsVisible}) => {
   const fetchCategories = async () => {
       const categories = await getCategories()
       setCategories(categories)
-      console.log("My categories", categories)
   }
 
     const onElementClick = () => {
@@ -48,16 +47,10 @@ const ProduitDropDown = ({isVisible, setIsVisible}) => {
     
   return (
         <Container isVisible= {isVisible} >
-            {categories.map(category => {
-                return (
-                        <Element onClick={onElementClick}>
-                            <Link to={`/categories/${category._id}`} style = {{width: "100%"}}> 
-                                {category.name} 
-                            </Link>
-                        </Element>
-                    )
-                }
-            )}
+            {categories.map(category => 
+            <Element onClick={onElementClick}><Link to={`/categories/${category._id}`}> {category.name} </Link></Element>
+                )}
+                <Element onClick={onElementClick}> <Link to='/products'> Tous nos produits </Link></Element> 
         </Container>
     )
 };

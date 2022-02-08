@@ -27,51 +27,52 @@ const Panier = () => {
         setItems(data)
     }
     if(!items) {
-        return <Loading height= "50vh"/>
+        return <Loading/>
     }
-    const onQuantityClick = (prixContent, quantity ) => {
-        const content = {
-            prixContent,
-            quantity
-        }
-        modifyItem(content)
-        console.log("onQuantityClick");
-    }
+    // const onQuantityClick = (prixContent, quantity ) => {
+    //     const content = {
+    //         prixContent,
+    //         quantity
+    //     }
+    //     modifyItem(content)
+    //     console.log("onQuantityClick");
+    // }
 
-    const modifyItem = async values => {
-        const response = await fetch ('http://localhost:5000/auth/signup', {
-            method: 'put',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-            body: JSON.stringify(values)
-        })
-        if(response.status >= 400) {
-            alert("Error")
-        } else {
-            const modifiedItem = await response.json()
-        }
-        getItems()
-    }
+    // const modifyItem = async values => {
+    //     const response = await fetch ('http://localhost:5000/auth/signup', {
+    //         method: 'put',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         credentials: 'include',
+    //         body: JSON.stringify(values)
+    //     })
+    //     if(response.status >= 400) {
+    //         alert("Error")
+    //     } else {
+    //         const modifiedItem = await response.json()
+    //     }
+    //     getItems()
+    // }
     console.log("items:" , items );
     return (
         <Container>
             <Header/>
                 {items.map(item => {
                     return <>
-                            {
-                                item.product ?
+                            {/* {
+                                item.product ? */}
                                 <BasketItem 
                                     key={item.product._id}
                                     source= {item.product.image}
                                     produitContent= {item.product.name}
                                     prixContent= {item.totalPrice * item.quantity}
                                     quantity = {item.quantity}
-                                    onclick= {() => onQuantityClick(item.quantity, item.totalPrice )}
-                                /> :
-                                    <EmptyBasket/>
-                            }
+                                    // onclick= {() => onQuantityClick(item.quantity, item.totalPrice )}
+                                /> 
+                                {/* :
+                                   <EmptyBasket/>
+                             } */}
                         </>
                  })}
             <Footer/>

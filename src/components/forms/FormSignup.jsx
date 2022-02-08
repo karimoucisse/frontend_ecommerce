@@ -124,7 +124,7 @@ const FormSignup = () => {
         >
             <InputContainer>
                 <Input
-                    placeholder="prénom"
+                    placeholder="Prénom"
                     type= "text"
                     name="firstName"
                     value= {formik.values.firstName}
@@ -136,7 +136,7 @@ const FormSignup = () => {
             </InputContainer>
             <InputContainer>
                 <Input
-                    placeholder= "nom"
+                    placeholder= "Nom"
                     type= "text"
                     name= "name"
                     value= {formik.values.name}
@@ -148,7 +148,7 @@ const FormSignup = () => {
             </InputContainer>
             <InputContainer>
                 <Input
-                    placeholder= "date de naissance"
+                    placeholder= "Date de naissance"
                     name = "birthDate"
                     value= {formik.values.birthDate}
                     onChange={formik.handleChange}
@@ -171,7 +171,7 @@ const FormSignup = () => {
             </InputContainer>
             <InputContainer>
                 <Input
-                    placeholder= "Password"
+                    placeholder= "Mot de passe"
                     type= {isHidden ? "password" : "text"}
                     name= "password"
                     value= {formik.values.password}
@@ -187,7 +187,7 @@ const FormSignup = () => {
             </InputContainer>
             <InputContainer>
                 <Input
-                    placeholder= "telephone"
+                    placeholder= "Téléphone"
                     name= "phoneNumber"
                     value= {formik.values.phoneNumber}
                     onChange={formik.handleChange}
@@ -198,7 +198,7 @@ const FormSignup = () => {
             </InputContainer>
             <InputContainer>
                 <Input
-                    placeholder= "address"
+                    placeholder= "Adresse"
                     type= "text"
                     name= "adress"
                     value= {formik.values.adress}

@@ -30,7 +30,7 @@ const Content = styled.div`
 
 
 const Product = () => {
-    const { cart } = useContext(CartContext)
+    const { cart, cartId } = useContext(CartContext)
     const {id} = useParams()
     const [product, setProduct] = useState(null)
     const [quantityNumber, setQuantityNumber] = useState(0)
@@ -42,7 +42,6 @@ const Product = () => {
     const fetchProduct = async () => {
         const product = await getProduct(id)
         setProduct(product)
-        console.log("My product", product)
     }
 
 
@@ -68,6 +67,7 @@ const Product = () => {
     const onBasketClick = (values) => {
         postLineItems(values)
         console.log(values);
+        console.log("cart:", cart);
     }
 
     if (!product) {
@@ -75,7 +75,6 @@ const Product = () => {
            <Loading/>
         )
     }
-    console.log("cart:", cart);
     // const mapId = cart.map(car => console.log(car))
     // console.log("mon map",mapId);
     return (
@@ -101,11 +100,11 @@ const Product = () => {
                                     margin = "0" 
                                     setQuantityNumber = {setQuantityNumber}
                                     onBasketClick = {() => onBasketClick ({
+                                        cart:  cart._id,
                                         product:product._id ,
                                         quantity: quantityNumber,
                                         weight: quantityNumber * product.netWeight ,
                                         totalPrice: quantityNumber * product.pricePerPiece
-                                        // cart:  cart._id
                                     })}
                                 />   
                             </div>

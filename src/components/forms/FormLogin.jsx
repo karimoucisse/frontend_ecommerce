@@ -122,7 +122,7 @@ const FormLogin = () => {
             </InputContainer>
             <InputContainer>
                 <Input
-                    placeholder= "Password"
+                    placeholder= "Mot de passe"
                     type= {isHidden ? "password" : "text"}
                     name= "password"
                     value= {formik.values.password}
