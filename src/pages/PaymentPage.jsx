@@ -1,60 +1,15 @@
-import React, { useState, useEffect } from "react";
-// import "./App.css";
+import React from 'react'
+import FormPayment from '../components/forms/MyCheckoutForm';
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
-const ProductDisplay = () => { 
-    const postPayment = async (e) => {
-        e.preventDefault()
-        const response = await fetch('http://localhost:5000/create-checkout-session',{
-            method: "post", 
-        })
-    } 
-    return(
-    <section>
-        <div className="product">
-        <img
-            src="https://i.imgur.com/EHyR2nP.png"
-            alt="The cover of Stubborn Attachments"
-        />
-        <div className="description">
-        <h3>Stubborn Attachments</h3>
-        <h5>$20.00</h5>
-        </div>
-        </div>
-        <form onSubmit={postPayment}>
-        <button type="submit">
-            Checkout
-        </button>
-        </form>
-    </section>
-)};
-
-const Message = ({ message }) => (
-  <section>
-    <p>{message}</p>
-  </section>
-);
-
-export default function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
-    const query = new URLSearchParams(window.location.search);
-
-    if (query.get("success")) {
-      setMessage("Order placed! You will receive an email confirmation.");
-    }
-
-    if (query.get("canceled")) {
-      setMessage(
-        "Order canceled -- continue to shop around and checkout when you're ready."
-      );
-    }
-  }, []);
-
-  return message ? (
-    <Message message={message} />
-  ) : (
-    <ProductDisplay />
-  );
+const stripePromise = loadStripe("pk_test_51KQpt6Bv9r0udF87jbxII9G4HE30z6VEMe8Ji0gGfRBvDs6pgN074791nu1NjtfklN4LqbZStHF8LhUkLFPU17Dz00jt8x8wXe")
+function PaymentPage() {
+    return (
+        <Elements stripe={stripePromise} >
+            <FormPayment />
+        </Elements>
+    )
 }
+
+export default PaymentPage
