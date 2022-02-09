@@ -71,8 +71,8 @@ const CategoryPage = () => {
         <>
             <Header/>
             <BackGroundImage height='400px' src={category.image} alt={category.name} />
-             <H2> {category.name} </H2>
-             <Row justifyContent = "space-between" margin= "20px 0" padding= "0 70px" >
+            <H2> {category.name} </H2>
+            <Row justifyContent = "space-between" margin= "20px 0" padding= "0 70px" >
                 <Input
                     placeholder= "Chercher votre produit ..."
                     onChange={handleFilter} 
