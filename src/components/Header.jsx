@@ -24,13 +24,14 @@ const Container = styled.div`
     box-sizing: border-box;
 `
 const Logo = styled.img`
-    width: 55px;
+    width: 75px;
     height: 55px;
     font-size: 35px;
     display: flex;
     object-fit: cover;
     align-items: center;
-    border-radius: 50%;
+    /* border-radius: 50%; */
+    background-color: white;
 `
 const Nav = styled.nav`
     display: flex;
@@ -101,7 +102,7 @@ const Header = () => {
     }
     return (
         <Container>
-            <Link to= "/"><Logo src='/assets/logo.png'/></Link>
+            <Link to= "/"><Logo src='/assets/logo.svg'/></Link>
             <Nav>
                 <ProduitContainer onClick={onProduitClick}>
                     <h3>Nos Produits</h3>

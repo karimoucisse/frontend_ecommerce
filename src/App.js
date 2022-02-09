@@ -36,6 +36,7 @@ const App = () => {
               <Route path="/profil" element={<Profil/>}/>
               <Route path="/contacter" element={<Contacter/>}/>
               <Route path="/checkout" element={<PaymentPage/>}/>
+              <Route path="/checkout" element={<PaymentPage/>}/>
             </Routes>
         </CartContextProvider>
       </UserContextProvider>
