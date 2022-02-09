@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Search from './Search';
 import { useNavigate } from 'react-router';
 import { UserContext } from "../context/User";
+import { CartContext } from "../context/Cart";
 import { useContext, useState} from "react";
 
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
@@ -10,7 +11,7 @@ import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ProduitDropDown from './ProduitDropDown';
-
+import Loading from './Loading';
 const Container = styled.div`
     background-color: #023047;
     width: 100%;
@@ -83,7 +84,8 @@ const Icone = styled.i`
     }
 `
 const Header = () => {
-    const {user, setUser} = useContext(UserContext)
+    const {user} = useContext(UserContext)
+    const {cart} = useContext(CartContext)
     const [isVisible, setIsVisible] = useState(false)
     const [isSearchVisible, setIsSearchVisible] = useState(false)
     const navigate = useNavigate()
@@ -92,6 +94,10 @@ const Header = () => {
     }
     const onSearchClick = () => {
         setIsSearchVisible(!isSearchVisible)
+    }
+
+    if(!cart || !cart.lineItems) {
+        return <Loading/>
     }
     return (
         <Container>
@@ -124,7 +130,7 @@ const Header = () => {
                     }
                     <ZoomIcon onClick= {onSearchClick}/>
                     <Search isVisible={isSearchVisible}/>                        
-                    <Badge badgeContent={4} color="primary" onClick= {() => navigate("/panier")}>
+                    <Badge badgeContent={cart.lineItems.length} color="primary" onClick= {() => navigate("/panier")}>
                         <CartIcon color="action"  style={{ color: "#ffff"}}/>
                     </Badge>
                 </LogoContainer>

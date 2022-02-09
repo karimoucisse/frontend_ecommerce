@@ -11,6 +11,7 @@ import Image from '../components/Image';
 import BackGroundImage from '../components/BackGroundImage';
 import Section from '../components/Section';
 import Footer from '../components/Footer';
+import Loading from '../components/Loading';
 import Row from '../components/Row';
 import Input from '../components/Input';
 import SelectPrice from '../components/SelectPrice'
@@ -62,7 +63,7 @@ const CategoryPage = () => {
 
     if (!category) {
         return (
-            <p> Loading... </p>
+            <Loading/>
         )
     }
 
@@ -71,8 +72,8 @@ const CategoryPage = () => {
         <>
             <Header/>
             <BackGroundImage height='400px' src={category.image} alt={category.name} />
-             <H2> {category.name} </H2>
-             <Row justifyContent = "space-between" margin= "20px 0" padding= "0 70px" >
+            <H2> {category.name} </H2>
+            <Row justifyContent = "space-between" margin= "20px 0" padding= "0 70px" >
                 <Input
                     placeholder= "Chercher votre produit ..."
                     onChange={handleFilter} 

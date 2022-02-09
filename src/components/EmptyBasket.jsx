@@ -18,9 +18,9 @@ const EmptyBasket = () => {
             flexDirection= "column"
         >
             <Title>Votre panier est vide</Title>
-            <Section margin= "80px 0 0 0">
+            <Section margin= "40px 0 0 0">
                 <h3>En manque d'inspiration ?</h3>
-                <Button onclick= {() => navigate("/")}>Continuer Mes Achats</Button>
+                <Button onClickAction= {() => navigate("/")} padding= "5px 70px">Accueil</Button>
             </Section>
         </Container>
     )

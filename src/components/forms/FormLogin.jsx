@@ -61,7 +61,7 @@ const Logo = styled.i`
 `
 
 const FormLogin = () => {
-    const {user, setUser} = useContext(UserContext)
+    const {setUser} = useContext(UserContext)
     const navigate = useNavigate()
     const [isHidden, setIsHidden] = useState(true)
 
@@ -99,11 +99,10 @@ const FormLogin = () => {
             alert("Error")
         } else {
             const userLogged = await response.json()
-            // setUser(userLogged)
+            setUser(userLogged)
             navigate('/')
         }
     }
-    console.log(user);
 
   return (
         <FormContainer 
@@ -117,17 +116,19 @@ const FormLogin = () => {
                     value= {formik.values.email}
                     onChange={formik.handleChange}
                     border = {formik.errors.email ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.email && <ErrorMessage>{formik.errors.email}</ErrorMessage>}
             </InputContainer>
             <InputContainer>
                 <Input
-                    placeholder= "Password"
+                    placeholder= "Mot de passe"
                     type= {isHidden ? "password" : "text"}
                     name= "password"
                     value= {formik.values.password}
                     onChange={formik.handleChange}
                     border = {formik.errors.password ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 <Logo 
                     className={ !isHidden ? "fas fa-eye" : "fas fa-eye-slash"}
@@ -136,7 +137,7 @@ const FormLogin = () => {
                 {formik.errors.password && <ErrorMessage>{formik.errors.password}</ErrorMessage>}
             </InputContainer>
             
-            <Button padding= "10px 100px" type= "submit">Login</Button>
+            <Button padding= "10px 100px" type= "submit">Connexion</Button>
         </FormContainer>
     )
   

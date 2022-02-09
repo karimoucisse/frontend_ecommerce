@@ -53,12 +53,10 @@ const CalendarStyle= styled.div`
 `
 const ModeDeLivraison = () => {
     const { cart } = useContext(CartContext)
-
     console.log(cart ,'le log du state cart');
 
     const [input, setInput] = useState('')
     console.log("je recupere la donné state input" ,input);
-
 return (
         <div>
             <Header/>
@@ -126,7 +124,7 @@ return (
                                 </Row > 
                             {cart && cart.map(element => (
                                 element.lineItems.map(item => (
-                                    <div>
+                                    <div> 
                                         <h4>PrixKilo: {item.product.kiloPrice}</h4>
                                         <h4>Conditionnement: {item.product.conditioning}</h4>
                                         <h4>Zone de pêche: {item.product.fishingArea}</h4>
@@ -136,10 +134,11 @@ return (
                                         <h4>Quantitée: {item.quantity}</h4>
                                         <h4>Poids total: {item.weight}</h4>
                                         <h4>Total Pièces: {item.totalPrice}</h4>
-                                    </div>        
+                                    </div>  
+                                       
                                 )) 
-                            ))
-                            }
+                            )) 
+                            } 
             <Footer/>
         </div>
     );
