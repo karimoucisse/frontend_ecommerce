@@ -77,7 +77,7 @@ const Products = () => {
             <p> Loading... </p>
         )
     }
-        console.log(selectedCategories)
+        console.log("selectedCategories",selectedCategories)
     return (
         <Container>
             <Header />
