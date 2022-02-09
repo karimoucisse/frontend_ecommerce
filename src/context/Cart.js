@@ -1,25 +1,38 @@
 import { createContext, useState,useEffect , useContext } from "react";
 import { UserContext } from "./User";
-
+import getOneCart from "../api/getOneCart"
 const CartContext = createContext({})
 
 const CartContextProvider = props => {
     const {user, setUser} = useContext(UserContext)
     const [cart, setCart] = useState()
-    const [cartId, setCardId] = useState()
 
     const API = "http://localhost:5000/carts"
 
     
     useEffect(() => {
+        
         if(localStorage.getItem("id")) {
-            getCartById(localStorage.getItem("id"))
+            fetchOneCart(localStorage.getItem("id"))
         }else {
-            localStorage.setItem("id", cartId )
-            createCart()
+            createCart({
+                user: user ? user._id : null
+            })
         }
 
+        if(user){
+            if(!cart.user) {
+                modifyCart(
+                    cart._id,
+                    {
+                        user: user._id
+                    }
+                )  
+            }
+        }
     },[])
+
+
 
     
     const createCart = async values => {
@@ -35,30 +48,40 @@ const CartContextProvider = props => {
             console.log("error");
         } else {
             const cartCreate = await response.json()
-            setCardId(cartCreate._id)
+            setCart(cartCreate)
+            localStorage.setItem("id", cartCreate._id)
         }
     }
 
-    // const getCart = async () => {
-    //     const response = await fetch(`${API}`, {
-    //         credentials: 'include',
-    //     })
-        
-    //     const data = await response.json()
-    //     setCart(data)
-    // }
-
-    const getCartById = async (id) => {
-        const response = await fetch(`${API}/${id}`, {
-            credentials: 'include'
+    const modifyCart = async (id,values) => {
+        const response = await fetch (`${API}/${id}`, {
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify(values)
         })
-        const data = await response.json()
-        setCart(data)
+        if(response.status >= 400) {
+            console.log("error");
+        } else {
+            const cartModified = await response.json()
+            
+        }
     }
+
+  
+
+    const fetchOneCart = async (id) => {
+        const oneCart = await getOneCart(id)
+        setCart(oneCart)
+    }
+
     
     const value = {
         cart,
-        setCart
+        setCart,
+        fetchOneCart
     }
 
     return (

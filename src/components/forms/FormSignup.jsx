@@ -76,8 +76,8 @@ const FormSignup = () => {
             adress:"",
         },
         onSubmit: values => {
-            // console.log(values);
             signup(values)
+            
         },
         validateOnChange: false,
         validationSchema: Yup.object({
@@ -208,7 +208,7 @@ const FormSignup = () => {
                 />
                 {formik.errors.adress && <ErrorMessage>{formik.errors.adress}</ErrorMessage>}
             </InputContainer>
-            <Button type= "submit" padding= "10px 100px">Signup</Button>
+            <Button type= "submit" padding= "10px 100px">S'inscrire</Button>
         </FormContainer>
     )
 };

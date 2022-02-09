@@ -137,7 +137,7 @@ const FormLogin = () => {
                 {formik.errors.password && <ErrorMessage>{formik.errors.password}</ErrorMessage>}
             </InputContainer>
             
-            <Button padding= "10px 100px" type= "submit">Login</Button>
+            <Button padding= "10px 100px" type= "submit">Connexion</Button>
         </FormContainer>
     )
   

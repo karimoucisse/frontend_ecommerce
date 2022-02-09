@@ -26,11 +26,8 @@ const Content = styled.div`
 `
 
 
-
-
-
 const Product = () => {
-    const { cart, cartId } = useContext(CartContext)
+    const { cart, fetchOneCart } = useContext(CartContext)
     const {id} = useParams()
     const [product, setProduct] = useState(null)
     const [quantityNumber, setQuantityNumber] = useState(0)
@@ -44,6 +41,7 @@ const Product = () => {
         setProduct(product)
     }
 
+    
 
     const postLineItems = async values => {
         const response = await fetch ('http://localhost:5000/lineItems', {
@@ -59,6 +57,8 @@ const Product = () => {
         } else {
             const lineItems = await response.json()
         }
+
+        fetchOneCart(cart._id)
     }
     // Quand on click sur le logo panier on recuper la valeur 
     // "values en paramettre de la fonction onBasketClick" 
@@ -67,7 +67,6 @@ const Product = () => {
     const onBasketClick = (values) => {
         postLineItems(values)
         console.log(values);
-        console.log("cart:", cart);
     }
 
     if (!product) {

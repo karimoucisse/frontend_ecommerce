@@ -4,7 +4,6 @@ import GridContainerProduct from '../components/GridContainerProduct';
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import getCategory from '../api/getCategory';
-import getProducts from '../api/getProducts';
 import useDebounce from '../hooks/Debounce';
 import Card from '../components/Card';
 import styled from 'styled-components';
@@ -67,12 +66,24 @@ const CategoryPage = () => {
             <Loading/>
         )
     }
-    
+
+
     return (
         <>
             <Header/>
             <BackGroundImage height='400px' src={category.image} alt={category.name} />
-            <H2> {category.name} </H2>
+             <H2> {category.name} </H2>
+             <Row justifyContent = "space-between" margin= "20px 0" padding= "0 70px" >
+                <Input
+                    placeholder= "Chercher votre produit ..."
+                    onChange={handleFilter} 
+                    value={filter}   
+                    label="Produit"
+                    sx={{width : 500}} 
+
+                />
+                <SelectPrice onChange={handleSelect} sx={{width : 200}} />
+            </Row>
                 <Section flexDirection='row' margin='80px 0px' alignItems='center'>  
                     <GridContainerProduct>
                         {category.products.map(product => 

@@ -4,8 +4,8 @@ import Header from "../components/Header";
 import Image from '../components/Image';
 import Row from '../components/Row';
 import Input from '../components/Input';
-import Footer from '../components/Footer';
-
+import Footer from '../components/Footer'
+// import FormContact from '../components/forms/FormContact';
 import styled from 'styled-components';
 
 const DivInput = styled.div`

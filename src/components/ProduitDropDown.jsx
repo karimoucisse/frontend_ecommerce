@@ -28,7 +28,9 @@ const Element = styled.div`
         background-color: #034061;
     }
 `
-
+const Lien = styled(Link)`
+    width: 100%;
+`
 const ProduitDropDown = ({isVisible, setIsVisible}) => {
     const [categories, setCategories] = useState([])
 
@@ -48,9 +50,17 @@ const ProduitDropDown = ({isVisible, setIsVisible}) => {
   return (
         <Container isVisible= {isVisible} >
             {categories.map(category => 
-            <Element onClick={onElementClick}><Link to={`/categories/${category._id}`}> {category.name} </Link></Element>
-                )}
-                <Element onClick={onElementClick}> <Link to='/products'> Tous nos produits </Link></Element> 
+                <Element 
+                    onClick={onElementClick}>
+                    <Lien to={`/categories/${category._id}`} > 
+                        {category.name} 
+                    </Lien>
+                </Element>
+            )}
+            <Element 
+                onClick={onElementClick}> 
+                <Lien to='/products'> Tous nos produits </Lien>
+            </Element> 
         </Container>
     )
 };
