@@ -63,8 +63,8 @@ const BasketItem = ({
             padding= "40px 0 0 0 "
         >
             <Row 
-                width= "60%" 
-                gap= "50px" 
+                width= "50%" 
+                gap= "20px" 
                 border= "2px solid black" 
                 borderRadius= "20px" 
                 height= "140px"
@@ -110,10 +110,13 @@ const BasketItem = ({
                         <Paragraph>{prixContent}€</Paragraph>
                     </Element>
                 </Row>
-                <DeleteButton
-                    onClick={() => onclickDelete(itemId)}
-                    style={{fontSize: "30px"}}
-                />
+                <Button
+                    onClickAction= {() => onclickDelete(itemId)}
+                    width= "100px"
+                    backGround= "red"
+                >
+                    Supprimer
+                </Button>
             </Row>
         </Container>
     )

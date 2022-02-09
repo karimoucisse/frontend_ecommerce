@@ -15,7 +15,7 @@ import { CartContextProvider } from './context/Cart';
 import { LineItemContextProvider } from './context/LineItem';
 import Products from './pages/Products'
 import CategoryPage from './pages/CategoryPage';
-
+import PaymentPage from './pages/PaymentPage'
 const App = () => {
   return (
   <BrowserRouter>
@@ -35,6 +35,7 @@ const App = () => {
               <Route path="/panier" element={<Panier/>}/>
               <Route path="/profil" element={<Profil/>}/>
               <Route path="/contacter" element={<Contacter/>}/>
+              <Route path="/checkout" element={<PaymentPage/>}/>
             </Routes>
         </CartContextProvider>
       </UserContextProvider>
