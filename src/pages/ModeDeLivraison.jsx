@@ -123,8 +123,8 @@ return (
                                     Message à propos de votre commande...
                                     </textarea>            
                         </Alignement> 
-                       <Alignement> <h2>Votre commande sera livreée entre 9h30 et 13h . Afin de garentir une fraicheur optimal.</h2>
-                                    <p> </p>
+                        <Alignement> <h2>Votre commande sera livreée entre 9h30 et 13h . Afin de garentir une fraicheur optimal.</h2>
+                                    <p>Veuillez selectionner une date  </p>
                         </Alignement> 
                                     
                             <CalendarStyle>
