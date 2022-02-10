@@ -2,8 +2,10 @@ import React from 'react';
 import styled from 'styled-components'
 import Row from '../components/Row'
 import Container from "../components/Container"
-import { useNavigate } from 'react-router';
 import Button from './Button';
+import { Link } from 'react-router-dom'
+
+
 // const Container = styled.div`
 // display: flex;
 // width: 100%;
@@ -13,7 +15,8 @@ import Button from './Button';
 // `
 
 const Title = styled.h1`
-    color:
+    color: white;
+    margin-bottom: 20px;
 `
 
 const Paragraphe = styled.p`
@@ -66,12 +69,16 @@ const Input = styled.input`
 `
 const Array = [
     {
-        title : "CATEGORIES",
+        title : "CATÉGORIES",
         paragraphe0 : "Poissons entiers",
-        paragraphe1 : "Filet de poisson",
-        paragraphe2 : "Coquillages et crustacés",
-        paragraphe3 : " Produit en période de fête",
-    },
+        paragraphe1 : "Filets de poisson",
+        paragraphe2 : "Coquillages",
+        paragraphe3 : "Produits festifs",
+        paragraphe4 : "Crustacés"
+    }];
+
+const Array2 = [
+
     {
         title : "INFORMATION",
         paragraphe0 : "Contactez-nous",
@@ -79,7 +86,9 @@ const Array = [
         paragraphe2 : "Livraison by Express Chronofresh",
         paragraphe3 : " Politique de confidentalité",
     }   
-,
+];
+
+const Array3 = [
     {
         title : "MON COMPTE",
         paragraphe0 : "Mes commandes",
@@ -87,16 +96,9 @@ const Array = [
         paragraphe2 : "Mes adresses",
         paragraphe3 : "Mes informations personnelles",
     }
-]
+];
 
 const Footer = () => {
-    const navigate = useNavigate()
-
-    const oncliCkNavigate = (content) => {
-        if(content === "Qui sommes-nous ?") {
-            navigate("/histoire")
-        }
-    }
 
     return (
             <Container 
@@ -111,17 +113,35 @@ const Footer = () => {
                 <Row justifyContent= "space-around" width= "100%" height= "100%" >
                 {Array.map((element, index) =>{ 
                     return <div key={index}>
-                        <Title>{element.title}</Title>, 
-                        <Paragraphe>{element.paragraphe0}</Paragraphe>
-                        <Paragraphe 
-                            onClick={() => oncliCkNavigate(element.paragraphe1)}
-                        >
-                            {element.paragraphe1}
-                        </Paragraphe>
-                        <Paragraphe>{element.paragraphe2}</Paragraphe>
-                        <Paragraphe>{element.paragraphe3}</Paragraphe>
+                        <Title>{element.title}</Title> 
+                        <Paragraphe><Link to="/categories/61fd213faab4a988cfb816b7">{element.paragraphe0}</Link></Paragraphe>
+                        <Paragraphe><Link to="/categories/61fd2238aab4a988cfb816b9">{element.paragraphe1}</Link></Paragraphe>
+                        <Paragraphe><Link to="/categories/61fd20b9aab4a988cfb816b5">{element.paragraphe2}</Link></Paragraphe>
+                        <Paragraphe><Link to="/categories/61fd22dcaab4a988cfb816bb">{element.paragraphe3}</Link></Paragraphe>
+                        <Paragraphe><Link to="/categories/61f7b97f6384d88156c62890">{element.paragraphe4}</Link></Paragraphe>
                     </div>
                 })}
+                
+                {Array2.map((element, index) =>{ 
+                    return <div key={index}>
+                        <Title>{element.title}</Title> 
+                        <Paragraphe><Link to="/contacter">{element.paragraphe0}</Link></Paragraphe>
+                        <Paragraphe><Link to="/histoire">{element.paragraphe1}</Link></Paragraphe>
+                        <Paragraphe><a href="https://www.chronofresh.fr/fr">{element.paragraphe2}</a></Paragraphe>
+                        <Paragraphe><Link to="/contacter">{element.paragraphe3}</Link></Paragraphe>
+                    </div>
+                })}
+                
+                {Array3.map((element, index) =>{ 
+                    return <div key={index}>
+                        <Title>{element.title}</Title> 
+                        <Paragraphe><Link to="/profil">{element.paragraphe0}</Link></Paragraphe>
+                        <Paragraphe><Link to="/profil">{element.paragraphe1}</Link></Paragraphe>
+                        <Paragraphe><Link to="/profil">{element.paragraphe2}</Link></Paragraphe>
+                        <Paragraphe><Link to="/profil">{element.paragraphe3}</Link></Paragraphe>
+                    </div>
+                })}
+                
                 <FormContainer>
                     <Form>
                         <FormElement>
@@ -132,6 +152,7 @@ const Footer = () => {
                     <Text> Recevez les produits et code promo ! </Text>
                 </FormContainer>
                 </Row>
+                
                 
                 <Row justifyContent= "center" gap="50px">
                     <Icones><i className="fab fa-twitter"></i></Icones>   

@@ -31,13 +31,13 @@ const CommentCaMarche = () => {
                 <LogoContainer>
                     <Logo className="fas fa-truck"></Logo>
                     <Paragraph>
-                        Vous êtes livré en 24h avec ChronoFresh <br/>
+                        Vous êtes livrés en 24h avec ChronoFresh <br/>
                         afin de conserver la chaîne du froid
                     </Paragraph>
                 </LogoContainer>
                 <LogoContainer>
                     <Logo className="fas fa-fish"></Logo>
-                    <Paragraph>Pêche en provenance de nos côtes <br/> normandes et atlantique ouest.</Paragraph>
+                    <Paragraph>Pêche en provenance de nos côtes <br/> normandes et Atlantique ouest.</Paragraph>
                 </LogoContainer>
                 <LogoContainer>
                     <Logo className="fas fa-credit-card"></Logo>

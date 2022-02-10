@@ -38,8 +38,6 @@ const App = () => {
               <Route path="/contacter" element={<Contacter/>}/>
               <Route path="/checkout" element={<PaymentPage/>}/>
               <Route path="*" element={<NotFound/>}/>
-              <Route path="/checkout" element={<PaymentPage/>}/>
-              <Route path="/*" element={<NotFound/>}/>
             </Routes>
         </CartContextProvider>
       </UserContextProvider>
