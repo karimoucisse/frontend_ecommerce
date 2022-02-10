@@ -13,7 +13,6 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ProduitDropDown from './ProduitDropDown';
 import Loading from './Loading';
-import BarsHeader from './BarsHeader';
 const Container = styled.div`
     background-color: #023047;
     width: 100%;
@@ -88,34 +87,27 @@ const Icone = styled.i`
 `
 
 const BarsElement = styled.div`
+    position: relative;
     display: flex;
-    flex-direction: column;
-    width: 60px;
-    height: 10px;
-    background: transparent;
-    border-radius: 2px;
+    justify-content: center;
 
 `
 const SpanBars = styled.span`
-    /* width: 30px;
-    height: 2px; */
-    /* transition: all 0.3s linear;
-    position: relative;
-    transform-origin: 1px;
-    width: 2rem;
-    height: 0.25rem; */
-    /* width: 100%; */
-    /* background-color: #ffff; */
+
     
     &:nth-child(1) {
-      
+      margin-top: 20px;
+      transform : rotate(-45deg)
     }
     &:nth-child(2) {
-  
+        margin-top: 10px;
+        display : none;
     }
     &:nth-child(3) {
-   
+        margin-top: -30px;
+        transform : rotate(45deg)
     }
+
 `
 
 
@@ -143,17 +135,6 @@ const Header = () => {
     return (
         <Container>
             <Link to= "/"><Logo src='/assets/logo.svg'/></Link>
-            {isTablet ? 
-                <>
-                    <BarsElement>
-                        <SpanBars></SpanBars>
-                        <SpanBars></SpanBars>
-                        <SpanBars></SpanBars>
-                    </BarsElement>
-                    <BarsHeader/>
-                </>
-                :
-
                 <Nav>
                     <ProduitContainer onClick={onProduitClick}>
                         <h3>Nos Produits</h3>
@@ -188,7 +169,6 @@ const Header = () => {
                         </Badge>
                     </LogoContainer>
                 </Nav>
-            }
             
         </Container>
     );
