@@ -12,6 +12,11 @@ const Body = styled.div`
     padding: ${(props) => props.padding ? props.padding : "0"};
     border: ${(props) => props.border ? props.border : "none"};
     position: ${(props) => props.position ? props.position : "none"};
+    top: ${(props) => props.top ? props.top : "none"};
+    bottom: ${(props) => props.bottom ? props.bottom : "none"};
+    left: ${(props) => props.left ? props.left : "none"};
+    right: ${(props) => props.right ? props.right : "none"};
+    z-index: ${(props) => props.zIndex ? props.zIndex : "none"};
     background-color: ${(props) => props.backGroundColor ? props.backGroundColor : "transparent"};
     overflow: hidden;
 `
@@ -29,6 +34,11 @@ const Container = ({
     border,
     position,
     backGroundColor,
+    top,
+    bottom,
+    left,
+    right,
+    zIndex
 }) => {
     return (
         <Body
@@ -44,6 +54,11 @@ const Container = ({
             border={border}
             position= {position}
             backGroundColor= {backGroundColor}
+            top = {top}
+            bottom = {bottom} 
+            left = {left}
+            right = {right}
+            zIndex = {zIndex}
         >
             {children}
         </Body>

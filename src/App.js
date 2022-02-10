@@ -38,6 +38,7 @@ const App = () => {
               <Route path="/contacter" element={<Contacter/>}/>
               <Route path="/checkout" element={<PaymentPage/>}/>
               <Route path="/notfound" element={<NotFound/>}/>
+              <Route path="/checkout" element={<PaymentPage/>}/>
             </Routes>
         </CartContextProvider>
       </UserContextProvider>

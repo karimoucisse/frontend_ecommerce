@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const Container = styled.main`
     display: flex;
@@ -9,6 +10,7 @@ const Container = styled.main`
     height: 100vh;
     width: 100vw;
     position: relative;
+    margin-bottom: -3% ;
 `
 
 const MainTitle = styled.h1`
@@ -36,10 +38,10 @@ const NotFound = () => {
             <Header />
             <Container>
                 <Title> 404 Not Found</Title>
-                <img src ="https://tinyurl.com/y2fshhtu" alt="Pecheur"></img>
-               
+                <img src ="https://tinyurl.com/y2fshhtu" alt="Pecheur" style={{height:"100"}}></img>
                 <MainTitle>No fish in this fishing area .</MainTitle>
             </Container>
+            <Footer />
         </>
 
     );
