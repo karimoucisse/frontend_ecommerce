@@ -2,11 +2,12 @@ import Container from "./Container";
 import { useContext } from "react";
 import { UserContext } from "../context/User";
 import OrderLineItem from "./OrderLineItem"
+import Card from "./Card";
 
 const HistoriqueCommande = () => {
     const { user } = useContext(UserContext)
 
-    console.log(user)
+    console.log("orders", user.orders)
 
     if (user.orders.length === 0) {
         return (
@@ -17,13 +18,25 @@ const HistoriqueCommande = () => {
     }
 
     return (
-        <Container height= "60vh">
+        <Container height= "80vh"  display= "flex" flexDirection= "column">
             {user.orders.map(order => (
-                <div>
+                <Card 
+                    flexDirection="column" 
+                    justifyContent= "center"
+                    alignItems= "center" 
+                    gap= "10px" 
+                    alignItems= "center" 
+                    width= "700px" 
+                    height= "auto"
+                    margin= "20px 0"
+                    borderRadius= "0px"
+                    padding= "10px 20px"
+                >
                     {order.lineItems.map(item => (
                         <OrderLineItem item={item} />
                     ))}
-                </div>
+                    <h3></h3>
+                </Card >
             ))}
         </Container>
     )
