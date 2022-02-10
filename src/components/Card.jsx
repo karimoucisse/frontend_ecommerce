@@ -31,7 +31,8 @@ const Card = ({
   padding,
   margin,
   gap,
-  onClickAction
+  onClickAction,
+  style
 }) => {
   return (
     <Container 
@@ -47,6 +48,7 @@ const Card = ({
       gap= {gap}
       background = {background}
       onClick={onClickAction}
+      style={style}
     >
       {children}
     </Container>

@@ -8,6 +8,7 @@ import Button from '../components/Button';
 import Row from '../components/Row'; 
 import { useState, } from 'react';
 import { CartContext } from '../context/Cart';
+import Loading from '../components/Loading';
 
 
 const Style = styled.div`
@@ -57,6 +58,8 @@ const ModeDeLivraison = () => {
 
     const [input, setInput] = useState('')
     console.log("je recupere la donné state input" ,input);
+
+    
 return (
         <div>
             <Header/>
@@ -66,7 +69,7 @@ return (
                             <Card  marginTop="10%" width="500px" flex-direction= "column" background="#a3c4f3"> 
                                 <Form>
                                     <Input> 
-                                        <input type="radio"  name="rad" value="Livraison by Chronofresh "/> 
+                                        <input type="radio"  name="rad" value="Livraison by Chronofresh " checked/> 
                                     </Input>
                                         <Text>
                                             <h2><label for="subscribeNews">Livraison by Chronofresh </label> </h2>
@@ -80,10 +83,10 @@ return (
                                         alt="ChronofrshLogo "
                                         style={{ height:"250px" ,marginTop:"80px"}}/>
                             </Card>
-                            <Card marginTop="10%" width="500px" flex-direction= "column" background="#a3c4f3">
+                            <Card marginTop="10%" width="500px" flex-direction= "column" background="#a3c4f3" style={{ opacity: 0.3, cursor: 'default' }}>
                                 <Form> 
                                     <Input>
-                                        <input type="radio" name="rad" value="So Fresh"/> 
+                                        <input type="radio" name="rad" value="So Fresh" disabled /> 
                                     </Input>
                                         <Text> 
                                             <h2><label for="subscribeNews">Livraison by Sofresh </label></h2>
@@ -122,7 +125,7 @@ return (
                                     esse modi nobis at.</p>
                                     <Button background= "endregion"  height="100px" width="200px" margin="150px 40px 30px 80px" >Payer</Button> 
                                 </Row > 
-                            {cart && cart.map(element => (
+                            {/* {cart && cart.map(element => (
                                 element.lineItems.map(item => (
                                     <div> 
                                         <h4>PrixKilo: {item.product.kiloPrice}</h4>
@@ -138,7 +141,7 @@ return (
                                        
                                 )) 
                             )) 
-                            } 
+                            }  */}
             <Footer/>
         </div>
     );
