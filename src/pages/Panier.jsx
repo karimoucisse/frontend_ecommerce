@@ -8,6 +8,8 @@ import { UserContext } from "../context/User";
 import { CartContext } from "../context/Cart";
 import EmptyBasket from "../components/EmptyBasket"
 import BasketQuantityButton from "../components/BasketQuantityButton";
+import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 
 // const Title = styled.h1`
 //     text-align: center;
@@ -16,6 +18,7 @@ const Panier = () => {
     const {user} = useContext(UserContext)
     const {cart, fetchOneCart} = useContext(CartContext)
     const [itemToChange, setItemToChange] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (itemToChange) {
@@ -43,7 +46,6 @@ const Panier = () => {
         }
     }
 
-   
 
     if(!cart) {
         return <Loading/>
@@ -53,7 +55,7 @@ const Panier = () => {
     return (
         <Container>
             <Header/>
-                <Container height= "80vh">
+                <Container height= "80vh" display="flex" flexDirection= "column" justifyContent= "none">
                     {cart.lineItems.map((item, index) => {
                         return  <BasketItem 
                                     key={index}
@@ -72,6 +74,25 @@ const Panier = () => {
                                 </BasketItem> 
                                 
                     })}
+                    {cart.lineItems.length > 0 && user && 
+                        <Button 
+                            padding= "5px 45px"
+                            onClickAction={() => navigate("/modedelivraison")}
+                        >
+                            Suivant
+                        </Button>
+                    
+                    }
+                    {cart.lineItems.length > 0 && !user && 
+                        <Button 
+                            padding= "5px 45px"
+                            onClickAction={() => navigate("/signup")}
+                        >
+                            Suivant
+                        </Button>
+                    
+                    }
+
                     {cart.lineItems.length === 0 && <EmptyBasket/>}
                 </Container>
             <Footer/>
