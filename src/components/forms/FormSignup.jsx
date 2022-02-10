@@ -3,8 +3,9 @@ import Button from "../Button";
 import Input from "../Input";
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from 'react-router';
+import { UserContext } from "../../context/User";
 
 const FormContainer = styled.form`
     display: flex;
@@ -16,7 +17,7 @@ const FormContainer = styled.form`
     height: 600px;
     padding: 10px 0;
     width: 550px;
-    gap: 15px;
+    gap: 8px;
     border-radius: 20px;
     position: relative;
     z-index: 3;
@@ -62,6 +63,7 @@ const Logo = styled.i`
 const FormSignup = () => {
     const navigate = useNavigate()
     const [isHidden, setIsHidden] = useState(true)
+    const {setUser} = useContext(UserContext)
 
     const formik = useFormik({
         initialValues: {
@@ -74,8 +76,8 @@ const FormSignup = () => {
             adress:"",
         },
         onSubmit: values => {
-            // console.log(values);
             signup(values)
+            
         },
         validateOnChange: false,
         validationSchema: Yup.object({
@@ -91,7 +93,8 @@ const FormSignup = () => {
             password: Yup.string()
             .min(6, "Mot de passe trop court")
             .required("mot de passe requis"),
-            phoneNumber: Yup.string(),
+            phoneNumber: Yup.string()
+            .required("numero de telephone requis"),
             adress: Yup.string()
             .required("l'adresse est requis"),
             
@@ -111,6 +114,7 @@ const FormSignup = () => {
             alert("Error")
         } else {
             const userLogged = await response.json()
+            setUser(userLogged)
             navigate('/')
         }
     }
@@ -120,33 +124,36 @@ const FormSignup = () => {
         >
             <InputContainer>
                 <Input
-                    placeholder="prénom"
+                    placeholder="Prénom"
                     type= "text"
                     name="firstName"
                     value= {formik.values.firstName}
                     onChange={formik.handleChange}
                     border = {formik.errors.firstName ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.firstName && <ErrorMessage>{formik.errors.firstName}</ErrorMessage>}
             </InputContainer>
             <InputContainer>
                 <Input
-                    placeholder= "nom"
+                    placeholder= "Nom"
                     type= "text"
                     name= "name"
                     value= {formik.values.name}
                     onChange={formik.handleChange}
                     border = {formik.errors.name ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.name && <ErrorMessage>{formik.errors.name}</ErrorMessage>}
             </InputContainer>
             <InputContainer>
                 <Input
-                    placeholder= "date de naissance"
+                    placeholder= "Date de naissance"
                     name = "birthDate"
                     value= {formik.values.birthDate}
                     onChange={formik.handleChange}
                     border = {formik.errors.birthDate ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.birthDate && <ErrorMessage>{formik.errors.birthDate}</ErrorMessage>}
             </InputContainer>
@@ -158,17 +165,19 @@ const FormSignup = () => {
                     value= {formik.values.email}
                     onChange={formik.handleChange}
                     border = {formik.errors.email ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.email && <ErrorMessage>{formik.errors.email}</ErrorMessage>}
             </InputContainer>
             <InputContainer>
                 <Input
-                    placeholder= "Password"
+                    placeholder= "Mot de passe"
                     type= {isHidden ? "password" : "text"}
                     name= "password"
                     value= {formik.values.password}
                     onChange={formik.handleChange}
                     border = {formik.errors.password ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 <Logo 
                     className={ !isHidden ? "fas fa-eye" : "fas fa-eye-slash"}
@@ -178,26 +187,28 @@ const FormSignup = () => {
             </InputContainer>
             <InputContainer>
                 <Input
-                    placeholder= "telephone"
+                    placeholder= "Téléphone"
                     name= "phoneNumber"
                     value= {formik.values.phoneNumber}
                     onChange={formik.handleChange}
                     border = {formik.errors.phoneNumber ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.phoneNumber && <ErrorMessage>{formik.errors.phoneNumber}</ErrorMessage>}
             </InputContainer>
             <InputContainer>
                 <Input
-                    placeholder= "address"
+                    placeholder= "Adresse"
                     type= "text"
                     name= "adress"
                     value= {formik.values.adress}
                     onChange={formik.handleChange}
                     border = {formik.errors.adress ? "2px solid red" : false}
+                    sx={{width : 500}}
                 />
                 {formik.errors.adress && <ErrorMessage>{formik.errors.adress}</ErrorMessage>}
             </InputContainer>
-            <Button type= "submit" padding= "10px 100px">Signup</Button>
+            <Button type= "submit" padding= "10px 100px">S'inscrire</Button>
         </FormContainer>
     )
 };

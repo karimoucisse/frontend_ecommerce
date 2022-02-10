@@ -25,11 +25,13 @@ margin: 5px;
 `
 
 const H = styled.h4`
-margin: 5px;`
+margin: 5px;
+font-size: 20px;`
 
 const H2 = styled.h2`
 text-align: center;
-margin: 20px;`
+margin: 20px;
+font-size: 30px;`
 
 
 
@@ -75,7 +77,7 @@ const Products = () => {
             <p> Loading... </p>
         )
     }
-        console.log(selectedCategories)
+        console.log("selectedCategories",selectedCategories)
     return (
         <Container>
             <Header />

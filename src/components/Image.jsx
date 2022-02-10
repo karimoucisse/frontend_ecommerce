@@ -6,17 +6,18 @@ const Container = styled.img`
     box-shadow: ${(props) => props.shadow ? props.shadow : "0 0 0 0"};
     object-fit: ${(props) => props.objectFit ? props.objectFit : "cover"};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : "0px"} ;
-    background-color: red;
 `
 const ShadowContainer = styled.div`
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-    transition: all ease-in-out 0.2s;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color ease-in-out 0.2s;
+    z-index: 3;
     &:hover {
-        background-color: rgba(0, 0, 0, 0.45);
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 0;
     }
 `
 const Image = ({

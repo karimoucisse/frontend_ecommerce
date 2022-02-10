@@ -12,6 +12,7 @@ import CommentCaMarche from "../components/CommentCaMarche";
 import {useEffect, useState} from 'react';
 import getCategories from "../api/getCategories";
 import GridContainerProduct from "../components/GridContainerProduct";
+import Loading from "../components/Loading";
 
 
 
@@ -113,7 +114,6 @@ const Home = () => {
             default:
             navigate("/")
         }
-        console.log("hello");
     }
 
     const category = "La pêche du jour"
@@ -122,10 +122,7 @@ const Home = () => {
     
 
     if (!laPecheDuJour) {
-        return (
-            <p> Loading ... </p>
-        )
-        
+        return null
     } 
 
     return ( 
@@ -170,14 +167,14 @@ const Home = () => {
                 <h1>La pêche du jour </h1>
                 <GridContainerProduct>
                     {laPecheDuJour.products.map(product => (
-                    <Card flexDirection='column'height='250px' width='250px' justifyContent='flex-start'  > 
-                        <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
-                        <H> {product.name} </H>
-                        <Flex> 
-                            <p> Prix au kilo : {product.kiloPrice}€ </p>
-                            <Link to={`/product/${product._id}`} style={{color : 'black', fontSize: '15px'}}> Détails </Link>
-                        </Flex> 
-                    </Card>
+                        <Card flexDirection='column'height='250px' width='250px' justifyContent='flex-start'  > 
+                            <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
+                            <H> {product.name} </H>
+                            <Flex> 
+                                <p> Prix au kilo : {product.kiloPrice}€ </p>
+                                <Link to={`/product/${product._id}`} style={{color : 'black', fontSize: '15px'}}> Détails </Link>
+                            </Flex> 
+                        </Card>
                     ))}
                 </GridContainerProduct>
             </Section>

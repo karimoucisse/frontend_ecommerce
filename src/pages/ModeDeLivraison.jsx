@@ -122,9 +122,9 @@ return (
                                     esse modi nobis at.</p>
                                     <Button background= "endregion"  height="100px" width="200px" margin="150px 40px 30px 80px" >Payer</Button> 
                                 </Row>
-                            {cart && cart.map(element => (
+                            {/* {cart && cart.map(element => (
                                 element.lineItems.map(item => (
-                                    <div>
+                                    <div> 
                                         <h4>PrixKilo: {item.product.kiloPrice}</h4>
                                         <h4>Conditionnement: {item.product.conditioning}</h4>
                                         <h4>Zone de pêche: {item.product.fishingArea}</h4>
@@ -137,7 +137,7 @@ return (
                                     </div>        
                                 )) 
                             ))
-                            }
+                            } */}
                         <Footer/>
         </div>
     );

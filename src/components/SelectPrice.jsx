@@ -8,7 +8,7 @@ const SelectPrice = ({onChange, sx}) => {
     return (
         
         <FormControl sx={sx}>
-            <InputLabel id="demo-simple-select-label">Price</InputLabel>
+            <InputLabel id="demo-simple-select-label">Prix</InputLabel>
             <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
     position: relative;
-    height: ${(props) => props.height ? props.height : "550px"} ;
+    height: ${(props) => props.height ? props.height : "400px"} ;
 `
 const Shadow = styled.div`
     position: absolute;
