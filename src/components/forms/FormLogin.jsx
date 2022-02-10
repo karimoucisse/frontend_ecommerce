@@ -6,6 +6,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { UserContext } from "../../context/User";
 import { useContext, useState} from "react";
+import { Link } from "react-router-dom";
 
 const FormContainer = styled.form`
     display: flex;
@@ -16,7 +17,7 @@ const FormContainer = styled.form`
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     height: 400px;
     width: 550px;
-    gap: 50px;
+    gap: 10px;
     border-radius: 20px;
     position: relative;
     z-index: 3;
@@ -44,6 +45,13 @@ const ErrorMessage = styled.p`
         }
     }
 `
+const Paragraph = styled.p`
+    font-size: 20px;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+`
 const Logo = styled.i`
     position: absolute;
     height: 100%;
@@ -57,6 +65,12 @@ const Logo = styled.i`
     transition: all ease-in-out 0.2s;
     &:hover {
         color: rgb(0, 0, 0);
+    }
+`
+const Lien = styled(Link)`
+    color: black;
+    &:hover {
+        color: #424040;
     }
 `
 
@@ -138,6 +152,9 @@ const FormLogin = () => {
             </InputContainer>
             
             <Button padding= "10px 100px" type= "submit">Connexion</Button>
+            <Paragraph> 
+                <Lien to= "/signup">S'inscrire</Lien>
+            </Paragraph>
         </FormContainer>
     )
   

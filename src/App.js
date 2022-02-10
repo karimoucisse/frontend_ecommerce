@@ -38,6 +38,7 @@ const App = () => {
               <Route path="/checkout" element={<PaymentPage/>}/>
               <Route path="*" element={<NotFound/>}/>
               <Route path="/checkout" element={<PaymentPage/>}/>
+              <Route path="/*" element={<NotFound/>}/>
             </Routes>
         </CartContextProvider>
       </UserContextProvider>
