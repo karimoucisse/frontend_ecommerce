@@ -54,6 +54,11 @@ const CalendarStyle= styled.div`
     margin-bottom: 5%;
 
 `
+// const BtnContainer= styled.div`
+//     justify-content: center;
+//     margin: 1px 30px;
+
+// `
 const ModeDeLivraison = () => {
     const { cart } = useContext(CartContext)
     const navigate = useNavigate()
@@ -117,20 +122,21 @@ return (
                                     rows="5" cols="33" value={input} onChange ={e => setInput(e.target.value)}>
                                     Message à propos de votre commande...
                                     </textarea>            
-                        </Alignement>  
+                        </Alignement> 
+                       <Alignement> <h2>Votre commande sera livreée entre 9h30 et 13h . Afin de garentir une fraicheur optimal.</h2>
+                                    <p> </p>
+                        </Alignement> 
+                                    
                             <CalendarStyle>
                                 <Picker/>
                             </CalendarStyle>
                                 <Row alignItems="center" >
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Omnis veniam culpa porro pariatur debitis perferendis impedit quis tenetur?
-                                    Maiores commodi repellat a incidunt molestias quasi ratione,
-                                    esse modi nobis at.</p>
-                                    <Button 
+                                   
+                                      <Button 
                                         background= "endregion"  
                                         height="100px" 
                                         width="200px" 
-                                        margin="150px 40px 30px 80px" 
+                                        margin="150px 40px 50px 630px" 
                                         onClickAction={() => navigate('/checkout')}
                                         >Payer</Button> 
                                 </Row > 
