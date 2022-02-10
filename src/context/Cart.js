@@ -6,6 +6,7 @@ const CartContext = createContext({})
 const CartContextProvider = props => {
     const {user, setUser} = useContext(UserContext)
     const [cart, setCart] = useState()
+    const [selectedDay, setSelectedDay] = useState()
 
     const API = "http://localhost:5000/carts"
 
@@ -88,7 +89,9 @@ const CartContextProvider = props => {
         cart,
         setCart,
         fetchOneCart,
-        createCart
+        createCart,
+        selectedDay, 
+        setSelectedDay
     }
 
     return (

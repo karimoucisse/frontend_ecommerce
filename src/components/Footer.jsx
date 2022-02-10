@@ -15,8 +15,12 @@ import { Link } from 'react-router-dom'
 // `
 
 const Title = styled.h1`
+<<<<<<< HEAD
     color: white;
     margin-bottom: 20px;
+=======
+    color: #ffff;
+>>>>>>> 5e08d2e3146d464b064cce769c0870902b781cfa
 `
 
 const Paragraphe = styled.p`
@@ -145,7 +149,7 @@ const Footer = () => {
                 <FormContainer>
                     <Form>
                         <FormElement>
-                            <Input type="text"/>
+                            <Input type="text" placeholder='Email' />
                             <Button type="submit" backGround= "blue" padding= "1px 40px" margin= "0">Envoyer</Button>
                         </FormElement>
                     </Form>

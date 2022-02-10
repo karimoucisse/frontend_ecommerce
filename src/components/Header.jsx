@@ -13,6 +13,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ProduitDropDown from './ProduitDropDown';
 import Loading from './Loading';
+
 const Container = styled.div`
     background-color: #023047;
     width: 100%;
@@ -20,19 +21,20 @@ const Container = styled.div`
     color: #ffff;
     justify-content: space-between;
     align-items: center;
-    height: 55px;
+    height: 85px;
     padding: 0px 25px;
     box-sizing: border-box;
 `
 const Logo = styled.img`
-    width: 75px;
-    height: 55px;
+    width: 210px;
+    height: 85px;
     font-size: 35px;
     display: flex;
     object-fit: cover;
     align-items: center;
-    /* border-radius: 50%; */
+    border-radius: 1%;
     background-color: white;
+    margin-left: -10%;
 `
 const Nav = styled.nav`
     display: flex;
@@ -113,7 +115,7 @@ const SpanBars = styled.span`
 
 const Header = () => {
     const {user} = useContext(UserContext)
-    // const {cart} = useContext(CartContext)
+    const {cart} = useContext(CartContext)
     const [isVisible, setIsVisible] = useState(false)
     const [isSearchVisible, setIsSearchVisible] = useState(false)
     const [isBarsDropDownActive, setIsBarsDropDownActive ] = useState(false)
@@ -129,12 +131,12 @@ const Header = () => {
         setIsSearchVisible(!isSearchVisible)
     }
 
-    // if(!cart.lineItems) {
-    //     return <Loading height= "55px"/>
-    // }
+    if(!cart) {
+        return <Loading height= "55px"/>
+    }
     return (
         <Container>
-            <Link to= "/"><Logo src='/assets/logo.svg'/></Link>
+            <Link to= "/"><Logo src='/assets/LogoStyle.png'/></Link>
                 <Nav>
                     <ProduitContainer onClick={onProduitClick}>
                         <h3>Nos Produits</h3>
@@ -163,8 +165,8 @@ const Header = () => {
                         }
                         <ZoomIcon onClick= {onSearchClick}/>
                         <Search isVisible={isSearchVisible}/>      
-                        {/* cart.lineItems.length                   */}
-                        <Badge badgeContent={4} color="primary" onClick= {() => navigate("/panier")}>
+                                      
+                        <Badge badgeContent={cart.lineItems.length ? cart.lineItems.length : 0} color="primary" onClick= {() => navigate("/panier")}>
                             <CartIcon color="action"  style={{ color: "#ffff"}}/>
                         </Badge>
                     </LogoContainer>

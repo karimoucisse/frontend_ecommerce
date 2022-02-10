@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import GlobalStyle from './styles/globalStyles';
 import { UserContextProvider } from './context/User';
-
 import Home from "./pages/Home";
 import Login from './pages/Login';
 import ModeDeLivraison from './pages/ModeDeLivraison';
