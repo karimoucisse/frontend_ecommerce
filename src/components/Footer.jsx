@@ -11,6 +11,11 @@ import Button from './Button';
 // padding: 40px 0;
 // background-color:#023047;
 // `
+
+const Title = styled.h1`
+    color:
+`
+
 const Paragraphe = styled.p`
 color: white ;
 margin-bottom: 10px;
@@ -106,7 +111,7 @@ const Footer = () => {
                 <Row justifyContent= "space-around" width= "100%" height= "100%" >
                 {Array.map((element, index) =>{ 
                     return <div key={index}>
-                        <h1>{element.title}</h1>, 
+                        <Title>{element.title}</Title>, 
                         <Paragraphe>{element.paragraphe0}</Paragraphe>
                         <Paragraphe 
                             onClick={() => oncliCkNavigate(element.paragraphe1)}
