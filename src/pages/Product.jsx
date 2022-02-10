@@ -71,7 +71,7 @@ const Product = () => {
 
     if (!product) {
         return (
-           <Loading/>
+        <Loading/>
         )
     }
     // const mapId = cart.map(car => console.log(car))
