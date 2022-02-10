@@ -20,19 +20,20 @@ const Container = styled.div`
     color: #ffff;
     justify-content: space-between;
     align-items: center;
-    height: 55px;
+    height: 85px;
     padding: 0px 25px;
     box-sizing: border-box;
 `
 const Logo = styled.img`
-    width: 75px;
-    height: 55px;
+    width: 210px;
+    height: 85px;
     font-size: 35px;
     display: flex;
     object-fit: cover;
     align-items: center;
-    /* border-radius: 50%; */
+    border-radius: 1%;
     background-color: white;
+    margin-left: -10%;
 `
 const Nav = styled.nav`
     display: flex;
@@ -134,7 +135,7 @@ const Header = () => {
     // }
     return (
         <Container>
-            <Link to= "/"><Logo src='/assets/logo.svg'/></Link>
+            <Link to= "/"><Logo src='/assets/LogoStyle.png'/></Link>
                 <Nav>
                     <ProduitContainer onClick={onProduitClick}>
                         <h3>Nos Produits</h3>
