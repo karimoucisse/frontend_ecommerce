@@ -8,26 +8,28 @@ const UserContextProvider = props => {
 
     const API = "http://localhost:5000/auth/me"
 
-    const value = {
-        user: user,
-        setUser: setUser
-    }
-
+    
     useEffect(() => {
         getUser() 
     },[])
-
+    
     const getUser = async () => {
         const response = await fetch(`${API}`, {
             credentials: 'include',
         })
-
+        
         const data = await response.json()
         if(!data.error) {
             setUser(data)
         }
     }
-
+    
+    const value = {
+        user: user,
+        setUser: setUser,
+        getUser
+    }
+    
     return (
         <UserContext.Provider value = {value}>
             {props.children}

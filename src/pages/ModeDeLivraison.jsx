@@ -66,7 +66,7 @@ return (
                             <Card  marginTop="10%" width="500px" flex-direction= "column" background="#a3c4f3"> 
                                 <Form>
                                     <Input> 
-                                        <input type="radio"  name="rad" value="Livraison by Chronofresh "/> 
+                                        <input type="radio"  name="rad" value="Livraison by Chronofresh " checked/> 
                                     </Input>
                                         <Text>
                                             <h2><label for="subscribeNews">Livraison by Chronofresh </label> </h2>
@@ -80,10 +80,10 @@ return (
                                         alt="ChronofrshLogo "
                                         style={{ height:"250px" ,marginTop:"80px"}}/>
                             </Card>
-                            <Card marginTop="10%" width="500px" flex-direction= "column" background="#a3c4f3">
+                            <Card marginTop="10%" width="500px" flex-direction= "column" background="#a3c4f3" style={{ opacity: 0.3, cursor: 'default' }}>
                                 <Form> 
                                     <Input>
-                                        <input type="radio" name="rad" value="So Fresh"/> 
+                                        <input type="radio" name="rad" value="So Fresh" disabled /> 
                                     </Input>
                                         <Text> 
                                             <h2><label for="subscribeNews">Livraison by Sofresh </label></h2>

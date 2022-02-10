@@ -5,13 +5,14 @@ import { UserContext } from "../../context/User";
 import { CartContext } from "../../context/Cart";
 import Header from "../Header";
 import createOrder from "../../api/createOrder";
+import { useNavigate } from 'react-router-dom'
 
  // this means 14 usd and can also be calculated at the backend
 
 function MyCheckoutForm() {
-
-    const {user , setUser} = useContext(UserContext)
-    const {cart, setCart} = useContext(CartContext)
+    const navigate = useNavigate()
+    const {user , getUser } = useContext(UserContext)
+    const {cart, createCart} = useContext(CartContext)
 
     console.log(cart," cart et user",user);
 
@@ -23,7 +24,7 @@ function MyCheckoutForm() {
     
     let totalPrice = 1
     if (cart) {
-        cart.map(e =>  e.lineItems.map(item => {return totalPrice = totalPrice + item.totalPrice}))   
+        cart.lineItems.map(item => {return totalPrice = totalPrice + item.totalPrice})
     }
     totalPrice = Math.floor(totalPrice * 100)
     totalPrice -= 1
@@ -66,7 +67,20 @@ useEffect(() => {
 
         setPaymentStatus(payload.paymentIntent.status)
         if (payload.paymentIntent.status === "succeeded") {
-            createOrder(user,payload,cart)
+            const order = await createOrder(user, "",cart)
+            console.log(order)
+
+            // creer la facture quand on a l`order
+
+            await getUser()
+
+            if (order) {
+                navigate('/profil?type=historique')
+                createCart({
+                    user: user._id
+                })
+            }
+
         }
 
     }
