@@ -66,7 +66,7 @@ return (
                             <Card  marginTop="10%" width="500px" flex-direction= "column" background="#a3c4f3"> 
                                 <Form>
                                     <Input> 
-                                        <input type="radio"  name="rad" value="Livraison by Chronofresh "/> 
+                                        <input type="radio"  name="rad" value="Livraison by Chronofresh " checked/> 
                                     </Input>
                                         <Text>
                                             <h2><label for="subscribeNews">Livraison by Chronofresh </label> </h2>
@@ -80,10 +80,10 @@ return (
                                         alt="ChronofrshLogo "
                                         style={{ height:"250px" ,marginTop:"80px"}}/>
                             </Card>
-                            <Card marginTop="10%" width="500px" flex-direction= "column" background="#a3c4f3">
+                            <Card marginTop="10%" width="500px" flex-direction= "column" background="#a3c4f3" style={{ opacity: 0.3, cursor: 'default' }}>
                                 <Form> 
                                     <Input>
-                                        <input type="radio" name="rad" value="So Fresh"/> 
+                                        <input type="radio" name="rad" value="So Fresh" disabled /> 
                                     </Input>
                                         <Text> 
                                             <h2><label for="subscribeNews">Livraison by Sofresh </label></h2>
@@ -121,8 +121,8 @@ return (
                                     Maiores commodi repellat a incidunt molestias quasi ratione,
                                     esse modi nobis at.</p>
                                     <Button background= "endregion"  height="100px" width="200px" margin="150px 40px 30px 80px" >Payer</Button> 
-                                </Row>
-                            {/* {cart && cart.map(element => (
+                                </Row > 
+                            {cart && cart.map(element => (
                                 element.lineItems.map(item => (
                                     <div> 
                                         <h4>PrixKilo: {item.product.kiloPrice}</h4>
@@ -134,11 +134,12 @@ return (
                                         <h4>Quantitée: {item.quantity}</h4>
                                         <h4>Poids total: {item.weight}</h4>
                                         <h4>Total Pièces: {item.totalPrice}</h4>
-                                    </div>        
+                                    </div>  
+                                       
                                 )) 
-                            ))
-                            } */}
-                        <Footer/>
+                            )) 
+                            } 
+            <Footer/>
         </div>
     );
 };
