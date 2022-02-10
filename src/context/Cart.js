@@ -74,14 +74,21 @@ const CartContextProvider = props => {
 
     const fetchOneCart = async (id) => {
         const oneCart = await getOneCart(id)
-        setCart(oneCart)
+        if (!oneCart) {
+            createCart({
+                user: user ? user._id : null
+            })
+        } else {
+            setCart(oneCart)
+        }
     }
 
     
     const value = {
         cart,
         setCart,
-        fetchOneCart
+        fetchOneCart,
+        createCart
     }
 
     return (

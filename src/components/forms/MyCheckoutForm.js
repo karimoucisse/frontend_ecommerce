@@ -3,18 +3,32 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useContext } from "react";
 import { UserContext } from "../../context/User";
 import { CartContext } from "../../context/Cart";
-const totalPrice = 5000; // this means 14 usd and can also be calculated at the backend
+import Header from "../Header";
+import createOrder from "../../api/createOrder";
+import { useNavigate } from 'react-router-dom'
+
+ // this means 14 usd and can also be calculated at the backend
 
 function MyCheckoutForm() {
+    const navigate = useNavigate()
+    const {user , getUser } = useContext(UserContext)
+    const {cart, createCart} = useContext(CartContext)
 
-    const {user , setUser} = useContext(UserContext)
-    const {cart, setCart} = useContext(CartContext)
-    console.log(cart,"et",user);
+    console.log(cart," cart et user",user);
+
     const [clientSecret, setClientSecret] = useState("");
     const [paymentStatus, setPaymentStatus] = useState(null)
     const stripe = useStripe();
     const elements = useElements();
 
+    
+    let totalPrice = 1
+    if (cart) {
+        cart.lineItems.map(item => {return totalPrice = totalPrice + item.totalPrice})
+    }
+    totalPrice = Math.floor(totalPrice * 100)
+    totalPrice -= 1
+    console.log("total",totalPrice)
     // STEP 1: create a payment intent and getting the secret
 useEffect(() => {
     fetch("http://localhost:5000/create-checkout-session", {
@@ -40,20 +54,42 @@ useEffect(() => {
             payment_method: {
                 card: elements.getElement(CardElement),
                 billing_details: {
-                    name: "vlad"
+                    name: `${user.firstName} ${user.name}`,
+                    email: user.email,
+                    phone: user.phoneNumber,
+                    address: {
+                        line1:user.adress
+                    }
                 }
             },
         });
+        console.log(payload, "mon paylod");
 
         setPaymentStatus(payload.paymentIntent.status)
+        if (payload.paymentIntent.status === "succeeded") {
+            const order = await createOrder(user, "",cart)
+            console.log(order)
 
+            // creer la facture quand on a l`order
+
+            await getUser()
+
+            if (order) {
+                navigate('/profil?type=historique')
+                createCart({
+                    user: user._id
+                })
+            }
+
+        }
 
     }
 
     if (!paymentStatus || paymentStatus === "loading") {
         return (
             <>
-                <form id="payment-form" onSubmit={makePayment}>
+                <Header/>
+                <form style={{marginTop:"50px",border:"1px solid black"}} id="payment-form" onSubmit={makePayment}>
                     <CardElement id="card-element" />
                     <button disabled={paymentStatus === "loading"} type="submit"> Pay Now </button>
                 </form>
@@ -64,12 +100,19 @@ useEffect(() => {
     
     if (paymentStatus === "succeeded") {
         return (
+            <>
+            <Header/>
             <h1>BRAVO TU AS PAYE</h1>
+            </>
         )
     }
 
     return (
+        <>
+        <Header/>
         <h1>CREVARDO</h1>
+        </>
+
     )
 }
 
