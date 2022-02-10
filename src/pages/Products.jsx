@@ -101,14 +101,18 @@ const Products = () => {
            <Section flexDirection='row' margin='80px 0px' alignItems='center'>  
             <GridContainerProduct>
             {products.map(product => 
-                <Card flexDirection='column' height='250px' width='250px' > 
-                    <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
-                    <H> {product.name} </H>
-                    <Flex> 
-                        <p> Prix au kilo : {product.kiloPrice}€ </p>
-                        <Link to={`/product/${product._id}`} style={{color : 'black', fontSize: '15px'}}> Détails </Link>
-                    </Flex> 
-                </Card>)}
+                <Link to={`/product/${product._id}`} style={{color : 'black', fontSize: '15px'}}>
+                    <Card flexDirection='column' height='250px' width='250px' > 
+                        <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
+                        <H> {product.name} </H>
+                        <Flex> 
+                            <p> Prix au kilo : {product.kiloPrice}€ </p>
+                        </Flex> 
+                    </Card>
+                </Link>
+                
+                )
+            }
             </GridContainerProduct>
            </Section>
            <Footer/>

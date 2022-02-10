@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
 import getProduct from '../api/getProduct'
+import Card from './Card'
+
+const Div = styled.div`
+    display: flex;
+    gap: 20px;
+    padding: 10px 5px ;
+    font-size: 20px;
+    width: 100%;
+`
 
 function OrderLineItem({ item }) {
     const [product, setProduct] = useState({})
@@ -15,12 +25,13 @@ function OrderLineItem({ item }) {
     }
 
     return (
-        <div>
-            <p>{product.name}</p>
-            <p>{item.quantity}</p>
-            <p>{item.weight}</p>
-            <p>{item.totalPrice}</p>
-        </div>
+        <Div>
+            <h4> {product.name}</h4>
+            <p>Quantity: {item.quantity}</p>
+            <p>Poid: {item.weight}</p>
+            <p>Prix: {Math.round(item.totalPrice * 100) / 100}</p>
+        </Div>
+
     )
 }
 

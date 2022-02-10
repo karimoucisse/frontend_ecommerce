@@ -125,7 +125,7 @@ const Footer = () => {
                 <FormContainer>
                     <Form>
                         <FormElement>
-                            <Input type="text" placeholder='Email' />
+                            <Input type="text" placeholder='Email'/>
                             <Button type="submit" backGround= "blue" padding= "1px 40px" margin= "0">Envoyer</Button>
                         </FormElement>
                     </Form>
