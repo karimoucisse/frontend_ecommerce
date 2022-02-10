@@ -13,7 +13,7 @@ import Button from './Button';
 // `
 
 const Title = styled.h1`
-    color:
+    color: #ffff;
 `
 
 const Paragraphe = styled.p`
@@ -125,7 +125,7 @@ const Footer = () => {
                 <FormContainer>
                     <Form>
                         <FormElement>
-                            <Input type="text"/>
+                            <Input type="text" placeholder='Email' />
                             <Button type="submit" backGround= "blue" padding= "1px 40px" margin= "0">Envoyer</Button>
                         </FormElement>
                     </Form>

@@ -63,7 +63,7 @@ const BasketItem = ({
             padding= "40px 0 0 0 "
         >
             <Row 
-                width= "55%" 
+                width= "850px" 
                 gap= "20px" 
                 border= "1px solid black" 
                 borderRadius= "20px" 
