@@ -15,12 +15,8 @@ import { Link } from 'react-router-dom'
 // `
 
 const Title = styled.h1`
-<<<<<<< HEAD
-    color: white;
-    margin-bottom: 20px;
-=======
     color: #ffff;
->>>>>>> 5e08d2e3146d464b064cce769c0870902b781cfa
+    margin-bottom: 20px;
 `
 
 const Paragraphe = styled.p`
