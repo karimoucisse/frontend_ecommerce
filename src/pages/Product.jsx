@@ -93,7 +93,7 @@ const Product = () => {
                         <Content>
                             <div>
                                 <h3> {product.name} </h3>
-                                <Paragraph> {product.kiloPrice}€ kilo</Paragraph>
+                                <Paragraph> {product.kiloPrice}0€ kilo</Paragraph>
                                 <Paragraph> Prix par pièce : {product.pricePerPiece}€ </Paragraph>
                                 <QuantityButton 
                                     margin = "0" 

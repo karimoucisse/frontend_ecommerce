@@ -174,7 +174,7 @@ const Home = () => {
                                     <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
                                     <H> {product.name} </H>
                                     <Flex> 
-                                        <p> Prix au kilo : {product.kiloPrice}€ </p>
+                                        <p> Prix au kilo : {product.kiloPrice}0€ </p>
                                         
                                     </Flex> 
                                 </Card>
