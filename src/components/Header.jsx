@@ -34,7 +34,7 @@ const Logo = styled.img`
     align-items: center;
     border-radius: 10px;
     background-color: white;
-    margin-left: -10%;
+    margin-left: -6%;
 `
 const Nav = styled.nav`
     display: flex;

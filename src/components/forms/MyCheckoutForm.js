@@ -27,12 +27,19 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    /* align-items: center; */
     min-height: 300px;
     width: 500px;
     background-color: white;
     border-radius: 20px;
     padding: 0 40px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+`
+const Image = styled.img`
+    /* height: 100px; */
+    width: 100px;
+    margin: 0 auto;
+
 `
 const CardElements = styled(CardElement)`
     gap: 20px;
@@ -127,6 +134,7 @@ useEffect(() => {
                     flexDirection= "column" 
                 >
                     <Form id="payment-form" onSubmit={makePayment}>
+                    <Image src="https://www.reussir-mon-ecommerce.fr/wp-content/uploads/2016/03/5e8ad2a6bb92-1.png"/>
                         <CardElements id="card-element" />
                         <ButtonContainer>
                             <Button disabled={paymentStatus === "loading"} type="submit"> Pay Now </Button>
