@@ -117,9 +117,9 @@ const Home = () => {
     }
 
     const category = "La pêche du jour"
-    const laPecheDuJour = categories.find(element => element.name = category)
+    const laPecheDuJour = categories.find(element => element.name === category)
+    console.log(laPecheDuJour)
 
-    
 
     if (!laPecheDuJour) {
         return null
