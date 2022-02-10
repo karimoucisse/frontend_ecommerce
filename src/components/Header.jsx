@@ -31,9 +31,9 @@ const Logo = styled.img`
     display: flex;
     object-fit: cover;
     align-items: center;
-    border-radius: 1%;
+    border-radius: 3%;
     background-color: white;
-    margin-left: -10%;
+    margin-left: -6%;
 `
 const Nav = styled.nav`
     display: flex;
