@@ -16,6 +16,7 @@ import BackGroundImage from '../components/BackGroundImage';
 import Container from '../components/Container';
 import GridContainerProduct from '../components/GridContainerProduct';
 import {Link} from 'react-router-dom'
+import MarginContainer from '../components/MarginContainer';
 
 
 const Flex = styled.div`
@@ -83,38 +84,40 @@ const Products = () => {
             <Header />
             <BackGroundImage height='400px' src='https://img.freepik.com/photos-gratuite/vue-dessus-variete-poissons-fruits-mer-frais-glace_126277-744.jpg?size=626&ext=jpg' alt='poissons' />
            <H2> Tous nos produits </H2> 
-            <Row justifyContent = "space-between" margin= "20px 0" padding= "0 70px" >
-                <SelectCategory
-                    onChange={handleCategories}
-                    selectedCategories={selectedCategories}
-                />
-                <Input
-                    placeholder= "Chercher votre produit ..."
-                    onChange={handleFilter} 
-                    value={filter}   
-                    label="Produit"
-                    sx={{width : 500}} 
+            <MarginContainer>
+                <Row justifyContent = "space-between" margin= "20px 0" padding= "0 70px" >
+                    <SelectCategory
+                        onChange={handleCategories}
+                        selectedCategories={selectedCategories}
+                    />
+                    <Input
+                        placeholder= "Chercher votre produit ..."
+                        onChange={handleFilter} 
+                        value={filter}   
+                        label="Produit"
+                        sx={{width : 500}} 
 
-                />
-                <SelectPrice onChange={handleSelect} sx={{width : 200}} />
-            </Row>
-           <Section flexDirection='row' margin='80px 0px' alignItems='center'>  
-            <GridContainerProduct>
-            {products.map(product => 
-                <Link to={`/product/${product._id}`} style={{color : 'black', fontSize: '15px'}}>
-                    <Card flexDirection='column' height='250px' width='250px' > 
-                        <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
-                        <H> {product.name} </H>
-                        <Flex> 
-                            <p> Prix au kilo : {product.kiloPrice}€ </p>
-                        </Flex> 
-                    </Card>
-                </Link>
-                
-                )
-            }
-            </GridContainerProduct>
-           </Section>
+                    />
+                    <SelectPrice onChange={handleSelect} sx={{width : 200}} />
+                </Row>
+                <Section flexDirection='row' margin='80px 0px' alignItems='center'>  
+                    <GridContainerProduct>
+                        {products.map(product => 
+                            <Link to={`/product/${product._id}`} style={{color : 'black', fontSize: '15px'}}>
+                                <Card flexDirection='column' height='250px' width='250px' > 
+                                    <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
+                                    <H> {product.name} </H>
+                                    <Flex> 
+                                        <p> Prix au kilo : {product.kiloPrice}€ </p>
+                                    </Flex> 
+                                </Card>
+                            </Link>
+                            
+                            )
+                        }
+                    </GridContainerProduct>
+                </Section>
+            </MarginContainer>
            <Footer/>
            
         </Container>

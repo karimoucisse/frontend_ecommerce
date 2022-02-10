@@ -13,6 +13,7 @@ import {useEffect, useState} from 'react';
 import getCategories from "../api/getCategories";
 import GridContainerProduct from "../components/GridContainerProduct";
 import Loading from "../components/Loading";
+import MarginContainer from "../components/MarginContainer";
 
 
 
@@ -163,23 +164,25 @@ const Home = () => {
                      
                 </ImageContainer>
             </Section>
-            <Section >
-                <h1>La pêche du jour </h1>
-                <GridContainerProduct>
-                    {laPecheDuJour.products.map(product => (
-                        <Link to={`/product/${product._id}`} style={{color : 'black', fontSize: '15px'}}>
-                            <Card flexDirection='column'height='250px' width='250px' justifyContent='flex-start'  > 
-                                <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
-                                <H> {product.name} </H>
-                                <Flex> 
-                                    <p> Prix au kilo : {product.kiloPrice}€ </p>
-                                    
-                                </Flex> 
-                            </Card>
-                        </Link>
-                    ))}
-                </GridContainerProduct>
-            </Section>
+            <MarginContainer>
+                <Section >
+                    <h1>La pêche du jour </h1>
+                    <GridContainerProduct>
+                        {laPecheDuJour.products.map(product => (
+                            <Link to={`/product/${product._id}`} style={{color : 'black', fontSize: '15px'}}>
+                                <Card flexDirection='column'height='250px' width='250px' justifyContent='flex-start'  > 
+                                    <Image source={product.image} alt={product.name} height='180px' width='250px' borderRadius='20px 20px 0px 0px'/>
+                                    <H> {product.name} </H>
+                                    <Flex> 
+                                        <p> Prix au kilo : {product.kiloPrice}€ </p>
+                                        
+                                    </Flex> 
+                                </Card>
+                            </Link>
+                        ))}
+                    </GridContainerProduct>
+                </Section>
+            </MarginContainer>
             <CommentCaMarche/>
             <Footer/>
         </Container>

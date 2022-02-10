@@ -5,7 +5,9 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: ${(props) => props.gridTemplateColumns ? props.gridTemplateColumns : "repeat(3, minmax(280px, 1fr))"};
   grid-gap : ${(props) => props.gridGap ? props.gridGap : "50px"};
-  align-items: ${(props) => props.alignItems ? props.alignItems: "stretch"};`
+  align-items: ${(props) => props.alignItems ? props.alignItems: "stretch"};
+  width: 100%;
+  `
 
 const GridContainerProduct = ({children, gridTemplateColumns, gridGap, alignItems}) => {
     return (

@@ -15,6 +15,7 @@ import Loading from '../components/Loading';
 import Row from '../components/Row';
 import Input from '../components/Input';
 import SelectPrice from '../components/SelectPrice'
+import MarginContainer from '../components/MarginContainer';
 
 
 const Flex = styled.div`
@@ -73,6 +74,8 @@ const CategoryPage = () => {
             <Header/>
             <BackGroundImage height='400px' src={category.image} alt={category.name} />
             <H2> {category.name} </H2>
+            <MarginContainer>
+
             <Row justifyContent = "space-between" margin= "20px 0" padding= "0 70px" >
                 <Input
                     placeholder= "Chercher votre produit ..."
@@ -99,6 +102,7 @@ const CategoryPage = () => {
                         )}
                     </GridContainerProduct>
                 </Section>
+            </MarginContainer>
             <Footer/>
         </>
     );
