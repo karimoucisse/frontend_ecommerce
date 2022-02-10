@@ -4,15 +4,19 @@ import styled from "styled-components";
 const DescriptionRow = styled.div`
     display: flex;
     width: 100%;
+    height: auto;
     justify-content: space-around;
-    padding: 40px 0;
+    padding: 40px 20px;
     background-color: #ffff;
+    gap: 20px;
+
 `
 const LogoContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    height: auto;
 `
 const Logo = styled.i`
     font-size: 70px;
