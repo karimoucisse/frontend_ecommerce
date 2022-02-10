@@ -34,7 +34,6 @@ const HistoriqueCommande = () => {
                         justifyContent= "center"
                         alignItems= "center" 
                         gap= "10px" 
-                        alignItems= "center" 
                         width= "700px" 
                         height= "auto"
                         margin= "20px 0"

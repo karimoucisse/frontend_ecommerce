@@ -161,7 +161,7 @@ const Home = () => {
                             })}
                             </Row>
                         })}
-                     
+                
                 </ImageContainer>
             </Section>
             <MarginContainer>
