@@ -21,18 +21,18 @@ const Container = styled.div`
     color: #ffff;
     justify-content: space-between;
     align-items: center;
-    height: 85px;
+    height: 70px;
     padding: 0px 25px;
     box-sizing: border-box;
 `
 const Logo = styled.img`
     width: 210px;
-    height: 85px;
+    height: 70px;
     font-size: 35px;
     display: flex;
     object-fit: cover;
     align-items: center;
-    border-radius: 1%;
+    border-radius: 10px;
     background-color: white;
     margin-left: -10%;
 `

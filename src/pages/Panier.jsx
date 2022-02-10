@@ -86,7 +86,7 @@ const Panier = () => {
                     {cart.lineItems.length > 0 && !user && 
                         <Button 
                             padding= "5px 45px"
-                            onClickAction={() => navigate("/signup")}
+                            onClickAction={() => navigate("/login")}
                         >
                             Suivant
                         </Button>

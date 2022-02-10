@@ -27,9 +27,9 @@ function OrderLineItem({ item }) {
     return (
         <Div>
             <h4> {product.name}</h4>
-            <p>Quantity: {item.quantity}</p>
-            <p>Poid: {item.weight}</p>
-            <p>Prix: {Math.round(item.totalPrice * 100) / 100}</p>
+            <p>Quantité: {item.quantity}</p>
+            <p>Poids: {item.weight}</p>
+            <p>Prix: {Math.round(item.totalPrice * 100) / 100}€</p>
         </Div>
 
     )
