@@ -8,6 +8,8 @@ import Button from '../components/Button';
 import Row from '../components/Row'; 
 import { useState, } from 'react';
 import { CartContext } from '../context/Cart';
+import { useNavigate } from "react-router-dom";
+
 import Loading from '../components/Loading';
 
 
@@ -54,6 +56,7 @@ const CalendarStyle= styled.div`
 `
 const ModeDeLivraison = () => {
     const { cart } = useContext(CartContext)
+    const navigate = useNavigate()
     console.log(cart ,'le log du state cart');
 
     const [input, setInput] = useState('')
@@ -123,7 +126,13 @@ return (
                                     Omnis veniam culpa porro pariatur debitis perferendis impedit quis tenetur?
                                     Maiores commodi repellat a incidunt molestias quasi ratione,
                                     esse modi nobis at.</p>
-                                    <Button background= "endregion"  height="100px" width="200px" margin="150px 40px 30px 80px" >Payer</Button> 
+                                    <Button 
+                                        background= "endregion"  
+                                        height="100px" 
+                                        width="200px" 
+                                        margin="150px 40px 30px 80px" 
+                                        onClickAction={() => navigate('/checkout')}
+                                        >Payer</Button> 
                                 </Row > 
                             {/* {cart && cart.map(element => (
                                 element.lineItems.map(item => (
