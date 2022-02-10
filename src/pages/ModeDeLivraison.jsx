@@ -121,8 +121,8 @@ return (
                                     Maiores commodi repellat a incidunt molestias quasi ratione,
                                     esse modi nobis at.</p>
                                     <Button background= "endregion"  height="100px" width="200px" margin="150px 40px 30px 80px" >Payer</Button> 
-                                </Row>
-                            {/* {cart && cart.map(element => (
+                                </Row > 
+                            {cart && cart.map(element => (
                                 element.lineItems.map(item => (
                                     <div> 
                                         <h4>PrixKilo: {item.product.kiloPrice}</h4>
@@ -134,11 +134,12 @@ return (
                                         <h4>Quantitée: {item.quantity}</h4>
                                         <h4>Poids total: {item.weight}</h4>
                                         <h4>Total Pièces: {item.totalPrice}</h4>
-                                    </div>        
+                                    </div>  
+                                       
                                 )) 
-                            ))
-                            } */}
-                        <Footer/>
+                            )) 
+                            } 
+            <Footer/>
         </div>
     );
 };
