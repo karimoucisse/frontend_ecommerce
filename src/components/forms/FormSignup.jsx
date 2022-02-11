@@ -114,10 +114,29 @@ const FormSignup = () => {
             alert("Error")
         } else {
             const userLogged = await response.json()
-            setUser(userLogged)
+            const user = await login({ email: userLogged.email, password: values.password })
+            setUser(user)
             navigate('/')
         }
     }
+
+    const login = async values => {
+        const response = await fetch ('http://localhost:5000/auth/login', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify(values)
+        })
+        if(response.status >= 400) {
+            alert("Error")
+        } else {
+            const userLogged = await response.json()
+            return userLogged
+        }
+    }
+    
     return (
         <FormContainer 
             onSubmit={formik.handleSubmit}

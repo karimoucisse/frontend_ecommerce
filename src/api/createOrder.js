@@ -6,7 +6,7 @@ const createOrder = async (user, deliveryDate, cart) => {
         },
         credentials: 'include',
         body: JSON.stringify({
-            deliveryDate: deliveryDate,
+            deliveryDate: "12/02/2022",
             user: user._id,
             lineItems: cart.lineItems.map(item => item._id)
             // invoice:payload.paymentIntent.id
