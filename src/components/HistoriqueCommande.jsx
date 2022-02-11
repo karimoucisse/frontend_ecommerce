@@ -27,7 +27,7 @@ const HistoriqueCommande = () => {
         return Math.round(count * 100) / 100
     }
     return (
-        <Container height= "80vh"  display= "flex" flexDirection= "column">
+        <Container height= "80vh"  display= "flex" flexDirection= "column" justifyContent="flex-start">
             {user.orders.map(order => (
                 <>
                     <Card 
