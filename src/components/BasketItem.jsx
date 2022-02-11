@@ -63,7 +63,7 @@ const BasketItem = ({
             padding= "40px 0 0 0 "
         >
             <Row 
-                width= "850px" 
+                width= "950px" 
                 gap= "20px" 
                 border= "1px solid black" 
                 borderRadius= "20px" 
@@ -73,8 +73,8 @@ const BasketItem = ({
             >
                 <Image 
                     source= {source} 
-                    height= "100%" 
-                    width= "250px" 
+                    height= "140px" 
+                    width= "200px" 
                     borderRadius = "20px 0 0 20px"
                 />
                 <Row 
@@ -82,6 +82,7 @@ const BasketItem = ({
                     gap= "40px" 
                     alignItems= "center"
                     padding="5px 0 0 0"
+                    width= "180px"
                 >
                     <Paragraph>Produit</Paragraph>
                     <Element>
@@ -93,6 +94,7 @@ const BasketItem = ({
                     gap= "40px" 
                     alignItems= "center"
                     padding="5px 0 0 0"
+                    width= "160px"
                 >
                     <Paragraph>Quantité</Paragraph>
                     <Element>
@@ -104,6 +106,7 @@ const BasketItem = ({
                     gap= "40px"
                     alignItems= "center"
                     padding="5px 0 0 0"
+                    width= "160px"
                 >
                     <Paragraph>Prix</Paragraph>
                     <Element>

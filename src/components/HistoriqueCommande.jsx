@@ -1,5 +1,5 @@
 import Container from "./Container";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../context/User";
 import OrderLineItem from "./OrderLineItem"
 import Card from "./Card";
@@ -10,6 +10,7 @@ const HistoriqueCommande = () => {
     const [total, setTotal] = useState(0)
 
     console.log("orders", user.orders)
+
 
     if (user.orders.length === 0) {
         return (
